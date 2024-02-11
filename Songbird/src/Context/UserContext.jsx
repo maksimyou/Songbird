@@ -24,7 +24,7 @@ const UserContext = ({ children }) => {
   const loginUserAuth = () => {
     const token = JSON.parse(localStorage.getItem('token'))
 
-    axios.get('http://localhost:5000/api/user/auth', {
+    axios.get('http://89.104.66.35:5000/api/user/auth', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -43,7 +43,7 @@ const UserContext = ({ children }) => {
   const userFirstName = () => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log(token)
-    axios.get('http://localhost:5000/api/user/first-name', {
+    axios.get('http://89.104.66.35:5000/api/user/first-name', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -64,7 +64,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.get('http://localhost:5000/api/user/get-role', {
+    axios.get('http://89.104.66.35:5000/api/user/get-role', {
 
       headers: {
         Authorization: 'Bearer ' + token
@@ -89,7 +89,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.get('http://localhost:5000/api/user/get-users', {
+    axios.get('http://89.104.66.35:5000/api/user/get-users', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -115,7 +115,7 @@ const UserContext = ({ children }) => {
 
   const registrationApi = (userData) => {
     setIsLoader(true)
-    axios.post('http://localhost:5000/api/user/registration', userData)
+    axios.post('http://89.104.66.35:5000/api/user/registration', userData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -135,7 +135,7 @@ const UserContext = ({ children }) => {
   const loginApi = (userData) => {
     console.log(userData)
     setIsLoader(true)
-    axios.post('http://localhost:5000/api/user/login', userData)
+    axios.post('http://89.104.66.35:5000/api/user/login', userData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -152,7 +152,7 @@ const UserContext = ({ children }) => {
   }
 
   //const registrationApiStepLogin = (userData) => {
-  //  axios.post('http://localhost:5000/api/user/step-login', userData)
+  //  axios.post('http://89.104.66.35:5000/api/user/step-login', userData)
   //      .then(res => res.data)
   //      .then(data => {
   //          console.log(data)
@@ -164,7 +164,7 @@ const UserContext = ({ children }) => {
 
 
   //const registrationApiStepEmail = (userData) => {
-  //  axios.post('http://localhost:5000/api/user/step-email', userData)
+  //  axios.post('http://89.104.66.35:5000/api/user/step-email', userData)
   //      .then(res => res.data)
   //      .then(data => {
   //          console.log(data)
@@ -185,7 +185,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log(userData)
     setIsLoader(true)
-    axios.post('http://localhost:5000/api/goods/add-goods', goodsData, {
+    axios.post('http://89.104.66.35:5000/api/goods/add-goods', goodsData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -205,7 +205,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.get('http://localhost:5000/api/goods/get-all-goods', {
+    axios.get('http://89.104.66.35:5000/api/goods/get-all-goods', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -227,7 +227,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.get('http://localhost:5000/api/goods/get-category', {
+    axios.get('http://89.104.66.35:5000/api/goods/get-category', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -251,7 +251,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('http://localhost:5000/api/goods/edit-category', categoryData, {
+    axios.post('http://89.104.66.35:5000/api/goods/edit-category', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -271,7 +271,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('http://localhost:5000/api/goods/delete-category', categoryData, {
+    axios.post('http://89.104.66.35:5000/api/goods/delete-category', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -292,7 +292,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('http://localhost:5000/api/goods/add-category', categoryData, {
+    axios.post('http://89.104.66.35:5000/api/goods/add-category', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
