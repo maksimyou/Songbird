@@ -1,0 +1,120 @@
+.header-container {
+    background: linear-gradient(-10deg, rgb(216 180 135) 0%, rgb(141, 110, 67) 43%, rgb(204 162 117) 82%);
+    //background-image: url("../../assets/Realistic.jpg");
+    //height: 100vh;
+    padding-top: 20px;
+}
+.header-content-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.header-logo img {
+    width: 80px;
+}
+.header-logo-text {
+}
+.header-logo-title {
+    font-size: 24px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+    font-family: Jost, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.header-logo-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.79);
+    font-family: Jost, sans-serif;
+    text-transform: uppercase;
+}
+.header-navigation {
+    margin-left: 101px;
+}
+.header-navigation ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.submenu {
+    position: absolute;
+    right: -38px;
+    top: 23px;
+    width: 100px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(199, 160, 117, 1);
+    display: none;
+}
+.submenu-show {
+    display: block;
+}
+.submenu ul {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.submenu ul li a {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.79);
+    font-family: Jost, sans-serif;
+}
+.submenu ul li a:hover {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.79);
+    font-family: Jost, sans-serif;
+}
+.header-nav-link a {
+    color: rgba(255, 255, 255, 0.99);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 0;
+}
+.header-nav-link a:hover {
+    color: rgba(142, 113, 55, 0.99);
+    transition: 0.3s;
+}
+.contacts-address-registration {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contacts {
+    font-size: 18px;
+    font-family: Jost, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+.contacts:hover {
+    color: rgba(181, 134, 16, 0.99);
+    transition: 0.3s;
+}
+.address {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.97);
+    font-weight: 300;
+    font-family: Jost, sans-serif;
+    margin: 0px 48px 0 48px;
+}
+.registration {
+    color: rgba(253, 255, 214, 1);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.registration:hover {
+    color: rgba(229, 171, 56, 0.99);
+    transition: 0.3s;
+}

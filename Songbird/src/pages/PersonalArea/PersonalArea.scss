@@ -1,0 +1,38 @@
+.personal-area-container {
+    max-width: 1700px;
+    margin: 0 auto;
+}
+.personal-area-content {
+    margin: 50px 0;
+}
+.personal-area-title {
+    font-size: 26px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    margin-bottom: 30px;
+}
+.personal-area-interaction {
+    display: flex;
+}
+.personal-area-sidebar {
+    width: 200px;
+}
+.personal-area-sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.personal-area-sidebar li {
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.no-access {
+    font-size: 39px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

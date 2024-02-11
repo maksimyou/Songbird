@@ -1,0 +1,52 @@
+.user-panel-container {
+}
+.user-panel-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.user-panel-content img {
+    cursor: pointer;
+}
+.user-panel-content .user-panel-link {
+    padding: 10px 0;
+}
+.person-menu {
+    position: absolute;
+    border-radius: 5px;
+    width: 150px;
+    top: 41px;
+    right: 36px;
+    padding: 15px;
+    background-color: rgb(199, 160, 117);
+}
+.person-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.person-menu-link {
+    cursor: pointer;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+}
+.person-menu-link-exit {
+    cursor: pointer;
+    color: rgb(5, 5, 5);
+    font-size: 16px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+}
+.person-menu-link-exit:hover {
+    color: rgb(240, 212, 183);
+}
+.person-menu-link:hover {
+    color: rgb(240, 212, 183);
+}
+.heart-menu {
+}
+.bag-menu {
+}

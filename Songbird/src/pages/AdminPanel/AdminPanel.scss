@@ -1,0 +1,39 @@
+.admin-panel-container {
+    max-width: 1700px;
+    margin: 0 auto;
+}
+.admin-panel-content {
+    margin: 50px 0;
+}
+.admin-panel-title {
+    margin-bottom: 30px;
+    font-size: 26px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.admin-panel-interaction {
+    display: flex;
+}
+.admin-panel-sidebar {
+    width: 200px;
+    border-right: 1px solid black;
+}
+.admin-panel-sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.admin-panel-sidebar-list {
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+//.no-access {
+//    font-size: 39px;
+//    color: rgb(7, 7, 7);
+//    font-family: Jost, sans-serif;
+//    height: 400px;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//}

@@ -1,0 +1,29 @@
+.list-category-container {
+    margin-left: 30px;
+}
+.list-category-content {
+}
+.list-category-title-refresh {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 893px;
+    margin-bottom: 50px;
+}
+.list-category-title {
+    font-size: 26px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.list-category-refresh {
+    cursor: pointer;
+    font-size: 21px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.list-category-item-list {
+    cursor: pointer;
+    font-size: 21px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}

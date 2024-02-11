@@ -1,0 +1,143 @@
+.card-container {
+    border-radius: 15px;
+    width: 300px;
+    height: 530px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+.card-content {
+}
+.card-img {
+    border-radius: 15px 15px 0 0;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+.card-img img {
+    width: 100%;
+    transition: 0.4s;
+}
+.card-img img:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+.card-name {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #3a3a3a;
+    margin: 10px;
+}
+.number-of-purchases-and-liked {
+    margin: 0 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.number-of-purchases {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #bababa;
+}
+.number-of-liked {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #bababa;
+}
+.number-of-liked img {
+    width: 16px;
+    height: 14px;
+}
+.card-price {
+    font-family: Jost, sans-serif;
+    font-weight: 450;
+    font-size: 24px;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.card-price span {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #bababa;
+    margin-left: 10px;
+}
+.card-choos-weight {
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 280px;
+    height: 32px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.card-choos-top {
+    font-family: Jost, sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3a3a3a;
+    padding-left: 10px;
+}
+.card-choos-weight ul {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    border-radius: 5px;
+    width: 285px;
+    height: 141px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    background: #fff;
+    padding: 7px 0 0 0;
+    overflow: hidden;
+    display: none;
+}
+.card-choos-weight ul li {
+    cursor: pointer;
+    font-family: Jost, sans-serif;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3a3a3a;
+    //margin-bottom: 10px;
+    padding: 5px 10px 3px;
+    width: 280px;
+    height: 26px;
+}
+.card-choos-weight ul li:hover {
+    background: #f5f5f5;
+}
+.add-to-cart-and-like {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+.add-to-cart {
+    cursor: pointer;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 228px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 20px;
+    color: #696969;
+}
+.add-to-cart:hover {
+    background: #c6aa83;
+    font-weight: 400;
+    color: #fff;
+    transition: 0.3s;
+}
+.card-like {
+    background-image: url("../../assets/like.svg");
+    color: aqua;
+}

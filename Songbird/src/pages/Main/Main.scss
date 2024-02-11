@@ -1,0 +1,93 @@
+.main-container {
+    background-image: url("../../assets/Realistic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+}
+.header-content-2 {
+    max-width: 1700px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+.header-content-title-1 {
+    font-weight: 400;
+    font-size: 4vw;
+    color: rgba(255, 246, 177, 1);
+    font-family: Comforter, sans-serif;
+}
+.header-content-title-2 {
+    font-size: 6vw;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    line-height: 5vw;
+    font-family: Jost, sans-serif;
+    animation-duration: 1s;
+}
+.header-content-title-3 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.3vw;
+    font-family: Jost, sans-serif;
+    font-weight: 300;
+    margin-top: 50px;
+    animation-duration: 1.2s;
+}
+.order-btn {
+    background-color: rgba(184, 122, 63, 1);
+    margin-top: 50px;
+    border: none;
+    cursor: pointer;
+    width: 237px;
+    height: 60px;
+    border-radius: 50px;
+    position: relative;
+    transition: 0.3s;
+    animation-duration: 1.5s;
+}
+
+.order-btn:hover {
+    background-color: rgba(184, 122, 63, 1);
+    box-shadow: 0px 9px 19px 0px rgba(189, 130, 76, 0.65);
+    outline-color: rgba(173, 255, 126, 0.3);
+    transition: 0.3s;
+}
+.order-text {
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-left: -40px;
+}
+.order-decoration {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(209, 175, 139, 1);
+    border-radius: 50px;
+    top: 0;
+    right: -7px;
+    transition: 0.3s;
+}
+.order-decoration span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../../assets/arrow-right-white.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.order-btn:hover .order-decoration {
+    top: 0;
+    right: 0px;
+    transition: 0.3s;
+}
