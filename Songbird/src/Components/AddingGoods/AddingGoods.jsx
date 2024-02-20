@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './/AddingGoods.scss'
+import './AddingGoods.scss'
 import { UserContextFunc } from '../../Context/UserContext'
 
 function AddingGoods() {
@@ -8,7 +8,7 @@ function AddingGoods() {
     //    price: '',
     //    category: '',
     //}
-    const { addGoodsApi } = UserContextFunc()
+    const { addGoodsApi, isCategory } = UserContextFunc()
     const [goods, setGoods] = useState()
     const [file, setFile] = useState();
     const [name, setName] = useState()
@@ -43,10 +43,15 @@ function AddingGoods() {
                 <div className="adding-goods-input">
                     <span className='adding-goods-input-title'>Категория: </span>
                     <select onChange={(e) => { setCategory(e.target.value) }}>
-                        <option value="cakes">Торты</option>
+                        {isCategory.map(e => {
+                            return <>
+                                <option value={e.route}>{e.name}</option>
+                            </>
+                        })}
+                        {/*<option value="cakes">Торты</option>
                         <option value="dessert">Десерты</option>
                         <option value="capture">Капкейки</option>
-                        <option value="biscuit">Печенье</option>
+                        <option value="biscuit">Печенье</option>*/}
                     </select>
                 </div>
                 <div className="adding-goods-input">

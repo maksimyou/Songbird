@@ -166,3 +166,79 @@
 .error-red {
     border: 1px solid #ff0000;
 }
+
+.form-modal2 {
+    padding: 15px 20px 20px;
+}
+.your-email {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 171%;
+    color: #88898a;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    span {
+        color: #de7c26;
+        font-size: 17px;
+    }
+}
+
+.confirm-again {
+    width: 160px;
+    cursor: pointer;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 171%;
+    color: rgb(100, 63, 28);
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.confirm-again:hover {
+    color: rgb(191, 132, 78);
+}
+.form-modal2-code {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.confirm-mail {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 171%;
+    color: #393737;
+    margin: 10px 0;
+    margin-left: 20px;
+}
+.your-code {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 171%;
+    color: #262627;
+    margin-right: 20px;
+}
+.confirm-mail-btn {
+    margin-left: 40px;
+}
+
+.code-modal {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 100px;
+    height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+}
+.message-error {
+    color: #ff0000;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    margin-left: 20px;
+}

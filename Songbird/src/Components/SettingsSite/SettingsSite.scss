@@ -1,0 +1,73 @@
+.settings-site-container {
+    margin-left: 30px;
+}
+.settings-site-title {
+    font-weight: 500;
+    font-size: 22px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    margin-bottom: 20px;
+}
+.settings-site-content {
+}
+.settings-site-content-input {
+    display: flex;
+    gap: 50px;
+}
+.settings-site-content-left {
+}
+.settings-site-content-right {
+}
+.settings-site-content-right-social {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    margin-bottom: 20px;
+}
+.settings-site-input {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.settings-site-input-title {
+    display: inline-block;
+    width: 140px;
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.settings-site-content input[type="text"] {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 240px;
+    height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #646568;
+    padding: 0 20px;
+}
+.settings-site-add-btn {
+    background-color: rgba(184, 122, 63, 1);
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    width: 237px;
+    height: 60px;
+    border-radius: 50px;
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 140px;
+}
+.settings-site-add-btn:hover {
+    background-color: rgba(184, 122, 63, 1);
+    box-shadow: 0px 9px 19px 0px rgba(189, 130, 76, 0.65);
+    outline-color: rgba(173, 255, 126, 0.3);
+}

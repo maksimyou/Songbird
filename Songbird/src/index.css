@@ -44,3 +44,11 @@ table {
 a{
   text-decoration: none;
 }
+
+
+@font-face {
+	font-family: "HirmUcs"; 
+	src: url("./assets/fonts/HirmUcs8.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal; 
+  } 

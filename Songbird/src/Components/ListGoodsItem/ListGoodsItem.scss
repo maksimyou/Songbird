@@ -1,0 +1,51 @@
+.list-goods-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 50px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    padding-right: 50px;
+}
+.list-goods-item-id {
+    width: 50px;
+}
+.list-goods-item-img {
+    width: 50px;
+}
+.list-goods-item-img img {
+    width: 100%;
+}
+.list-goods-item-name {
+    width: 300px;
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.list-goods-item-category {
+    width: 150px;
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.list-goods-item-price {
+    width: 100px;
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.list-goods-item-edit {
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-weight: 500;
+    font-family: Jost, sans-serif;
+    cursor: pointer;
+}
+.list-goods-item-delete {
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-weight: 500;
+    font-family: Jost, sans-serif;
+    cursor: pointer;
+}

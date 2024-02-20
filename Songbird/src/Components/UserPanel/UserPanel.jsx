@@ -6,13 +6,13 @@ import heart from '../../assets/heart-outline.svg'
 import bag from '../../assets/bag-outline.svg'
 
 
-function UserPanel({ setExit, isRole }) {
+function UserPanel({ setExit, isRole, isCountFavorites }) {
     const [personShow, setPersonShow] = useState(false)
     return (
         <div className='user-panel-container'>
             <div className="user-panel-content">
                 <div onMouseLeave={() => { setPersonShow(false) }} onMouseEnter={() => { setPersonShow(true) }} className="user-panel-link"><img src={person} alt="" /></div>
-                <div className="user-panel-link"><Link to='favorites'><img src={heart} alt="" /></Link></div>
+                <div className="user-panel-link link-favorites"><Link to='favorites'><img src={heart} alt="" />{isCountFavorites ? <div className="heart-menu-count">{isCountFavorites}</div> : ''}</Link></div>
                 <div className="user-panel-link"><Link to='basket-of-goods'><img src={bag} alt="" /></Link></div>
                 {personShow ? <div onMouseLeave={() => { setPersonShow(false) }} onMouseEnter={() => { setPersonShow(true) }} className="person-menu">
                     <ul>

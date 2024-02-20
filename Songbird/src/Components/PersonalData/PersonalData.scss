@@ -1,0 +1,87 @@
+.personal-data-container {
+    margin: 20px 0;
+}
+.personal-data-form-person {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.personal-data-form-person-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.form-person-input {
+    border: 1px solid #9a9ea5;
+    border-radius: 5px;
+    outline: none;
+    border-radius: 1px;
+    width: 240px;
+    height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+}
+.personal-data-form-person-chekbox {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.form-person-checkbox {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #696969;
+}
+.personal-data-form-person-chekbox input:checked,
+.personal-data-form-person-chekbox input:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.personal-data-form-person-chekbox input:checked + label,
+.personal-data-form-person-chekbox input:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.personal-data-form-person-chekbox input:checked + label:before,
+.personal-data-form-person-chekbox input:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #c6aa83;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+.personal-data-form-person-chekbox input:checked + label::after,
+.personal-data-form-person-chekbox input:not(:checked) + label::after {
+    content: "";
+    position: absolute;
+    transition: all 0.2s ease;
+    left: 3px;
+    top: 4px;
+    width: 10px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 4px solid #c6aa83;
+    border-bottom: 4px solid #c6aa83;
+
+    transform: rotate(-45deg);
+}
+.personal-data-form-person-chekbox input:not(:checked) + label:after {
+    opacity: 0;
+}
+
+.personal-data-form-person-chekbox input:checked + label:after {
+    opacity: 1;
+}

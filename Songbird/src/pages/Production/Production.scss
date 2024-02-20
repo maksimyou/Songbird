@@ -6,11 +6,17 @@
     margin: 100px 0;
 }
 .production-content {
+    max-width: 1700px;
+    margin: 0 auto;
 }
 .production-items {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    //gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 50px;
+    column-gap: 30px;
     margin: 100px 0;
 }

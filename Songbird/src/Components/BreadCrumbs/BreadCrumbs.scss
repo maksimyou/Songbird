@@ -1,6 +1,9 @@
 .bread-crumbs-container {
 }
 .bread-crumbs-content {
+    background: linear-gradient(90deg, rgba(204, 162, 117, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    padding: 7px 33px;
+    border-radius: 9px;
     display: flex;
     align-items: center;
     gap: 15px;

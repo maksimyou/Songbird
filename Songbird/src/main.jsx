@@ -17,7 +17,8 @@ import ListGoods from './Components/ListGoods/ListGoods.jsx'
 import ListUser from './Components/ListUser/ListUser.jsx'
 import UserContext from './Context/UserContext.jsx'
 import ListCategory from './Components/ListCategory/ListCategory.jsx'
-
+import ProductionMore from './pages/ProductionMore/ProductionMore.jsx'
+import SettingsSite from './Components/SettingsSite/SettingsSite.jsx'
 
 import {
   createBrowserRouter,
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         element: <Production />,
       },
       {
+        path: "products/:name/:id",
+        element: <ProductionMore />,
+      },
+      {
         path: "admin",
         element: <AdminPanel />,
         children: [
@@ -48,6 +53,11 @@ const router = createBrowserRouter([
             path: "list-user",
             element: <ListUser />,
           },
+          {
+            path: "settings-site",
+            element: <SettingsSite />,
+          },
+
           {
             path: "adding-goods",
             element: <AddingGoods />,

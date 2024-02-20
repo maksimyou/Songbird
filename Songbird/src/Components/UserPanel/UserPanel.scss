@@ -50,3 +50,22 @@
 }
 .bag-menu {
 }
+.link-favorites {
+    position: relative;
+}
+.heart-menu-count {
+    position: absolute;
+    top: 20px;
+    right: -5px;
+    display: flex;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    font-family: Jost, sans-serif;
+    border: 1px solid rgb(136, 132, 132);
+    background-color: #c4beb4;
+    font-weight: 500;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+}

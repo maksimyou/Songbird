@@ -1,0 +1,185 @@
+.production-more-info-container {
+    margin: 50px auto;
+    max-width: 1290px;
+}
+.production-more-info-content {
+    display: flex;
+    gap: 100px;
+}
+.production-more-info-content-left {
+    width: 460px;
+}
+.production-more-info-content-left img {
+    width: 100%;
+}
+.production-more-info-content-right {
+}
+.more-info-content-right-title {
+    font-family: Jost, sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+}
+
+.more-info-content-right-bought-reviews {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+.more-info-content-right-bought {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #bababa;
+}
+.more-content-right-reviews {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #bababa;
+}
+.more-info-content-right-price {
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #3a3a3a;
+    margin-bottom: 21px;
+}
+.more-info-content-right-selects {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.more-info-content-right-selects select {
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 225px;
+    height: 40px;
+    appearance: none; //-убираем стандартную стрелку
+    overflow: hidden;
+    background: url("../../assets/arrow-down.svg") no-repeat right; // -вставляем нужную
+    background-position-x: 200px;
+}
+
+.more-info-content-right-buy-in-the-basket {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 11px;
+}
+
+.more-info-content-right-buy {
+    cursor: pointer;
+    border-radius: 5px;
+    width: 225px;
+    border: none;
+    height: 40px;
+    background: #f5f5f5;
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #3a3a3a;
+}
+
+.more-content-right-basket {
+    cursor: pointer;
+    border-radius: 5px;
+    width: 225px;
+    border: none;
+    height: 40px;
+    background: #c6aa83;
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+}
+.more-info-content-right-return-money {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #bababa;
+    margin-bottom: 15px;
+}
+
+//.more-info-content-right-composition {
+//    padding-top: 10px;
+//    padding-bottom: 10.25px;
+//    border-bottom: 1px solid #bababa;
+//}
+//.more-info-content-right-composition-title {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 18px;
+//    color: #3a3a3a;
+//    margin-bottom: 10px;
+//}
+//.more-info-content-right-composition-text {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 14px;
+//    color: #bababa;
+//}
+//.more-info-content-right-best-before-date {
+//    padding-top: 10px;
+//    padding-bottom: 10.25px;
+//    border-bottom: 1px solid #bababa;
+//}
+//.more-info-content-right-best-before-date-title {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 18px;
+//    color: #3a3a3a;
+//    margin-bottom: 10px;
+//}
+//.more-info-content-right-best-before-date-text {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 14px;
+//    color: #bababa;
+//}
+//.more-info-content-delivery {
+//    padding-top: 10px;
+//    padding-bottom: 10.25px;
+//    border-bottom: 1px solid #bababa;
+//}
+//.more-info-content-right-delivery-title {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 18px;
+//    color: #3a3a3a;
+//    margin-bottom: 10px;
+//}
+//.more-info-content-right-delivery-text {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 14px;
+//    color: #bababa;
+//}
+//.more-info-content-right-payment-text {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 14px;
+//    color: #bababa;
+//}
+//.more-info-content-payment {
+//    padding-top: 10px;
+//    padding-bottom: 10.25px;
+//    border-bottom: 1px solid #bababa;
+//}
+//.more-info-content-right-payment-title {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 18px;
+//    color: #3a3a3a;
+//    margin-bottom: 10px;
+//}
+//.more-info-content-right-payment-text {
+//    font-family: Jost, sans-serif;
+//    font-weight: 400;
+//    font-size: 14px;
+//    color: #bababa;
+//}

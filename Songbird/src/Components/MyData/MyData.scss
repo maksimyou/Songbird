@@ -1,0 +1,34 @@
+.my-data-container {
+    margin-left: 30px;
+}
+.my-data-content {
+}
+
+.my-data-title-person {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.my-data-title-adress {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.my-data-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 290px;
+    height: 42px;
+    background: #c6aa83;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}

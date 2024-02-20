@@ -4,7 +4,7 @@ import './ErrorPage.scss'
 
 function ErrorPage() {
     return (
-        <div>Ошибка 404. Страница не найдена!</div>
+        <h1>Ошибка 404. Страница не найдена!</h1>
     )
 }
 

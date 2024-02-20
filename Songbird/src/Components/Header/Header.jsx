@@ -5,13 +5,22 @@ import { Link } from 'react-router-dom'
 import UserPanel from '../UserPanel/UserPanel'
 import { UserContextFunc } from '../../Context/UserContext'
 
-function Header({ setToggleModal }) {
-    const { loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName, exitUser, isRole } = UserContextFunc()
+
+function Header() {
+    const { setIsFavorites, setIsCountFavorites, isCountFavorites, setToggleModal, isSetting, setIsSwitchCategory, getAllGoodsApi, getAllCategoryApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName, exitUser, isRole, isCategory } = UserContextFunc()
     const [exit, setExit] = useState()
     const [navShow, setNavShow] = useState(false)
     useEffect(() => {
-        if (exit) exitUser(); setExit();
+        getAllCategoryApi()
+        if (exit) exitUser(); setExit(); setIsCountFavorites(0); setIsFavorites({ lists: "[]" })
     }, [exit])
+
+    const formatPhone = (str) => {
+        return `+${str.slice(0, 1)} (${str.slice(1, 4)}) ${str.slice(4, 7)} ${str.slice(7, 9)} ${str.slice(9, 11)}`
+    }
+
+
+    console.log(isSetting)
     return (
         <div className='header-container'>
             <div className="header-content-1">
@@ -27,19 +36,20 @@ function Header({ setToggleModal }) {
                             <li onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className='header-nav-link'><a href="#">Продукция</a></li>
                             <div onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className={navShow ? "submenu submenu-show " : "submenu"}>
                                 <ul>
-                                    <li><Link to="products/cakes">Торты</Link></li>
-                                    <li><Link to="products/dessert">Десерты</Link></li>
-                                    <li><Link to="products/capture">Капкейки</Link></li>
-                                    <li><Link to="products/biscuit">Печенье</Link></li>
+                                    {
+                                        isCategory.map(e => {
+                                            return <li onClick={() => { setIsSwitchCategory(true) }} key={e.id}><Link to={`products/${e.route}`}>{e.name}</Link></li>
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </ul>
                     </div>
                 </div>
                 <div className="contacts-address-registration">
-                    <a className='contacts' href="tel:+1234567890"> +7 (234) 567 89 04 </a>
-                    <div className="address">г. Москва, Ленинский проспект</div>
-                    {isAuth ? <UserPanel isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Регистрация</div>}
+                    <a className='contacts' href={isSetting ? `tel:${isSetting.phone}` : "tel+72345678904"}>{isSetting ? formatPhone(isSetting.phone) : "+7 (234) 567 89 04"}</a>
+                    <div className="address">{isSetting ? isSetting.address : "г. Москва, Ленинский проспект"}</div>
+                    {isAuth ? <UserPanel isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div>}
                 </div>
             </div>
         </div>
