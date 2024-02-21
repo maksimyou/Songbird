@@ -21,7 +21,9 @@ const UserContext = ({ children }) => {
   const [isIdReceived, setIsIdReceived] = useState(false)
   const [isIdReceivedCard, setIsIdReceivedCard] = useState(false)
   const [isCountFavorites, setIsCountFavorites] = useState(0)
-
+  const [isUser, setIsUser] = useState([])
+  const [isEffectUser, setIsEffectUser] = useState(false)
+  const [settingDepend, setSettingDepend] = useState(true)
   const [isUsers, setIsUsers] = useState([])
   const [isGoods, setIsGoods] = useState([])
   const [isGoodsOne, setIsGoodsOne] = useState([])
@@ -31,7 +33,7 @@ const UserContext = ({ children }) => {
   const [toggleModal, setToggleModal] = useState(false)
   const [isSwitchCategory, setIsSwitchCategory] = useState()
   const [isRoleEff, setIsRoleEff] = useState(false)
-  const [isFirstName, setIsFirstName] = useState('Аноним')
+  //const [isFirstName, setIsFirstName] = useState('Аноним')
   const [confirmMail, setConfirmMail] = useState(false)
   const [confirmMail2, setConfirmMail2] = useState(false)
   const [checkLike, setCheckLike] = useState(false)
@@ -110,7 +112,25 @@ const UserContext = ({ children }) => {
 
   }
 
+  const editUserDataApi = (userData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
 
+    setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/user/edit-data-user', userData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
 
 
   const getCategoryGoods = (goodsData) => {
@@ -132,25 +152,25 @@ const UserContext = ({ children }) => {
 
 
 
-  const userFirstName = () => {
-    const token = JSON.parse(localStorage.getItem('token'))
-    console.log(token)
-    axios.get('http://89.104.66.35:5000/api/user/first-name', {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    })
-      .then(res => {
-        return res.data
-      })
-      .then(data => {
-        console.log(data)
-        setIsFirstName(data.name)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+  //const userFirstName = () => {
+  //  const token = JSON.parse(localStorage.getItem('token'))
+  //  console.log(token)
+  //  axios.get('http://89.104.66.35:5000/api/user/first-name', {
+  //    headers: {
+  //      Authorization: 'Bearer ' + token
+  //    }
+  //  })
+  //    .then(res => {
+  //      return res.data
+  //    })
+  //    .then(data => {
+  //      console.log(data)
+  //      setIsFirstName(data.name)
+  //    })
+  //    .catch(err => {
+  //      console.log(err)
+  //    })
+  //}
 
 
   const userRole = () => {
@@ -193,6 +213,32 @@ const UserContext = ({ children }) => {
       .then(data => {
         console.log(data)
         setIsUsers(data)
+        setIsLoader(false)
+
+      })
+      .catch(err => {
+        console.log(err)
+        setIsLoader(false)
+
+      })
+  }
+
+  const getUsersData = () => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    setIsLoader(true)
+    console.log(token)
+    axios.get('http://89.104.66.35:5000/api/user/get-user', {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => {
+        return res.data
+      })
+      .then(data => {
+        console.log(data)
+        setIsUser(data)
+        setIsEffectUser(true)
         setIsLoader(false)
 
       })
@@ -635,12 +681,12 @@ const UserContext = ({ children }) => {
   useEffect(() => {
 
     let token = JSON.parse(localStorage.getItem('token'));
-    getSettingApi()
+    if (settingDepend) getSettingApi(); setSettingDepend(false)
     if (isIdReceivedCard) getFavorites(); setIsIdReceivedCard(false)
     if (isIdReceived) getFavorites()
-    if (token && tokenDepend) loginUserAuth(); getUserId(); userRole(); setTokenDepend(false)
+    if (token && tokenDepend) loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
     if (isRoleEff) userRole(); setIsRoleEff(false);
-  }, [isRoleEff, isIdReceived, isIdReceivedCard, tokenDepend])
+  }, [isRoleEff, isIdReceived, isIdReceivedCard, tokenDepend, settingDepend])
 
 
 
@@ -703,9 +749,12 @@ const UserContext = ({ children }) => {
       getGoodsFavorites,
       isCountFavorites,
       setIsCountFavorites,
-      userFirstName,
-      isFirstName,
-      setIsFavorites
+      setIsFavorites,
+      editUserDataApi,
+      isUser,
+      getUsersData,
+      isEffectUser,
+      setIsEffectUser
     }}>
       {children}
     </UserContextt.Provider>

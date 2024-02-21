@@ -16,8 +16,8 @@ function UserPanel({ setExit, isRole, isCountFavorites }) {
                 <div className="user-panel-link"><Link to='basket-of-goods'><img src={bag} alt="" /></Link></div>
                 {personShow ? <div onMouseLeave={() => { setPersonShow(false) }} onMouseEnter={() => { setPersonShow(true) }} className="person-menu">
                     <ul>
-                        <li><Link className='person-menu-link' to='personal-area'>Личный кабинет</Link></li>
-                        {isRole === "ADMIN" ? <li><Link className='person-menu-link' to='admin'>Админка</Link></li> : ''}
+                        <li><Link className='person-menu-link' to='personal-area/my-data'>Личный кабинет</Link></li>
+                        {isRole === "ADMIN" ? <li><Link className='person-menu-link' to='admin/settings-site'>Админка</Link></li> : ''}
                         <li><Link className='person-menu-link' to='basket-of-goods'>Корзина</Link></li>
                         <li onClick={() => { setExit(true) }}><Link className='person-menu-link-exit' to=''>Выход</Link></li>
 

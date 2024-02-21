@@ -2,6 +2,28 @@
     margin-left: 30px;
 }
 .adding-goods-content {
+    display: flex;
+    gap: 40px;
+}
+.adding-goods-left {
+}
+.adding-goods-right {
+}
+.adding-goods-img-prevention {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../assets/img-prev.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.adding-goods-img-message {
+    color: red;
+    font-family: Jost, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    width: 400px;
+    line-height: 130%;
+    margin-top: 20px;
 }
 .adding-goods-input {
     margin-bottom: 20px;
@@ -33,6 +55,20 @@ select {
 }
 .adding-goods-content input[type="file"] {
     visibility: hidden;
+}
+.adding-goods-content textarea {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    min-width: 240px;
+    max-width: 440px;
+    height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #646568;
+    padding: 0 20px;
 }
 .input__file-button {
     font-weight: 500;

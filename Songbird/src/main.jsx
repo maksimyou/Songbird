@@ -19,6 +19,10 @@ import UserContext from './Context/UserContext.jsx'
 import ListCategory from './Components/ListCategory/ListCategory.jsx'
 import ProductionMore from './pages/ProductionMore/ProductionMore.jsx'
 import SettingsSite from './Components/SettingsSite/SettingsSite.jsx'
+import BonusAccount from './Components/BonusAccount/BonusAccount.jsx'
+import WantToTry from './Components/WantToTry/WantToTry.jsx'
+
+
 
 import {
   createBrowserRouter,
@@ -96,12 +100,20 @@ const router = createBrowserRouter([
         element: <PersonalArea />,
         children: [
           {
-            path: "",
+            path: "my-data",
             element: <MyData />,
           },
           {
             path: "history-of-orders",
             element: <HistoryOfOrders />,
+          },
+          {
+            path: "bonus-account",
+            element: <BonusAccount />,
+          },
+          {
+            path: "want-to-try",
+            element: <WantToTry />,
           },
         ]
       },

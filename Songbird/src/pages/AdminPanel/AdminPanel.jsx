@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import { UserContextFunc } from '../../Context/UserContext'
 import './AdminPanel.scss'
 function AdminPanel() {
 
-    const { getAllCategoryApi, getAllGoodsApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
+    const { getAllCategoryApi, getAllGoodsApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
 
     useEffect(() => {
         getUsers()
@@ -19,12 +19,42 @@ function AdminPanel() {
                     <div className="admin-panel-interaction">
                         <div className="admin-panel-sidebar">
                             <ul>
-                                <li><Link className='admin-panel-sidebar-list' to='settings-site'>Настройки сайта</Link></li>
-                                <li><Link className='admin-panel-sidebar-list' to='adding-goods'>Добавление товара</Link></li>
-                                <li><Link className='admin-panel-sidebar-list' to='adding-category'>Добавление категорий</Link></li>
-                                <li><Link className='admin-panel-sidebar-list' to='list-user'>Список пользователей</Link></li>
-                                <li><Link className='admin-panel-sidebar-list' to='list-category'>Список категорий</Link></li>
-                                <li><Link className='admin-panel-sidebar-list' to='list-goods'>Список всех товаров</Link></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='settings-site'>Настройки сайта</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='adding-goods'>Добавление товара</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='adding-category'>Добавление категорий</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='list-user'>Список пользователей</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='list-category'>Список категорий</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='list-goods'>Список всех товаров</NavLink></li>
                             </ul>
                         </div>
                         <Outlet />

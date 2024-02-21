@@ -1,10 +1,12 @@
 import React, { Children, useEffect, useRef, useState } from 'react'
 import './Modal.scss'
+import hidden from '../../assets/eye-password-hidden.png'
+import show from '../../assets/eye-password-visibled.png'
 
 
 import { UserContextFunc } from '../../Context/UserContext'
 function Modal() {
-    const { setIsMessageError, isMessageError, setConfirmMail2, setConfirmMail, generationCodeApi, toggleModal, setToggleModal, isUserId, postConfirmationApi, confirmMail, confirmMail2, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName } = UserContextFunc()
+    const { setIsMessageError, isMessageError, setConfirmMail2, setConfirmMail, generationCodeApi, toggleModal, setToggleModal, isUserId, postConfirmationApi, confirmMail, confirmMail2, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName } = UserContextFunc()
     const [modeModal, setModeModal] = useState(false)
     const [name, setName] = useState(true)
     const [password, setPassword] = useState(true)
@@ -14,9 +16,8 @@ function Modal() {
     const [value3, setValue3] = useState(false)
     const [value4, setValue4] = useState(false)
     const [modalSwitch, setModalSwitch] = useState(true)
-
+    const [showPassword, setShowPassword] = useState(true)
     const [code, setCode] = useState('')
-
     const [reg, setReg] = useState()
     const [log, setLog] = useState()
     const [confirm, setConfirm] = useState()
@@ -204,9 +205,9 @@ function Modal() {
                                 </form> : <form className='form-modal' action="#">
                                     {/*<input onInput={(e) => CheckingLogin(e.target.value)} className={login ? 'login-modal' : 'login-modal login-modal-red'} placeholder='Введите логин' type="text" name=""  />*/}
                                     <input ref={ref1} onBlur={(e) => CheckingMail(e.target.value)} className={mail ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
-                                    {mail ? '' : <div className="modal-error">Введеный Email не корре́ктный"</div>}
+                                    {mail ? '' : <div className="modal-error">Введеный Email не корректный</div>}
                                     <input ref={ref2} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type="password" name="" />
-                                    {password ? '' : <div className="modal-error">Введеный пароль не корре́ктный"</div>}
+                                    {password ? '' : <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
                                     <div className="message-error">{isMessageError}</div>
                                     <button onClick={(e) => { if (value2 && value3) { e.preventDefault(); setLog(true) } }} className='registration-modal'><span>Вход</span></button>
                                 </form> : confirmMail ? <form className="form-modal2">
@@ -222,11 +223,15 @@ function Modal() {
                                 </form> : <form className='form-modal' action="#">
                                     {/*<input className='login-modal' placeholder='Введите логин' type="text" name=""  />*/}
                                     <input ref={ref3} onBlur={(e) => CheckingWorldName(e.target.value)} className={name ? 'name-modal' : 'name-modal error-red'} placeholder='Введите имя' type="text" name="" />
-                                    {name ? '' : <div className="modal-error">Введенное имя не корре́ктно"</div>}
-                                    <input ref={ref4} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type="password" name="" />
-                                    {password ? '' : <div className="modal-error">Введеный пароль не корре́ктный"</div>}
+                                    {name ? '' : <div className="modal-error">Введенное имя не корректно</div>}
+                                    <div className="password-modal-wrap">
+                                        <input ref={ref4} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword ? "password" : "text"} name="" />
+                                        <img onClick={() => setShowPassword(!showPassword)} src={showPassword ? show : hidden} alt="" />
+
+                                    </div>
+                                    {password ? '' : <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
                                     <input ref={ref5} onBlur={(e) => CheckingMail(e.target.value)} className={password ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
-                                    {mail ? '' : <div className="modal-error">Введеный Email не корре́ктный"</div>}
+                                    {mail ? '' : <div className="modal-error">Введеный Email не корректный</div>}
                                     <div className="message-error">{isMessageError}</div>
                                     <button onClick={(e) => { if (value1 && value2 && value3) { e.preventDefault(); setReg(true) } }} className='registration-modal'><span>Зарегистрироваться</span></button>
                                 </form>

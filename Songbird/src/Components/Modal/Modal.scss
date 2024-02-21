@@ -112,6 +112,17 @@
     color: #9a9ea5;
     padding: 0 20px;
 }
+
+.password-modal-wrap {
+    position: relative;
+}
+.password-modal-wrap img {
+    position: absolute;
+    width: 24px;
+    top: 8px;
+    right: 9px;
+    cursor: pointer;
+}
 .email-modal {
     border: 1px solid #9a9ea5;
     outline: none;

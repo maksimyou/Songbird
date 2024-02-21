@@ -6,7 +6,7 @@ import ListUserItem from '../ListUserItem/ListUserItem'
 function ListUser() {
     const [users, setUsers] = useState()
 
-    const { deleteUserApi, editUserApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
+    const { deleteUserApi, editUserApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
     console.log(isUsers)
     useEffect(() => {
         getUsers();

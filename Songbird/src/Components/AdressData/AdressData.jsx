@@ -1,26 +1,26 @@
 import React from 'react'
 import './AdressData.scss'
-
-
-function AdressData() {
+import close from '../../assets/close.png'
+function AdressData({ filterAdress, adress, fullAdress, setAdress, createFullAdress }) {
     return (
         <div className='adress-data-container'>
             <form className='adress-data-form' action="">
                 <div className="adress-data-lists">
-                    <div className="adress-data-item">Дом г.Москва ул.Маршала Василевского д.1к1 п.5 эт.4 кв.67</div>
+                    {fullAdress.map((e, i) => { return <div key={i} className="adress-data-item">{e}<img onClick={() => { filterAdress(i) }} src={close} alt="" /></div> })}
                 </div>
+
                 <div className="adress-data-form-input">
-                    <input className='form-adress-input' type="text" placeholder='Название' />
-                    <input className='form-adress-input' type="text" placeholder='Город' />
-                    <input className='form-adress-input' type="text" placeholder='Улица' />
+                    <input onBlur={(e) => { setAdress({ ...adress, name: e.target.value }) }} className='form-adress-input' type="text" placeholder='Название' />
+                    <input onBlur={(e) => { setAdress({ ...adress, city: e.target.value }) }} className='form-adress-input' type="text" placeholder='Город' />
+                    <input onBlur={(e) => { setAdress({ ...adress, street: e.target.value }) }} className='form-adress-input' type="text" placeholder='Улица' />
                     <div className="form-adress-input-min-all">
-                        <input className='form-adress-min-input' type="text" placeholder='Дом' />
-                        <input className='form-adress-min-input' type="text" placeholder='Под' />
-                        <input className='form-adress-min-input' type="text" placeholder='Эт.' />
-                        <input className='form-adress-min-input' type="text" placeholder='Кв.' />
+                        <input onBlur={(e) => { setAdress({ ...adress, house: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Дом' />
+                        <input onBlur={(e) => { setAdress({ ...adress, entrance: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Под' />
+                        <input onBlur={(e) => { setAdress({ ...adress, floor: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Эт.' />
+                        <input onBlur={(e) => { setAdress({ ...adress, apartmentt: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Кв.' />
                     </div>
                 </div>
-                <button className='form-adress-btn'>Добавить адрес</button>
+                <button onClick={(e) => { e.preventDefault(); createFullAdress() }} className='form-adress-btn'>Добавить адрес</button>
             </form>
         </div>
     )

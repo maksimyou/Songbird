@@ -36,7 +36,12 @@
     flex-direction: column;
     gap: 20px;
 }
-.personal-area-sidebar li {
+.personal-area-sidebar-active {
+    font-size: 19px;
+    color: #b87a3f;
+    font-family: Jost, sans-serif;
+}
+.personal-area-sidebar-pending {
     font-size: 19px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;

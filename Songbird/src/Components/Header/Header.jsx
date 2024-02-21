@@ -4,12 +4,14 @@ import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
 import UserPanel from '../UserPanel/UserPanel'
 import { UserContextFunc } from '../../Context/UserContext'
-
+import resize from '../../Hooks/resize'
 
 function Header() {
-    const { setIsFavorites, setIsCountFavorites, isCountFavorites, setToggleModal, isSetting, setIsSwitchCategory, getAllGoodsApi, getAllCategoryApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName, exitUser, isRole, isCategory } = UserContextFunc()
+    const { setIsFavorites, setIsCountFavorites, isCountFavorites, setToggleModal, isSetting, setIsSwitchCategory, getAllGoodsApi, getAllCategoryApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, isCategory } = UserContextFunc()
     const [exit, setExit] = useState()
     const [navShow, setNavShow] = useState(false)
+    const [width, hight] = resize();
+    console.log(width, hight)
     useEffect(() => {
         getAllCategoryApi()
         if (exit) exitUser(); setExit(); setIsCountFavorites(0); setIsFavorites({ lists: "[]" })

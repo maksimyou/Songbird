@@ -3,6 +3,9 @@
     //background-image: url("../../assets/Realistic.jpg");
     //height: 100vh;
     padding-top: 20px;
+    @media (max-width: 1125px) {
+        padding-top: 0px;
+    }
 }
 .header-content-1 {
     display: flex;
@@ -10,15 +13,21 @@
     justify-content: space-between;
     max-width: 1700px;
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 10px 20px;
 }
 .header-logo {
     display: flex;
     align-items: center;
     gap: 30px;
+    @media (max-width: 1165px) {
+        gap: 10px;
+    }
 }
 .header-logo img {
     width: 80px;
+    @media (max-width: 1125px) {
+        width: 60px;
+    }
 }
 .header-logo-text {
 }
@@ -29,15 +38,24 @@
     font-family: HirmUcs, sans-serif;
     text-transform: uppercase;
     margin-bottom: 10px;
+    @media (max-width: 1125px) {
+        font-size: 17px;
+    }
 }
 .header-logo-subtitle {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.79);
     font-family: HirmUcs, sans-serif;
     text-transform: uppercase;
+    @media (max-width: 1125px) {
+        font-size: 10px;
+    }
 }
 .header-navigation {
     margin-left: 101px;
+    @media (max-width: 1310px) {
+        margin-left: 20px;
+    }
 }
 .header-navigation ul {
     position: relative;
@@ -96,6 +114,9 @@
     font-family: Jost, sans-serif;
     color: rgba(255, 255, 255, 1);
     font-weight: 400;
+    @media (max-width: 1310px) {
+        font-size: 15px;
+    }
 }
 .contacts:hover {
     color: rgba(181, 134, 16, 0.99);
@@ -107,6 +128,9 @@
     font-weight: 300;
     font-family: Jost, sans-serif;
     margin: 0px 48px 0 48px;
+    @media (max-width: 1310px) {
+        margin: 0px 20px 0 20px;
+    }
 }
 .registration {
     color: rgba(253, 255, 214, 1);

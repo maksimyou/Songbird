@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import './PersonalArea.scss'
 import BreadCrumbs from '../../Components/BreadCrumbs/BreadCrumbs'
 
 import { UserContextFunc } from '../../Context/UserContext'
 
 function PersonalArea() {
-    const { loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, userFirstName, isFirstName, exitUser, isRole, setIsRole, userRole } = UserContextFunc()
+
+    const { isUser, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, exitUser, isRole, setIsRole, userRole } = UserContextFunc()
 
     useEffect(() => {
-        userFirstName()
+
     }, [])
 
     return (<>
@@ -18,15 +19,35 @@ function PersonalArea() {
                 <BreadCrumbs textLink={['Личный кабинет']} location={location} />
 
                 <div className="personal-area-title-greetings">
-                    <div className="personal-area-title">Личный кабинет.</div><div className="personal-area-greetings">{`Привет ${isFirstName} !`}</div>
+                    <div className="personal-area-title">Личный кабинет.</div><div className="personal-area-greetings">{`Привет ${isUser.name} !`}</div>
                 </div>
                 <div className="personal-area-interaction">
                     <div className="personal-area-sidebar">
                         <ul>
-                            <li><Link to=''>Мои данные</Link></li>
-                            <li><Link to='history-of-orders'>История заказов</Link></li>
-                            <li><Link to=''>Бонусный счет</Link></li>
-                            <li><Link to=''>Хочу попробовать</Link></li>
+                            <li><NavLink className={({ isActive }) =>
+                                isActive
+                                    ? "personal-area-sidebar-active"
+                                    : "personal-area-sidebar-pending"
+
+                            } to='my-data'>Мои данные</NavLink></li>
+                            <li><NavLink className={({ isActive }) =>
+                                isActive
+                                    ? "personal-area-sidebar-active"
+                                    : "personal-area-sidebar-pending"
+
+                            } to='history-of-orders'>История заказов</NavLink></li>
+                            <li><NavLink className={({ isActive }) =>
+                                isActive
+                                    ? "personal-area-sidebar-active"
+                                    : "personal-area-sidebar-pending"
+
+                            } to='bonus-account'>Бонусный счет</NavLink></li>
+                            <li><NavLink className={({ isActive }) =>
+                                isActive
+                                    ? "personal-area-sidebar-active"
+                                    : "personal-area-sidebar-pending"
+
+                            } to='want-to-try'>Хочу попробовать</NavLink></li>
                         </ul>
                     </div>
                     <Outlet />
