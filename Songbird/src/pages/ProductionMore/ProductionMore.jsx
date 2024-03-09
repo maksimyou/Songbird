@@ -7,16 +7,34 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 function ProductionMore() {
     let nav = useParams();
-    const { getOneGoodsApi, isGoodsOne, isCategoryBread } = UserContextFunc();
+    const { getOneGoodsApi, getOneGoodsUserApi, isGoodsOne, isCategoryBread, getOneGoodsDev, setGetOneGoodsDev } = UserContextFunc();
+
+
     useEffect(() => {
-        getOneGoodsApi({ id: nav.id })
+        let token = JSON.parse(localStorage.getItem('token'));
+        if (token) {
+            getOneGoodsUserApi(({ id: nav.id })); setGetOneGoodsDev(false)
+        } else {
+            getOneGoodsApi({ id: nav.id }); setGetOneGoodsDev(false)
+        }
+    }, [getOneGoodsDev])
+
+    useEffect(() => {
+        let token = JSON.parse(localStorage.getItem('token'));
+
+        if (token) {
+            getOneGoodsUserApi(({ id: nav.id }))
+        } else {
+            getOneGoodsApi({ id: nav.id })
+        }
     }, [])
+
     return (
         <div className='production-more-container'>
             <div className="production-more-bread-container">
-                <BreadCrumbs textLink={['Продукция', isCategoryBread[nav.name], isGoodsOne.name]} location={location} />
+                <BreadCrumbs styleWidth={480} textLink={['Продукция', isCategoryBread[nav.name], isGoodsOne.name]} location={location} />
             </div>
-            <ProductionMoreInfo />
+            {isGoodsOne.length ? '' : <ProductionMoreInfo />}
         </div>
     )
 }

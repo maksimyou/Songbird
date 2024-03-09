@@ -40,34 +40,40 @@ function ListGoods() {
     return (
         <div className='list-goods-container'>
             <div className="list-goods-content">
-                <div className="list-goods-title-refresh">
-                    <div className="list-goods-title">Список всех товаров</div>
-                    <select
-                        value={selectedCategory}
-                        onChange={e => { setSelectedCategory(e.target.value); setGoodsSort(true) }}
-                        name="" id="">
-                        <option value="all">Все категориии</option>
-                        {isCategory.map(e => {
-                            return <option key={e.id} value={e.route}>{e.name}</option>
-                        })}
-                    </select>
-                    <select
-                        value={sortIconPrice}
-                        onChange={e => { setSortIconPrice(e.target.value); setGoodsSort2(true) }}
-                        name="" id="">
-                        <option value="down">По возрастанию</option>
-                        <option value="up">По убыванию</option>
-                    </select>
-                    <div onClick={() => { setGoods(true) }} className="list-goods-refresh">Обновить</div>
-                </div>
-                <div className="list-goods-item-list">
-                    <div className=""></div>
-                    {
-                        isGoods.map(e => {
-                            return <ListGoodsItem key={e.id} price={e.price} isCategory={isCategory} id={e.id} imageURL={e.imageURL} name={e.name} category={e.category} deleteGoodsApi={deleteGoodsApi} />
-                        })
-                    }
-                </div>
+                {isGoods.length >= 1
+                    ? <>
+                        <div className="list-goods-title-refresh">
+                            <div className="list-goods-title">Список всех товаров</div>
+                            <div onClick={() => { setGoods(true) }} className="list-goods-refresh">Обновить</div>
+                            <select
+                                value={selectedCategory}
+                                onChange={e => { setSelectedCategory(e.target.value); setGoodsSort(true) }}
+                                name="" id="">
+                                <option value="all">Все категориии</option>
+                                {isCategory.map(e => {
+                                    return <option key={e.id} value={e.route}>{e.name}</option>
+                                })}
+                            </select>
+                            <select
+                                value={sortIconPrice}
+                                onChange={e => { setSortIconPrice(e.target.value); setGoodsSort2(true) }}
+                                name="" id="">
+                                <option value="down">По возрастанию</option>
+                                <option value="up">По убыванию</option>
+                            </select>
+
+                        </div>
+                        <div className="list-goods-item-list">
+                            <div className=""></div>
+                            {
+                                isGoods.map(e => {
+                                    return <ListGoodsItem key={e.id} price={e.price} isCategory={isCategory} id={e.id} imageURL={e.imageURL[0]} name={e.name} category={e.category} deleteGoodsApi={deleteGoodsApi} />
+                                })
+                            }
+                        </div>
+                    </>
+                    :
+                    <div className="list-goods-empty">У вас нет товаров</div>}
             </div>
         </div >
     )

@@ -1,5 +1,8 @@
 .settings-site-container {
     margin-left: 30px;
+    @media (max-width: 630px) {
+        margin-left: 0px;
+    }
 }
 .settings-site-title {
     font-weight: 500;
@@ -13,7 +16,11 @@
 .settings-site-content-input {
     display: flex;
     gap: 50px;
+    @media (max-width: 1142px) {
+        flex-direction: column;
+    }
 }
+
 .settings-site-content-left {
 }
 .settings-site-content-right {
@@ -29,6 +36,11 @@
     margin-bottom: 20px;
     display: flex;
     align-items: flex-start;
+    @media (max-width: 680px) {
+        flex-direction: column;
+        display: flex;
+        gap: 10px;
+    }
 }
 .settings-site-input-title {
     display: inline-block;
@@ -65,6 +77,9 @@
     font-weight: 500;
     text-transform: uppercase;
     margin-left: 140px;
+    @media (max-width: 680px) {
+        margin-left: 0px;
+    }
 }
 .settings-site-add-btn:hover {
     background-color: rgba(184, 122, 63, 1);

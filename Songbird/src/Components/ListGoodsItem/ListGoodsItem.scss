@@ -7,9 +7,22 @@
     padding-bottom: 5px;
     border-bottom: 1px solid black;
     padding-right: 50px;
+
+    @media (max-width: 1250px) {
+        flex-direction: column;
+        height: 320px;
+        width: 220px;
+        align-items: flex-start;
+        padding: 9px;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
 }
 .list-goods-item-id {
     width: 50px;
+    font-size: 17px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
 }
 .list-goods-item-img {
     width: 50px;
@@ -22,18 +35,33 @@
     font-size: 19px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    @media (max-width: 1250px) {
+        width: 100%;
+        border-bottom: 1px solid black;
+        padding-bottom: 4px;
+    }
 }
 .list-goods-item-category {
     width: 150px;
     font-size: 19px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    @media (max-width: 1250px) {
+        width: 100%;
+        border-bottom: 1px solid black;
+        padding-bottom: 4px;
+    }
 }
 .list-goods-item-price {
     width: 100px;
     font-size: 19px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    @media (max-width: 1250px) {
+        width: 100%;
+        border-bottom: 1px solid black;
+        padding-bottom: 4px;
+    }
 }
 .list-goods-item-edit {
     font-size: 19px;

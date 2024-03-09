@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import './Favorites.scss'
 import BreadCrumbs from '../../Components/BreadCrumbs/BreadCrumbs'
 import FavoritesItem from '../../Components/FavoritesItem/FavoritesItem'
@@ -7,10 +7,8 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 
 function Favorites() {
-    const [GoodsFavoriteDep, setGoodsFavoriteDep] = useState(false)
-    const { isFavorites, getCategoryGoods, setIsGoods, isGoods, isCategory, getAllGoodsApi, isUserId, deleteGoodsApi, favorites, getGoodsFavorites } = UserContextFunc()
 
-
+    const { GoodsFavoriteDep, setGoodsFavoriteDep, isFavorites, getCategoryGoods, setIsGoods, isGoods, isCategory, getAllGoodsApi, isUserId, deleteGoodsApi, favorites, getGoodsFavorites } = UserContextFunc()
 
 
     useEffect(() => {
@@ -28,11 +26,11 @@ function Favorites() {
                         <div className="favorites-content-list">
                             <div className="favorites-content-list-header">
                                 <div className="list-header-close-img"></div>
-                                <div className="list-header-name">Название</div>
+                                <div className="list-header-name">Товар</div>
                                 <div className="list-header-price">Цена</div>
 
                             </div>
-                            {favorites.map(e => <FavoritesItem key={e.id} setGoodsFavoriteDep={setGoodsFavoriteDep} id={e.id} image={e.imageURL} name={e.name} price={e.price} />)}
+                            {favorites.map(e => <FavoritesItem key={e.id} id={e.id} image={e.imageURL[0]} name={e.name} price={e.price} category={e.category} />)}
                         </div> </> : <div className="favorites-empty-list">Ваш список избранного на данный момент пуст.</div>}
 
             </div>
@@ -40,4 +38,4 @@ function Favorites() {
     )
 }
 
-export default Favorites
+export default memo(Favorites)

@@ -1,23 +1,32 @@
 .production-more-info-container {
     margin: 50px auto;
     max-width: 1290px;
+    padding: 0 10px;
 }
 .production-more-info-content {
     display: flex;
-    gap: 100px;
+    justify-content: space-between;
+    gap: 20px;
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 }
 .production-more-info-content-left {
-    width: 460px;
+    max-width: 460px;
 }
 .production-more-info-content-left img {
     width: 100%;
 }
 .production-more-info-content-right {
+    max-width: 508px;
+    @media (max-width: 700px) {
+        max-width: 680px;
+    }
 }
 .more-info-content-right-title {
     font-family: Jost, sans-serif;
     font-weight: 600;
-    font-size: 28px;
+    font-size: calc(22px + 6 * ((100vw - 320px) / (1700 - 320)));
     color: #3a3a3a;
     margin-bottom: 10px;
 }
@@ -31,7 +40,8 @@
 .more-info-content-right-bought {
     font-family: Jost, sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: calc(14px + 6 * ((100vw - 320px) / (1700 - 320)));
+
     color: #bababa;
 }
 .more-content-right-reviews {
@@ -43,7 +53,7 @@
 .more-info-content-right-price {
     font-family: Jost, sans-serif;
     font-weight: 500;
-    font-size: 30px;
+    font-size: calc(26px + 4 * ((100vw - 320px) / (1700 - 320)));
     color: #3a3a3a;
     margin-bottom: 21px;
 }
@@ -52,6 +62,9 @@
     align-items: center;
     gap: 40px;
     margin-bottom: 20px;
+    @media (max-width: 874px) {
+        gap: 10px;
+    }
 }
 
 .more-info-content-right-selects select {
@@ -63,6 +76,12 @@
     overflow: hidden;
     background: url("../../assets/arrow-down.svg") no-repeat right; // -вставляем нужную
     background-position-x: 200px;
+    @media (max-width: 980px) {
+        width: 200px;
+    }
+    @media (max-width: 830px) {
+        width: 170px;
+    }
 }
 
 .more-info-content-right-buy-in-the-basket {
@@ -70,6 +89,9 @@
     align-items: center;
     gap: 40px;
     margin-bottom: 11px;
+    @media (max-width: 874px) {
+        gap: 10px;
+    }
 }
 
 .more-info-content-right-buy {
@@ -83,6 +105,12 @@
     font-weight: 500;
     font-size: 18px;
     color: #3a3a3a;
+    @media (max-width: 980px) {
+        width: 200px;
+    }
+    @media (max-width: 830px) {
+        width: 170px;
+    }
 }
 
 .more-content-right-basket {
@@ -96,6 +124,12 @@
     font-weight: 500;
     font-size: 18px;
     color: #fff;
+    @media (max-width: 980px) {
+        width: 200px;
+    }
+    @media (max-width: 830px) {
+        width: 170px;
+    }
 }
 .more-info-content-right-return-money {
     font-family: Jost, sans-serif;
@@ -103,6 +137,63 @@
     font-size: 14px;
     color: #bababa;
     margin-bottom: 15px;
+}
+
+.more-info-quantity {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #bababa;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    @media (max-width: 980px) {
+        flex-direction: column;
+    }
+}
+.more-info-quantity-wrap {
+    //background-color: #ffffff79;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 5px 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.more-info-quantity-minus {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #3a3a3a;
+    margin: 0 20px 0 0px;
+    width: 10px;
+}
+.more-info-quantity-minus-disabled {
+    border-bottom: 4px solid #989696;
+    cursor: default;
+}
+.more-info-quantity_number {
+    font-weight: 500;
+    width: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    border-bottom: 1px solid #3a3a3a;
+}
+.more-info-quantity-plus {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    margin: 0 00px 0 20px;
 }
 
 //.more-info-content-right-composition {

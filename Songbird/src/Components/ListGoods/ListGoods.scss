@@ -5,13 +5,19 @@
 }
 .list-goods-title-refresh {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 893px;
-    margin-bottom: 50px;
+    margin: 20px 0;
+    @media (max-width: 950px) {
+        gap: 20px;
+    }
 }
 .list-goods-title {
     font-size: 26px;
+    @media (max-width: 600px) {
+        font-size: 20px;
+    }
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
 }
@@ -21,10 +27,24 @@
     font-size: 21px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    @media (max-width: 600px) {
+        font-size: 17px;
+    }
 }
 
 .list-goods-refresh:hover {
     color: #a58256;
 }
+
 .list-goods-item-list {
+    @media (max-width: 1250px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+.list-goods-empty {
+    font-size: 21px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
 }

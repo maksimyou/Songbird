@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { UserContextFunc } from '../../Context/UserContext'
 
 function Production() {
-    const { isCategoryBread, isSwitchCategory, setIsSwitchCategory, isGoods, isCategory, getCategoryGoods, isCategoryGoods, } = UserContextFunc()
+    const { isCategoryBread, isSwitchCategory, setIsSwitchCategory, isGoods, isCategory, getCategoryGoods, getCategoryGoodsNoload, isCategoryGoods, } = UserContextFunc()
     let nav = useParams()
     //const [breadCrumb, setBreadCrumb] = useState('')
     console.log(nav, isCategoryBread)
@@ -25,7 +25,7 @@ function Production() {
 
     useEffect(() => {
         console.log(nav)
-        if (isSwitchCategory) getCategoryGoods({ category: nav.name }); setIsSwitchCategory(false)
+        if (isSwitchCategory) getCategoryGoodsNoload({ category: nav.name }); setIsSwitchCategory(false)
         //setGoodsCard(filterGoodsProduction())
     }, [isSwitchCategory])
 
@@ -38,7 +38,7 @@ function Production() {
 
                 <div className="production-items">
                     {isCategoryGoods.map(e => {
-                        return <Card key={e.id} nav={nav.name} id={e.id} image={e.imageURL} name={e.name} price={e.price} bought={e.bought} liked={e.liked} />
+                        return <Card key={e.id} nav={nav.name} id={e.id} image={e.imageURL[0]} name={e.name} price={e.price} bought={e.bought} liked={e.liked} quantity={e.quantity} />
                     })}
                 </div>
 

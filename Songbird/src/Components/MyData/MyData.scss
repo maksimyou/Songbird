@@ -1,5 +1,8 @@
 .my-data-container {
     margin-left: 30px;
+    @media (max-width: 640px) {
+        margin-left: 0px;
+    }
 }
 .my-data-content {
 }

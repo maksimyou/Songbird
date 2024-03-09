@@ -21,25 +21,27 @@ function Footer() {
     return (
         <div className='footer-container'>
             <div className="footer-content">
-                <div className="footer-content-items">
-                    <img src={telephone} alt="" />
-                    <div className="footer-item">
-                        <div className="footer-item-title">Звоните по номеру</div>
-                        <a className='footer-item-subtitle' href={isSetting ? `tel:${isSetting.phone}` : "tel+72345678904"}>{isSetting ? formatPhone(isSetting.phone) : "+7 (234) 567 89 04"}</a>
+                <div className="footer-number-place-mail">
+                    <div className="footer-content-items">
+                        <img src={telephone} alt="" />
+                        <div className="footer-item">
+                            <div className="footer-item-title">Звоните по номеру</div>
+                            <a className='footer-item-subtitle' href={isSetting ? `tel:${isSetting.phone}` : "tel+72345678904"}>{isSetting ? formatPhone(isSetting.phone) : "+7 (234) 567 89 04"}</a>
+                        </div>
                     </div>
-                </div>
-                <div className="footer-content-items">
-                    <img src={geo} alt="" />
-                    <div className="footer-item">
-                        <div className="footer-item-title">Мы находимся</div>
-                        <div className='footer-item-subtitle'>{isSetting ? isSetting.address : "196247, Россия, Санкт-Петербург, Ленинский просп., 151, офис 711"}</div>
+                    <div className="footer-content-items">
+                        <img src={geo} alt="" />
+                        <div className="footer-item">
+                            <div className="footer-item-title">Мы находимся</div>
+                            <div className='footer-item-subtitle'>{isSetting ? isSetting.address : "196247, Россия, Санкт-Петербург, Ленинский просп., 151, офис 711"}</div>
+                        </div>
                     </div>
-                </div>
-                <div className="footer-content-items">
-                    <img src={mail} alt="" />
-                    <div className="footer-item">
-                        <div className="footer-item-title">Пишите сюда</div>
-                        <div className='footer-item-subtitle'>{isSetting ? isSetting.email : "test@mail.ru"}</div>
+                    <div className="footer-content-items">
+                        <img src={mail} alt="" />
+                        <div className="footer-item">
+                            <div className="footer-item-title">Пишите сюда</div>
+                            <div className='footer-item-subtitle'>{isSetting ? isSetting.email : "test@mail.ru"}</div>
+                        </div>
                     </div>
                 </div>
                 <div className="footer-social">

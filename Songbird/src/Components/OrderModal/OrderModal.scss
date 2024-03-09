@@ -1,0 +1,112 @@
+.order-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(55, 56, 58, 0.6431372549);
+    z-index: 20;
+}
+
+.order-modal-content {
+    position: relative;
+    background-color: #e8e6df;
+    width: 320px;
+    padding: 50px 20px;
+    //padding-top: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.order-modal-close {
+    right: 5px;
+    top: 5px;
+    position: absolute;
+    width: 50px;
+    cursor: pointer;
+}
+.order-modal-title {
+    color: rgb(52, 55, 58);
+    font-family: Jost, sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+}
+.order-modal-subtitle {
+    font-size: 18px;
+    color: rgb(43, 43, 43);
+    font-family: Jost, sans-serif;
+    font-weight: 300;
+}
+.order-modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.order-modal-input {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 240px;
+    height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 9px;
+}
+.order-modal-text {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 240px;
+    min-height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0px 9px;
+}
+
+.order-modal-agree {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: Jost, sans-serif;
+    color: rgb(52, 55, 58);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-modal-btn {
+    background-color: rgba(184, 122, 63, 1);
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    width: 237px;
+    height: 60px;
+    border-radius: 50px;
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.order-modal-secces {
+    font-size: 18px;
+    color: rgb(43, 43, 43);
+    font-family: Jost, sans-serif;
+    font-weight: 300;
+}
+.order-modal-info {
+    color: red;
+    font-family: Jost, sans-serif;
+}

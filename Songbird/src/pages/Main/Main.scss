@@ -3,10 +3,29 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 90vh;
+    @media (max-width: 1400px) {
+        height: 80vh;
+    }
+    @media (max-width: 1200px) {
+        height: 70vh;
+    }
+    @media (max-width: 1000px) {
+        height: 60vh;
+    }
+    @media (max-width: 700px) {
+        height: 50vh;
+    }
+    @media (max-width: 500px) {
+        height: 40vh;
+    }
+    @media (max-width: 400px) {
+        height: 35vh;
+    }
 }
 .header-content-2 {
     max-width: 1700px;
     margin: 0 auto;
+    padding: 0 10px;
     height: 100%;
     display: flex;
     align-items: flex-start;
@@ -15,12 +34,24 @@
 }
 .header-content-title-1 {
     font-weight: 400;
-    font-size: 4vw;
+    //font-size: 4vw;
+    @media (max-width: 1920px) {
+        font-size: calc(21px + 55 * ((100vw - 320px) / (1700 - 320)));
+    }
+    @media (min-width: 1921px) {
+        font-size: 76px;
+    }
     color: rgba(255, 246, 177, 1);
     font-family: Comforter, sans-serif;
 }
 .header-content-title-2 {
-    font-size: 6vw;
+    //font-size: 6vw;
+    @media (max-width: 1920px) {
+        font-size: calc(25px + 91 * ((100vw - 320px) / (1700 - 320)));
+    }
+    @media (min-width: 1921px) {
+        font-size: 106px;
+    }
     font-weight: 200;
     color: rgba(255, 255, 255, 1);
     letter-spacing: 0px;
@@ -32,11 +63,19 @@
 }
 .header-content-title-3 {
     color: rgba(255, 255, 255, 1);
-    font-size: 1.3vw;
     font-family: Jost, sans-serif;
     font-weight: 300;
     margin-top: 50px;
     animation-duration: 1.2s;
+    @media (max-width: 1920px) {
+        font-size: calc(14px + 4 * ((100vw - 320px) / (1700 - 320)));
+    }
+    @media (min-width: 1921px) {
+        font-size: 20px;
+    }
+    @media (max-width: 400px) {
+        margin-top: 30px;
+    }
 }
 .order-btn {
     background-color: rgba(184, 122, 63, 1);

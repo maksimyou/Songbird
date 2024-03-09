@@ -2,13 +2,15 @@ import React from 'react'
 import './BreadCrumbs.scss'
 import { Link } from 'react-router-dom'
 import arrow from '../../assets/icon-right-arrow.png'
-function BreadCrumbs({ textLink, location }) {
+import resize from '../../Hooks/resize'
+function BreadCrumbs({ styleWidth = 0, textLink, location }) {
+    const [width, hight] = resize();
 
     const pathnames = location.pathname.split('/').filter((el) => el);
     console.log(pathnames);
     return (
         <div className='bread-crumbs-container'>
-            <div className="bread-crumbs-content">
+            <div className={width <= styleWidth ? 'bread-crumbs-content bread-crumbs-content-product' : "bread-crumbs-content"}>
                 <Link to={'/'} className="bread-crumbs-text">Главная</Link>
                 <img src={arrow} alt="" />
                 {pathnames.map((e, i) => {

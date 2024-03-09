@@ -1,5 +1,8 @@
 .adding-goods-container {
     margin-left: 30px;
+    @media (max-width: 400px) {
+        margin-left: 0px;
+    }
 }
 .adding-goods-content {
     display: flex;
@@ -21,7 +24,6 @@
     font-family: Jost, sans-serif;
     font-size: 19px;
     font-weight: 500;
-    width: 400px;
     line-height: 130%;
     margin-top: 20px;
 }
@@ -29,6 +31,10 @@
     margin-bottom: 20px;
     display: flex;
     align-items: flex-start;
+    @media (max-width: 830px) {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 .adding-goods-input-title {
     display: inline-block;
@@ -38,7 +44,18 @@
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
 }
-
+.adding-goods-input-plus {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 2px 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.adding-goods-input-plus:hover {
+    background-color: #b49266;
+}
 .adding-goods-content input[type="text"],
 select {
     border: 1px solid #9a9ea5;
@@ -70,6 +87,10 @@ select {
     color: #646568;
     padding: 0 20px;
 }
+.input__file-button-container {
+    display: flex;
+    flex-direction: column;
+}
 .input__file-button {
     font-weight: 500;
     font-size: 19px;
@@ -85,8 +106,23 @@ select {
     height: 40px;
     cursor: pointer;
 }
+.input__file-button-err {
+    color: rgb(7, 7, 7);
+    border: 1px solid #ff0000;
+}
+.input__file-button-secc {
+    color: rgb(7, 7, 7);
+    border: 1px solid #00ff00;
+}
 .input__file-button:hover {
     background-color: #b49266;
+}
+.input__file-name-img {
+    margin: 5px 0 0 0;
+    font-weight: 400;
+    font-size: 15px;
+    color: #7a5525;
+    font-family: Jost, sans-serif;
 }
 .label-img {
     background-image: url("../../../public/add-file.png");
@@ -111,9 +147,32 @@ select {
     font-weight: 500;
     text-transform: uppercase;
     margin-left: 140px;
+    @media (max-width: 680px) {
+        margin-left: 0px;
+    }
 }
 .adding-goods-add-btn:hover {
     background-color: rgba(184, 122, 63, 1);
     box-shadow: 0px 9px 19px 0px rgba(189, 130, 76, 0.65);
     outline-color: rgba(173, 255, 126, 0.3);
+}
+.input__file-err {
+    border: 1px solid #ff0000 !important;
+}
+.error-price-message {
+    color: #ff0000;
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    position: relative;
+    top: -15px;
+    @media (min-width: 830px) {
+        margin-left: 140px;
+    }
+}
+
+.error-add-message-section {
+    color: #ff0000;
+    font-family: Jost, sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
 }

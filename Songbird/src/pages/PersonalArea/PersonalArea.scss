@@ -2,6 +2,7 @@
     max-width: 1700px;
     margin: 0 auto;
     min-height: 60svh;
+    padding: 0 10px;
 }
 .personal-area-content {
     margin: 50px 0;
@@ -15,36 +16,54 @@
     border-bottom: 1px solid burlywood;
 }
 .personal-area-title {
-    font-size: 26px;
+    font-size: calc(19px + 7 * ((100vw - 320px) / (1700 - 320)));
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
 }
 .personal-area-greetings {
     font-size: 21px;
+    font-size: calc(17px + 4 * ((100vw - 320px) / (1700 - 320)));
+
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
 }
 .personal-area-interaction {
     display: flex;
+    @media (max-width: 640px) {
+        flex-direction: column;
+    }
 }
 .personal-area-sidebar {
     width: 200px;
     border-right: 1px solid black;
+
+    @media (max-width: 640px) {
+        border: none;
+        width: 100%;
+    }
 }
 .personal-area-sidebar ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media (max-width: 640px) {
+        flex-direction: row;
+        margin-bottom: 20px;
+        overflow: scroll;
+        padding: 10px 0;
+    }
 }
 .personal-area-sidebar-active {
     font-size: 19px;
     color: #b87a3f;
     font-family: Jost, sans-serif;
+    text-wrap: nowrap;
 }
 .personal-area-sidebar-pending {
     font-size: 19px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    text-wrap: nowrap;
 }
 .no-access {
     font-size: 39px;

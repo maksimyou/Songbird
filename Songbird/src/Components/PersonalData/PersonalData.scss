@@ -5,11 +5,19 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    @media (max-width: 1100px) {
+        flex-direction: column;
+        //justify-content: center;
+        align-items: flex-start;
+    }
 }
 .personal-data-form-person-input {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    @media (max-width: 860px) {
+        grid-template-columns: 1fr;
+    }
 }
 .form-person-input {
     border: 1px solid #9a9ea5;

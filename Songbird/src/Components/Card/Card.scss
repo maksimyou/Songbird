@@ -90,6 +90,60 @@
     color: #3a3a3a;
     padding-left: 10px;
 }
+
+.card-quantity {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #bababa;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.card-quantity-wrap {
+    //background-color: #ffffff79;
+    border-radius: 5px;
+    margin: 0 20px;
+    padding: 5px 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-quantity-minus {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #3a3a3a;
+    margin: 0 20px 0 0px;
+    width: 10px;
+}
+.card-quantity-minus-disabled {
+    border-bottom: 4px solid #989696;
+    cursor: default;
+}
+.card-quantity_number {
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    border-bottom: 1px solid #3a3a3a;
+    width: 10px;
+}
+.card-quantity-plus {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    margin: 0 00px 0 20px;
+}
 .card-choos-weight ul {
     position: absolute;
     top: -2px;
@@ -144,6 +198,18 @@
 .card-like {
     cursor: pointer;
 }
+.add-to-cart-in {
+    cursor: pointer;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 228px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    background: #c6aa83;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+}
 .card-img-eye {
     position: absolute;
     width: 100%;
@@ -154,4 +220,16 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../../assets/eye.png");
+}
+
+.card-selects {
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 280px;
+    height: 32px;
+    appearance: none; //-убираем стандартную стрелку
+    overflow: hidden;
+    background: url("../../assets/arrow-down.svg") no-repeat right; // -вставляем нужную
+    background-position-x: 255px;
+    margin-left: 10px;
 }

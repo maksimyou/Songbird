@@ -7,15 +7,40 @@
     padding-bottom: 5px;
     border-bottom: 1px solid black;
     padding-right: 50px;
+    @media (max-width: 1230px) {
+        flex-direction: column;
+        gap: 20px;
+        width: 220px;
+        height: 210px;
+        align-items: flex-start;
+        border: 1px solid black;
+        padding: 15px;
+        border-radius: 10px;
+    }
 }
+
+.list-category-item-cansek-edit {
+    display: flex;
+    gap: 20px;
+    @media (max-width: 1230px) {
+        flex-direction: row;
+    }
+}
+
 .list-category-item-id {
     width: 50px;
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom: 1px solid black;
 }
 .list-category-item-name {
     width: 200px;
     font-size: 19px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom: 1px solid black;
 }
 .list-category-item-role {
     width: 150px;
@@ -23,17 +48,20 @@
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
     margin-right: 20px;
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom: 1px solid black;
 }
 .list-category-item-edit {
     font-size: 19px;
-    color: rgb(7, 7, 7);
+    color: #a58256;
     font-weight: 500;
     font-family: Jost, sans-serif;
     cursor: pointer;
 }
 .list-category-item-delete {
     font-size: 19px;
-    color: rgb(7, 7, 7);
+    color: #a58256;
     font-weight: 500;
     font-family: Jost, sans-serif;
     cursor: pointer;
@@ -65,4 +93,8 @@
     font-weight: 500;
     font-family: Jost, sans-serif;
     padding: 5px 9px;
+}
+.list-category-item-delete:hover,
+.list-category-item-edit:hover {
+    color: #4f3b24;
 }

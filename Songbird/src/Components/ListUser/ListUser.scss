@@ -1,10 +1,27 @@
 .list-user-container {
     margin-left: 30px;
+    @media (max-width: 400px) {
+        margin-left: 0px;
+    }
 }
 .list-user-title {
     font-size: 26px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    @media (max-width: 630px) {
+        font-size: 20px;
+    }
+}
+.list-user {
+    @media (max-width: 1260px) {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    @media (max-width: 630px) {
+        align-items: center;
+        justify-content: center;
+    }
 }
 .list-user-header {
     //width: 67%;
@@ -102,12 +119,28 @@
     justify-content: space-between;
     width: 893px;
     margin-bottom: 50px;
+    @media (max-width: 1150px) {
+        width: 700px;
+    }
+    @media (max-width: 950px) {
+        width: 600px;
+    }
+    @media (max-width: 855px) {
+        width: 380px;
+    }
+    @media (max-width: 630px) {
+        margin-top: 20px;
+        width: 300px;
+    }
 }
 .list-user-refresh {
     cursor: pointer;
     font-size: 21px;
     color: rgb(7, 7, 7);
     font-family: Jost, sans-serif;
+    @media (max-width: 630px) {
+        font-size: 18px;
+    }
 }
 .list-user-refresh:hover {
     color: #a58256;

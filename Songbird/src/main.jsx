@@ -21,8 +21,7 @@ import ProductionMore from './pages/ProductionMore/ProductionMore.jsx'
 import SettingsSite from './Components/SettingsSite/SettingsSite.jsx'
 import BonusAccount from './Components/BonusAccount/BonusAccount.jsx'
 import WantToTry from './Components/WantToTry/WantToTry.jsx'
-
-
+import Checkout from './pages/Checkout/Checkout.jsx'
 
 import {
   createBrowserRouter,
@@ -48,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "products/:name/:id",
         element: <ProductionMore />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
       {
         path: "admin",

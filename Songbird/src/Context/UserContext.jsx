@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 
 
@@ -10,7 +10,9 @@ export function UserContextFunc() {
 
 
 const UserContext = ({ children }) => {
-
+  const [tokenDepend, setTokenDepend] = useState(true)
+  const [formSecces, setFormSecces] = useState(true)
+  const [switchOrderModal, setSwitchOrderModal] = useState(false)
   const [isAuth, setIsAuth] = useState(false)
   const [isLoader, setIsLoader] = useState(false)
   const [isRole, setIsRole] = useState()
@@ -18,9 +20,18 @@ const UserContext = ({ children }) => {
   const [isUserId, setIsUserId] = useState()
   const [isMessageError, setIsMessageError] = useState()
   const [isFavorites, setIsFavorites] = useState({ lists: "[]" })
+  const [isBasket, setIsBasket] = useState({ lists: "[]" })
+  const [sumBaske, setSumBaske] = useState(0)
+  const [GoodsBasketDep, setGoodsBasketDep] = useState(false)
+
   const [isIdReceived, setIsIdReceived] = useState(false)
   const [isIdReceivedCard, setIsIdReceivedCard] = useState(false)
+  const [isIdReceivedCard2, setIsIdReceivedCard2] = useState(false)
+  const [GoodsFavoriteDep, setGoodsFavoriteDep] = useState(false)
   const [isCountFavorites, setIsCountFavorites] = useState(0)
+  const [isCountBasket, setIsCountBasket] = useState(0)
+  //const [sumBasketGoodsDev, setSumBasketGoodsDev] = useState(false)
+
   const [isUser, setIsUser] = useState([])
   const [isEffectUser, setIsEffectUser] = useState(false)
   const [settingDepend, setSettingDepend] = useState(true)
@@ -37,15 +48,14 @@ const UserContext = ({ children }) => {
   const [confirmMail, setConfirmMail] = useState(false)
   const [confirmMail2, setConfirmMail2] = useState(false)
   const [checkLike, setCheckLike] = useState(false)
+  const [checkBasket, setCheckBasket] = useState(false)
+  const [getOneGoodsDev, setGetOneGoodsDev] = useState()
+
   const [favorites, setFavorites] = useState([])
-  const [tokenDepend, setTokenDepend] = useState(true)
+  const [basket, setBasket] = useState([])
 
 
-  function createCategoruBread(data) {
-    let obj = {};
-    data.forEach(e => obj[e.route] = e.name)
-    return obj
-  }
+
 
 
   const loginUserAuth = () => {
@@ -133,45 +143,6 @@ const UserContext = ({ children }) => {
   }
 
 
-  const getCategoryGoods = (goodsData) => {
-    setIsLoader(true)
-    axios.post('http://89.104.66.35:5000/api/goods/get-category-goods', goodsData)
-      .then(res => res.data)
-      .then(data => {
-        console.log(data)
-        setIsCategoryGoods(data)
-        setIsLoader(false)
-        setIsGoods(data)
-      })
-      .catch(error => {
-        console.log(error.message)
-        setIsLoader(false)
-      })
-  }
-
-
-
-
-  //const userFirstName = () => {
-  //  const token = JSON.parse(localStorage.getItem('token'))
-  //  console.log(token)
-  //  axios.get('http://89.104.66.35:5000/api/user/first-name', {
-  //    headers: {
-  //      Authorization: 'Bearer ' + token
-  //    }
-  //  })
-  //    .then(res => {
-  //      return res.data
-  //    })
-  //    .then(data => {
-  //      console.log(data)
-  //      setIsFirstName(data.name)
-  //    })
-  //    .catch(err => {
-  //      console.log(err)
-  //    })
-  //}
-
 
   const userRole = () => {
     const token = JSON.parse(localStorage.getItem('token'))
@@ -249,104 +220,6 @@ const UserContext = ({ children }) => {
       })
   }
 
-  const addFavorites = (favoritesData) => {
-    //idUser, idGoods 
-    const token = JSON.parse(localStorage.getItem('token'))
-    //setIsLoader(true)
-    console.log(token)
-    axios.post('http://89.104.66.35:5000/api/favorites/add', favoritesData, {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    })
-      .then(res => {
-        return res.data
-      })
-      .then(data => {
-        console.log(data)
-        setIsIdReceivedCard(true);
-        //setIsLoader(false)
-
-      })
-      .catch(err => {
-        console.log(err)
-        //setIsLoader(false)
-
-      })
-  }
-
-  const deleteFavorites = (favoritesData) => {
-    const token = JSON.parse(localStorage.getItem('token'))
-
-    //setIsLoader(true)
-    axios.post('http://89.104.66.35:5000/api/favorites/delete', favoritesData, {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    })
-      .then(res => res.data)
-      .then(data => {
-        console.log(data)
-        setIsIdReceivedCard(true);
-        //setIsLoader(false)
-      })
-      .catch(error => {
-        console.log(error)
-        //setIsLoader(false)
-      })
-
-  }
-
-  const getGoodsFavorites = () => {
-    const token = JSON.parse(localStorage.getItem('token'))
-
-    setIsLoader(true)
-    axios.get('http://89.104.66.35:5000/api/favorites/get-goods', {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    })
-      .then(res => res.data)
-      .then(data => {
-        console.log(data)
-        setFavorites(data)
-        setIsLoader(false)
-      })
-      .catch(error => {
-        console.log(error)
-        setIsLoader(false)
-      })
-
-  }
-
-
-  const getFavorites = (favoritesData) => {
-    const token = JSON.parse(localStorage.getItem('token'))
-    setIsLoader(true)
-    console.log(token)
-    axios.post('http://89.104.66.35:5000/api/favorites/get', favoritesData, {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    })
-      .then(res => {
-        return res.data
-      })
-      .then(data => {
-        console.log(data)
-        setIsFavorites(data)
-        let arr = JSON.parse(data.lists)
-        setIsCountFavorites(arr.length)
-        setIsLoader(false)
-        setCheckLike(true)
-      })
-      .catch(err => {
-        console.log(err)
-        setIsLoader(false)
-
-      })
-  }
-
 
   const registrationApi = (userData) => {
     setIsLoader(true)
@@ -398,6 +271,8 @@ const UserContext = ({ children }) => {
           setConfirmMail2(false)
           setToggleModal(false);
           getFavorites()
+          getBasket()
+
           setIsAuth(true)
           setIsRoleEff(true)
         }
@@ -427,6 +302,7 @@ const UserContext = ({ children }) => {
           setConfirmMail2(false)
           setIsAuth(true)
           getFavorites()
+          getBasket()
           setIsRoleEff(true)
           setToggleModal(false);
         }
@@ -495,6 +371,172 @@ const UserContext = ({ children }) => {
       })
   }
 
+
+  function createCategoruBread(data) {
+    let obj = {};
+    data.forEach(e => obj[e.route] = e.name)
+    return obj
+  }
+
+
+
+  const getCategoryGoods = (goodsData) => {
+    setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/goods/get-category-goods', goodsData)
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+
+        setIsCategoryGoods(data)
+        setIsLoader(false)
+        setIsGoods(data)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
+
+  const getCategoryGoodsNoload = (goodsData) => {
+    //setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/goods/get-category-goods', goodsData)
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+
+        setIsCategoryGoods(data)
+        //setIsLoader(false)
+        setIsGoods(data)
+      })
+      .catch(error => {
+        console.log(error.message)
+        //setIsLoader(false)
+      })
+  }
+
+
+
+  //const userFirstName = () => {
+  //  const token = JSON.parse(localStorage.getItem('token'))
+  //  console.log(token)
+  //  axios.get('http://89.104.66.35:5000/api/user/first-name', {
+  //    headers: {
+  //      Authorization: 'Bearer ' + token
+  //    }
+  //  })
+  //    .then(res => {
+  //      return res.data
+  //    })
+  //    .then(data => {
+  //      console.log(data)
+  //      setIsFirstName(data.name)
+  //    })
+  //    .catch(err => {
+  //      console.log(err)
+  //    })
+  //}
+
+
+  const addFavorites = (favoritesData) => {
+    //idUser, idGoods 
+    const token = JSON.parse(localStorage.getItem('token'))
+    //setIsLoader(true)
+    console.log(token)
+    axios.post('http://89.104.66.35:5000/api/favorites/add', favoritesData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => {
+        return res.data
+      })
+      .then(data => {
+        console.log(data)
+        setIsIdReceivedCard(true);
+        //setIsLoader(false)
+
+      })
+      .catch(err => {
+        console.log(err)
+        //setIsLoader(false)
+
+      })
+  }
+
+  const deleteFavorites = (favoritesData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    //setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/favorites/delete', favoritesData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setGoodsFavoriteDep(true);
+        setIsIdReceivedCard(true);
+        //setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error)
+        //setIsLoader(false)
+      })
+
+  }
+
+  const getGoodsFavorites = () => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    setIsLoader(true)
+    axios.get('http://89.104.66.35:5000/api/favorites/get-goods', {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setFavorites(data)
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error)
+        setIsLoader(false)
+      })
+
+  }
+
+
+  const getFavorites = (favoritesData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    setIsLoader(true)
+    console.log(token)
+    axios.post('http://89.104.66.35:5000/api/favorites/get', favoritesData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => {
+        return res.data
+      })
+      .then(data => {
+        console.log(data)
+        setIsFavorites(data)
+        let arr = JSON.parse(data.lists)
+        setIsCountFavorites(arr.length)
+        setIsLoader(false)
+        setCheckLike(true)
+      })
+      .catch(err => {
+        console.log(err)
+        setIsLoader(false)
+
+      })
+  }
+
+
   const getAllGoodsApi = () => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
@@ -531,6 +573,28 @@ const UserContext = ({ children }) => {
         setIsLoader(false)
       })
   }
+
+
+  const getOneGoodsUserApi = (goodsData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/goods/get-one-goods-user', goodsData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setIsGoodsOne(data)
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
+
 
 
   const getAllCategoryApi = () => {
@@ -659,6 +723,21 @@ const UserContext = ({ children }) => {
         setIsLoader(false)
       })
   }
+  const sendMessageTelegram = (telegramData) => {
+    setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/mail/send-telegram', telegramData)
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setIsLoader(false)
+        setFormSecces(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
+
 
 
   const getSettingApi = () => {
@@ -678,17 +757,138 @@ const UserContext = ({ children }) => {
 
 
 
-  useEffect(() => {
 
+  //----------------------------------------------Basket----------------------------------------------------------------------------------------------------------------------------------
+
+  const addBasket = (basketData) => {
+    //idUser, idGoods 
+    const token = JSON.parse(localStorage.getItem('token'))
+    //setIsLoader(true)
+    console.log(token)
+    axios.post('http://89.104.66.35:5000/api/basket/add', basketData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => {
+        return res.data
+      })
+      .then(data => {
+        console.log(data)
+        //setIsLoader(false)
+        setGetOneGoodsDev(true)
+        setIsIdReceivedCard2(true);
+
+      })
+      .catch(err => {
+        console.log(err)
+        //setIsLoader(false)
+
+      })
+  }
+
+  const deleteBasket = (basketData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    //setIsLoader(true)
+    axios.post('http://89.104.66.35:5000/api/basket/delete', basketData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        //setIsLoader(false)
+        setGoodsBasketDep(true)
+        setIsIdReceivedCard2(true);
+        setGetOneGoodsDev(true)
+
+      })
+      .catch(error => {
+        console.log(error)
+        //setIsLoader(false)
+      })
+
+  }
+
+
+  const sumBasketGoods = (data) => {
+    let sum = data.reduce((a, b) => { return a + b.price }, 0)
+    setSumBaske(sum)
+  }
+
+
+  const getGoodsBasket = () => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    setIsLoader(true)
+    axios.get('http://89.104.66.35:5000/api/basket/get-goods', {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setBasket(data)
+        sumBasketGoods(data)
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error)
+        setIsLoader(false)
+      })
+
+  }
+
+
+  const getBasket = (basketData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    setIsLoader(true)
+    console.log(token)
+    axios.post('http://89.104.66.35:5000/api/basket/get', basketData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => {
+        return res.data
+      })
+      .then(data => {
+        console.log(data)
+        setIsBasket(data)
+        let arr = JSON.parse(data.lists)
+        setIsCountBasket(arr.length)
+        setIsLoader(false)
+        setCheckBasket(true)
+      })
+      .catch(err => {
+        console.log(err)
+        setIsLoader(false)
+
+      })
+  }
+
+
+
+
+  useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token'));
     if (settingDepend) getSettingApi(); setSettingDepend(false)
-    if (isIdReceivedCard) getFavorites(); setIsIdReceivedCard(false)
-    if (isIdReceived) getFavorites()
-    if (token && tokenDepend) loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
+    if (isIdReceivedCard) getFavorites(); setIsIdReceivedCard(false) //???????????????????????????????????????????????
+    if (isIdReceivedCard2) getBasket(); setIsIdReceivedCard2(false) //???????????????????????????????????????????????
+
+    if (isIdReceived) getFavorites(); getBasket()
+    //if (token && tokenDepend) console.log('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'); loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
     if (isRoleEff) userRole(); setIsRoleEff(false);
-  }, [isRoleEff, isIdReceived, isIdReceivedCard, tokenDepend, settingDepend])
+  }, [isRoleEff, isIdReceived, isIdReceivedCard, isIdReceivedCard2, tokenDepend, settingDepend])
 
+  useMemo(() => {
+    let token = JSON.parse(localStorage.getItem('token'));
+    if (token && tokenDepend) loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
 
+  }, [tokenDepend])
 
   return (
     <UserContextt.Provider value={{
@@ -730,6 +930,7 @@ const UserContext = ({ children }) => {
       deleteCategoryApi,
       deleteGoodsApi,
       getCategoryGoods,
+      getCategoryGoodsNoload,
       isCategoryGoods,
       setIsCategoryGoods,
       isMessageError,
@@ -754,7 +955,29 @@ const UserContext = ({ children }) => {
       isUser,
       getUsersData,
       isEffectUser,
-      setIsEffectUser
+      setIsEffectUser,
+      switchOrderModal,
+      setSwitchOrderModal,
+      sendMessageTelegram,
+      formSecces,
+      setFormSecces,
+      checkBasket,
+      setCheckBasket,
+      basket,
+      isBasket,
+      isCountBasket,
+      addBasket,
+      deleteBasket,
+      setIsIdReceivedCard2,
+      getGoodsBasket,
+      sumBaske,
+      GoodsBasketDep,
+      setGoodsBasketDep,
+      GoodsFavoriteDep,
+      setGoodsFavoriteDep,
+      getOneGoodsUserApi,
+      getOneGoodsDev,
+      setGetOneGoodsDev
     }}>
       {children}
     </UserContextt.Provider>

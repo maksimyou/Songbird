@@ -28,11 +28,13 @@ function ListCategoryItem({ deleteCategoryApi, editCategoryApi, id, name, route 
             <div className="list-category-item-id">Id: {id}</div>
             <div className="list-category-item-name">{mode ? <input onChange={(e) => { setName(e.target.value) }} className='list-category-name-input' value={namme} type="text" /> : name}</div>
             <div className="list-category-item-role">{mode ? <input onChange={(e) => { setRoute(e.target.value) }} className='list-category-route-input' value={routte} type="text" /> : route}</div>
-            <div onClick={() => {
-                if (mode) { setEdit(true) }
-                setMode(!mode)
-            }} className="list-category-item-edit">{mode ? 'Сохранить' : 'Редактировать'}</div>
-            {mode && <div onClick={() => { setMode(false) }} className="list-category-item-cancel">Отмена</div>}
+            <div className="list-category-item-cansek-edit">
+                <div onClick={() => {
+                    if (mode) { setEdit(true) }
+                    setMode(!mode)
+                }} className="list-category-item-edit">{mode ? 'Сохранить' : 'Редактировать'}</div>
+                {mode && <div onClick={() => { setMode(false) }} className="list-category-item-cancel">Отмена</div>}
+            </div>
 
             <div onClick={() => { setDelete(true) }} className="list-category-item-delete">Удалить</div>
         </div>

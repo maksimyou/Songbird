@@ -101,7 +101,7 @@
     padding: 10px 0;
 }
 .header-nav-link a:hover {
-    color: rgba(142, 113, 55, 0.99);
+    color: rgba(236, 212, 155, 0.99);
     transition: 0.3s;
 }
 .contacts-address-registration {
@@ -119,7 +119,7 @@
     }
 }
 .contacts:hover {
-    color: rgba(181, 134, 16, 0.99);
+    color: rgba(236, 212, 155, 0.99);
     transition: 0.3s;
 }
 .address {
@@ -132,6 +132,7 @@
         margin: 0px 20px 0 20px;
     }
 }
+
 .registration {
     color: rgba(253, 255, 214, 1);
     text-transform: uppercase;
@@ -139,6 +140,16 @@
 }
 
 .registration:hover {
-    color: rgba(229, 171, 56, 0.99);
+    color: rgba(236, 212, 155, 0.99);
     transition: 0.3s;
+}
+
+.header-user-panel-burger {
+    display: flex;
+    align-items: center;
+}
+.header-user-panel-burger {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

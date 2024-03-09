@@ -1,0 +1,131 @@
+.burger-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: 0.5s;
+    z-index: 80;
+}
+.burger-container-active {
+    transform: translateX(0);
+    transition: 0.5s;
+}
+.burger-content {
+    width: 200px;
+    height: 100vh;
+    padding: 20px;
+    background-color: #8e6e43;
+}
+.burger-menu {
+}
+.burger-menu ul {
+    margin-bottom: 20px;
+}
+.burger-btn {
+    margin: 10px 0 30px;
+    position: relative;
+    border: none;
+    background: transparent;
+    width: 20px; //40px
+    height: 13px; //26px
+}
+.burger-btn::before,
+.burger-btn::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+.burger-btn::before {
+    top: 0;
+    box-shadow: 0 6px 0 #ffffff;
+}
+.burger-btn::after {
+    bottom: -2px;
+}
+.burger-btn::before {
+    transition:
+        box-shadow 0.3s 0.15s,
+        top 0.3s 0.15s,
+        transform 0.3s;
+}
+.burger-btn::after {
+    transition:
+        bottom 0.3s 0.15s,
+        transform 0.3s;
+}
+.burger-btn.active::before {
+    top: 5px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+    transition:
+        box-shadow 0.15s,
+        top 0.3s,
+        transform 0.3s 0.15s;
+}
+.burger-btn.active::after {
+    bottom: 5px;
+    transform: rotate(-45deg);
+    transition:
+        bottom 0.3s,
+        transform 0.3s 0.15s;
+}
+.header-nav-link-burger {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+.header-nav-link-burger img {
+    width: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.header-nav-link-burger a {
+    color: rgba(255, 255, 255, 0.99);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+}
+.header-nav-link-burger a:hover {
+    color: rgba(0, 0, 0, 0.99);
+    transition: 0.3s;
+}
+.submenu-burger {
+    padding-left: 5px;
+}
+.submenu-burger-link {
+    padding: 5px 0;
+}
+.submenu-burger-link a {
+    color: rgba(255, 255, 255, 0.99);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.submenu-burger-link a:hover {
+    color: rgba(0, 0, 0, 0.99);
+    transition: 0.3s;
+}
+.submenu-show-burger {
+}
+.active-arrow {
+    transform: rotate(90deg);
+}
+.setting-burger-block {
+    border-top: 1px solid white;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.setting-burger-block .address {
+    margin: 0;
+}
