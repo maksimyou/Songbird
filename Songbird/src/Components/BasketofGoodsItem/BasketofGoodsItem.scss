@@ -106,3 +106,58 @@
 .basketof-goods-item-add-basket img {
     width: 20px;
 }
+
+.basketof-goods-item-quantity {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #bababa;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-right: 10px;
+}
+.basketof-goods-item-quantity-wrap {
+    //background-color: #ffffff79;
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 5px 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.basketof-goods-item-quantity-minus {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #3a3a3a;
+    margin: 0 20px 0 0px;
+    width: 10px;
+}
+.basketof-goods-item-quantity-minus-disabled {
+    border-bottom: 4px solid #989696;
+    cursor: default;
+}
+.basketof-goods-item-quantity_number {
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    border-bottom: 1px solid #3a3a3a;
+    width: 10px;
+}
+.basketof-goods-item-quantity-plus {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    margin: 0 00px 0 20px;
+}

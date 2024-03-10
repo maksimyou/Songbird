@@ -43,6 +43,9 @@
     @media (max-width: 530px) {
         gap: 10px;
     }
+    @media (max-width: 350px) {
+        flex-direction: column;
+    }
 }
 .basket-of-goods-total {
     font-size: 19px;

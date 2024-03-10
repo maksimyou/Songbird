@@ -8,9 +8,16 @@ function ProductionMoreInfo() {
     const [addBaskets, setAddBasket] = useState(false)
     const [removeBasket, setRemoveBasket] = useState(false)
     const [quantityGoods, setQuantityGoods] = useState(1)
+    const [selectedCard, setSelectedCard] = useState('1')
+
+
 
     useEffect(() => {
-        if (addBaskets) addBasket({ idGoods: isGoodsOne.id }); setAddBasket(false);
+        if (addBaskets) {
+            isGoodsOne.quantity ? addBasket({ idGoods: isGoodsOne.id, count: quantityGoods }) : addBasket({ idGoods: isGoodsOne.id, count: selectedCard })
+            setAddBasket(false);
+        }
+
         if (removeBasket) deleteBasket({ idGoods: isGoodsOne.id }); setRemoveBasket(false);
     }, [addBaskets, removeBasket])
 
@@ -38,19 +45,21 @@ function ProductionMoreInfo() {
                                 </div>
                                 штук.</div>
                             :
-                            <select name="" id="" >
-                                <option value="">1кг</option>
-                                <option value="">2кг</option>
-                                <option value="">3кг</option>
-                                <option value="">4кг</option>
+                            <select
+                                value={selectedCard}
+                                onChange={e => setSelectedCard(e.target.value)} name="" id="" >
+                                <option value="1">1кг</option>
+                                <option value="2">2кг</option>
+                                <option value="3">3кг</option>
+                                <option value="4">4кг</option>
                             </select>
                         }
-                        <select name="" id="" >
+                        {/*<select name="" id="" >
                             <option value="">Йогуртовый</option>
                             <option value="">Фруктовый</option>
                             <option value="">Ореховый</option>
                             <option value="">Бисквитный</option>
-                        </select>
+                        </select>*/}
                     </div>
                     <div className="more-info-content-right-buy-in-the-basket">
                         <button className="more-info-content-right-buy">Купить сейчас</button>
@@ -81,7 +90,7 @@ function ProductionMoreInfo() {
 
                     <DropDownList title={"Описание"} text={isGoodsOne.description} />
                     <DropDownList title={"Состав"} text={isGoodsOne.composition} />
-                    <DropDownList title={"Срок годности"} text={'Срок годности: 18 месяцев Условия хранения: хранить вдали от источников тепла и солнечных лучей при температуре от 15 до 20 °C '} />
+                    <DropDownList title={"Срок годности"} text={'Срок годности: 3 дня Условия хранения: хранить при температуре от 3 до 5 °C '} />
                     <DropDownList title={"Доставка"} text={'Мы готовим из слоеного теста с ванильно-сливочным заварным кремом'} />
                     <DropDownList title={"Оплата"} text={'Мы готовим из слоеного теста с ванильно-сливочным заварным кремом'} />
                 </div>

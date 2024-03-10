@@ -52,7 +52,7 @@ const UserContext = ({ children }) => {
   const [getOneGoodsDev, setGetOneGoodsDev] = useState()
 
   const [favorites, setFavorites] = useState([])
-  const [basket, setBasket] = useState([])
+  const [basket, setBasket] = useState({ goods: [], list: [] })
 
 
 
@@ -814,7 +814,8 @@ const UserContext = ({ children }) => {
 
 
   const sumBasketGoods = (data) => {
-    let sum = data.reduce((a, b) => { return a + b.price }, 0)
+    let sum = 0;
+    data.goods.forEach((e, i) => { sum += data.list[i].count * e.price })
     setSumBaske(sum)
   }
 
@@ -832,6 +833,7 @@ const UserContext = ({ children }) => {
       .then(data => {
         console.log(data)
         setBasket(data)
+        setIsCountBasket(data.list.length)
         sumBasketGoods(data)
         setIsLoader(false)
       })

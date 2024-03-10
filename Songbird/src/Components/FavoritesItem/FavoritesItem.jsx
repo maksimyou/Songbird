@@ -15,7 +15,7 @@ function FavoritesItem({ category, setGoodsFavoriteDep, id, image, name, price }
     const { deleteFavorites, isUserId, addBasket } = UserContextFunc()
     useEffect(() => {
         if (removeFav) deleteFavorites({ idUser: isUserId.id, idGoods: id }); setRemoveFav(false);
-        if (addBas) addBasket({ idUser: isUserId.id, idGoods: id }); setAddBas(false)
+        if (addBas) addBasket({ idUser: isUserId.id, idGoods: id, count: 1 }); setAddBas(false)
     }, [removeFav, addBas])
     return (
         <div className='favorites-item-container'>

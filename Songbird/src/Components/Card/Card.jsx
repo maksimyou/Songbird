@@ -12,7 +12,8 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
     const { isAuth, addFavorites, isUserId, deleteFavorites, isFavorites, setIsSwitchCategory, checkLike, setCheckLike, checkBasket, setCheckBasket, isBasket, addBasket, deleteBasket } = UserContextFunc()
     //const [weight, setWeight] = useState('Выберите вес')
     //const [showList, setShowList] = useState(false)
-    const [selectedCard, setSelectedCard] = useState('0')
+    const [selectedCard, setSelectedCard] = useState('1')
+
     const [likee, setLike] = useState(true)
     const [likeShow, setlikeShow] = useState(false)
     const [basketShow, setbasketShow] = useState(false)
@@ -39,7 +40,11 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
 
         let arr = JSON.parse(isBasket.lists);
         console.log(arr);
-        if (arr.includes(id)) {
+
+        let arr2 = arr.map(e => e.idGoods)
+        console.log(arr2);
+
+        if (arr2.includes(id)) {
             setbasketShow(true)
         } else {
             setbasketShow(false)
@@ -58,8 +63,11 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
         if (checkBasket) checkBasketGoods(); setCheckBasket(false)
         if (addFav) addFavorites({ idGoods: id }); setIsSwitchCategory(true); setAddFav(false);
         if (removeFav) deleteFavorites({ idGoods: id }); setIsSwitchCategory(true); setRemoveFav(false);
-        if (addBaskets) addBasket({ idGoods: id }); setAddBasket(false);//setIsSwitchCategory(true);
-        if (removeBasket) deleteBasket({ idGoods: id }); setRemoveBasket(false); //setIsSwitchCategory(true); 
+        if (addBaskets) {
+            quantity ? addBasket({ idGoods: id, count: quantityGoods }) : addBasket({ idGoods: id, count: selectedCard })
+            setAddBasket(false);
+        }
+        if (removeBasket) deleteBasket({ idGoods: id }); setRemoveBasket(false);
     }, [addFav, removeFav, checkLike, checkBasket, addBaskets, removeBasket])
 
     return (
@@ -86,7 +94,6 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
                         value={selectedCard}
                         onChange={e => setSelectedCard(e.target.value)}
                     >
-                        <option value="0">Выберите вес</option>
                         <option value="1">1кг</option>
                         <option value="2">2кг</option>
                         <option value="3">3кг</option>
