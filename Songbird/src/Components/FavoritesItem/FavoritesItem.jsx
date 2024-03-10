@@ -22,7 +22,7 @@ function FavoritesItem({ category, setGoodsFavoriteDep, id, image, name, price }
             <div className="favorites-item-content">
                 <div onClick={() => { setRemoveFav(true) }} className="favorites-item-close"><img src={deletee} alt="" /></div>
                 <div className="favorites-item-image">
-                    <Link to={`/products/${category}/${id}`}><img src={`https://89.104.66.35:5000/${image}`} alt="" /></Link>
+                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru/${image}`} alt="" /></Link>
                 </div>
                 <Link to={`/products/${category}/${id}`}>
                     <div className="favorites-item-name">{name}</div>

@@ -25,7 +25,7 @@ function ProductionMoreInfo() {
         <div className="production-more-info-container">
             <div className="production-more-info-content">
                 <div className="production-more-info-content-left">
-                    <img src={`https://89.104.66.35:5000/${!isGoodsOne.imageURL ? '' : isGoodsOne.imageURL[0]}`} alt="" />
+                    <img src={`https://songbird21.ru/${!isGoodsOne.imageURL ? '' : isGoodsOne.imageURL[0]}`} alt="" />
                 </div>
                 <div className="production-more-info-content-right">
                     <div className="more-info-content-right-title">{isGoodsOne.name}</div>
