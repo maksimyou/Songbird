@@ -32,11 +32,11 @@ function ProductionMoreInfo() {
             <div className="production-more-info-content">
                 {showModalImg ? isGoodsOne.imageURL ? <MoadlImage setShowModalImg={setShowModalImg} countImg={countImg} setCountImg={setCountImg} /> : '' : ''}
                 <div className="production-more-info-content-left">
-                    <img onClick={() => { setShowModalImg(true) }} src={`http://89.104.66.35:5000/${!currentImg ? '' : currentImg}`} alt="" />
+                    <img onClick={() => { setShowModalImg(true) }} src={`https://89.104.66.35:5000/${!currentImg ? '' : currentImg}`} alt="" />
                     <div className="production-more-info-list-img">
                         {!isGoodsOne.imageURL ? '' : isGoodsOne.imageURL.map((elem, i) => {
                             return <div onMouseEnter={(e) => { console.log(e.target); setCurrentImg(elem) }} key={i} className={currentImg === elem ? 'production-more-info-img-min production-more-info-img-min-active' : 'production-more-info-img-min'}>
-                                <img src={`http://89.104.66.35:5000/${elem}`} alt="" />
+                                <img src={`https://89.104.66.35:5000/${elem}`} alt="" />
                             </div>
                         })}
                     </div>
