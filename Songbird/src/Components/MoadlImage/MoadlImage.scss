@@ -1,0 +1,59 @@
+.moadl-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(140, 137, 137, 0.519);
+}
+
+.moadl-image-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.moadl-image-close {
+    cursor: pointer;
+    background-image: url("../../assets/close.png");
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+}
+.moadl-image-prev {
+    cursor: pointer;
+    background-image: url("../../assets/next.png");
+    transform: rotate(180deg);
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.moadl-image-img {
+    max-width: 80%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.moadl-image-img img {
+    height: 100%;
+}
+.moadl-image-next {
+    cursor: pointer;
+    background-image: url("../../assets/next.png");
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

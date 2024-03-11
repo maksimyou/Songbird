@@ -16,6 +16,25 @@
 }
 .production-more-info-content-left img {
     width: 100%;
+    cursor: pointer;
+}
+.production-more-info-list-img {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.production-more-info-img-min {
+    //width: 150px;
+    width: 25.5%;
+    cursor: pointer;
+}
+.production-more-info-img-min img {
+    width: 100%;
+}
+.production-more-info-img-min-active {
+    //width: 146px;
+    width: 25.3%;
+    border: 2px solid rgb(142, 136, 136);
 }
 .production-more-info-content-right {
     max-width: 508px;

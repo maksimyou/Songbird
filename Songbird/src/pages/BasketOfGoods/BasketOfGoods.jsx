@@ -13,11 +13,11 @@ function BasketOfGoods() {
 
 
     useEffect(() => {
-        getGoodsBasket();
+        getGoodsBasket(true);
     }, [])
 
     useEffect(() => {
-        if (GoodsBasketDep) getGoodsBasket(); setGoodsBasketDep(false)
+        if (GoodsBasketDep) getGoodsBasket(false); setGoodsBasketDep(false)
     }, [GoodsBasketDep])
 
     return (

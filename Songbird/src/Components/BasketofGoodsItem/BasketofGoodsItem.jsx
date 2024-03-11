@@ -19,7 +19,7 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
         console.log(list)
         let arr2 = list.filter(e => (e.idGoods).toString() === (id).toString())
         console.log(arr2);
-        setQuantityGoods(arr2[0].count)
+        setQuantityGoods(Number(arr2[0].count))
     }
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
         <div className='basketof-goods-item-container'>
             <div className="basketof-goods-item-content">
                 <div className="basketof-goods-item-image">
-                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru/${image}`} alt="" /></Link>
+                    <Link to={`/products/${category}/${id}`}><img src={`http://89.104.66.35:5000/${image}`} alt="" /></Link>
                 </div>
                 <Link to={`/products/${category}/${id}`}>
                     <div className="basketof-goods-item-name">{name}</div>

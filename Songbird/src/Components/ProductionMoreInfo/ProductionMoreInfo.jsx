@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react'
 import './ProductionMoreInfo.scss'
 import DropDownList from '../DropDownList/DropDownList'
 import { UserContextFunc } from '../../Context/UserContext'
+import MoadlImage from '../MoadlImage/MoadlImage'
 function ProductionMoreInfo() {
 
-    const { isGoodsOne, isAuth, addBasket, deleteBasket } = UserContextFunc();
+    const { isGoodsOne, isAuth, addBasket, deleteBasket, currentImg, setCurrentImg } = UserContextFunc();
     const [addBaskets, setAddBasket] = useState(false)
     const [removeBasket, setRemoveBasket] = useState(false)
+    const [showModalImg, setShowModalImg] = useState(false)
+
     const [quantityGoods, setQuantityGoods] = useState(1)
     const [selectedCard, setSelectedCard] = useState('1')
+    const [countImg, setCountImg] = useState(0)
 
-
-
+    //useEffect(() => {
+    //    setCurrentImg(isGoodsOne.imageURL[0])
+    //}, [])
+    console.log(isGoodsOne)
     useEffect(() => {
         if (addBaskets) {
             isGoodsOne.quantity ? addBasket({ idGoods: isGoodsOne.id, count: quantityGoods }) : addBasket({ idGoods: isGoodsOne.id, count: selectedCard })
@@ -24,8 +30,16 @@ function ProductionMoreInfo() {
     return (
         <div className="production-more-info-container">
             <div className="production-more-info-content">
+                {showModalImg ? isGoodsOne.imageURL ? <MoadlImage setShowModalImg={setShowModalImg} countImg={countImg} setCountImg={setCountImg} /> : '' : ''}
                 <div className="production-more-info-content-left">
-                    <img src={`https://songbird21.ru/${!isGoodsOne.imageURL ? '' : isGoodsOne.imageURL[0]}`} alt="" />
+                    <img onClick={() => { setShowModalImg(true) }} src={`http://89.104.66.35:5000/${!currentImg ? '' : currentImg}`} alt="" />
+                    <div className="production-more-info-list-img">
+                        {!isGoodsOne.imageURL ? '' : isGoodsOne.imageURL.map((elem, i) => {
+                            return <div onMouseEnter={(e) => { console.log(e.target); setCurrentImg(elem) }} key={i} className={currentImg === elem ? 'production-more-info-img-min production-more-info-img-min-active' : 'production-more-info-img-min'}>
+                                <img src={`http://89.104.66.35:5000/${elem}`} alt="" />
+                            </div>
+                        })}
+                    </div>
                 </div>
                 <div className="production-more-info-content-right">
                     <div className="more-info-content-right-title">{isGoodsOne.name}</div>
