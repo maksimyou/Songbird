@@ -17,12 +17,13 @@ function FavoritesItem({ category, setGoodsFavoriteDep, id, image, name, price }
         if (removeFav) deleteFavorites({ idUser: isUserId.id, idGoods: id }); setRemoveFav(false);
         if (addBas) addBasket({ idUser: isUserId.id, idGoods: id, count: 1 }); setAddBas(false)
     }, [removeFav, addBas])
+
     return (
         <div className='favorites-item-container'>
             <div className="favorites-item-content">
                 <div onClick={() => { setRemoveFav(true) }} className="favorites-item-close"><img src={deletee} alt="" /></div>
                 <div className="favorites-item-image">
-                    <Link to={`/products/${category}/${id}`}><img src={`https://89.104.66.35:5000/${image}`} alt="" /></Link>
+                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru/${image}`} alt="" /></Link>
                 </div>
                 <Link to={`/products/${category}/${id}`}>
                     <div className="favorites-item-name">{name}</div>

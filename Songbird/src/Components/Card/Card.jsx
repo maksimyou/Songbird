@@ -73,7 +73,7 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
     return (
         <div className='card-container'>
             <div className="card-content">
-                <Link to={`${id}`}><div onMouseEnter={() => setShowImg(true)} onMouseLeave={() => setShowImg(false)} className="card-img">{showImg && <div className="card-img-eye"></div>}<img className={showImg && 'card-img-hover'} src={`https://89.104.66.35:5000/${image}`} alt="" /></div></Link>
+                <Link to={`${id}`}><div onMouseEnter={() => setShowImg(true)} onMouseLeave={() => setShowImg(false)} className="card-img">{showImg && <div className="card-img-eye"></div>}<img className={showImg && 'card-img-hover'} src={`https://songbird21.ru/${image}`} alt="" /></div></Link>
                 <div className="card-name">{name}</div>
                 <div className="number-of-purchases-and-liked">
                     <div className="number-of-purchases">{`Купили ${bought} раз`}</div>
