@@ -22,7 +22,7 @@ function MoadlImage({ countImg, setCountImg, setShowModalImg }) {
                 <div onClick={() => setShowModalImg(false)} className="moadl-image-close"></div>
                 <div onClick={() => { countImg > 0 ? setCountImg(countImg - 1) : setCountImg(isGoodsOne.imageURL.length - 1) }} className="moadl-image-prev"></div>
                 <div className="moadl-image-img">
-                    <img src={`https://songbird21.ru/${currentImg}`} alt="" />
+                    <img src={`https://songbird21.ru/img/${currentImg}`} alt="" />
                 </div>
                 <div onClick={() => { countImg < isGoodsOne.imageURL.length - 1 ? setCountImg(countImg + 1) : setCountImg(0) }} className="moadl-image-next"></div>
             </div>

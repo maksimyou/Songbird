@@ -17,7 +17,7 @@ function ProductionMoreInfo() {
     //useEffect(() => {
     //    setCurrentImg(isGoodsOne.imageURL[0])
     //}, [])
-    console.log(isGoodsOne)
+    console.log(currentImg)
     useEffect(() => {
         if (addBaskets) {
             isGoodsOne.quantity ? addBasket({ idGoods: isGoodsOne.id, count: quantityGoods }) : addBasket({ idGoods: isGoodsOne.id, count: selectedCard })
@@ -32,11 +32,11 @@ function ProductionMoreInfo() {
             <div className="production-more-info-content">
                 {showModalImg ? isGoodsOne.imageURL ? <MoadlImage setShowModalImg={setShowModalImg} countImg={countImg} setCountImg={setCountImg} /> : '' : ''}
                 <div className="production-more-info-content-left">
-                    <img onClick={() => { setShowModalImg(true) }} src={`https://songbird21.ru/${!currentImg ? '' : currentImg}`} alt="" />
+                    <img onClick={() => { setShowModalImg(true) }} src={`https://songbird21.ru/img/${!currentImg ? '' : currentImg}`} alt="" />
                     <div className="production-more-info-list-img">
                         {!isGoodsOne.imageURL ? '' : isGoodsOne.imageURL.map((elem, i) => {
                             return <div onMouseEnter={(e) => { console.log(e.target); setCurrentImg(elem) }} key={i} className={currentImg === elem ? 'production-more-info-img-min production-more-info-img-min-active' : 'production-more-info-img-min'}>
-                                <img src={`https://songbird21.ru/${elem}`} alt="" />
+                                <img src={`https://songbird21.ru/img/${elem}`} alt="" />
                             </div>
                         })}
                     </div>

@@ -54,7 +54,7 @@ const UserContext = ({ children }) => {
   const [favorites, setFavorites] = useState([])
   const [basket, setBasket] = useState({ goods: [], list: [] })
 
-  const [currentImg, setCurrentImg] = useState()
+  const [currentImg, setCurrentImg] = useState('')
 
 
 
