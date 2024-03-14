@@ -803,6 +803,7 @@ const UserContext = ({ children }) => {
         console.log(data)
         //setIsLoader(false)
         setGoodsBasketDep(true)
+        setGetOneGoodsDev(true)
         setIsIdReceivedCard2(true);
         //if (dep) {
         //  setIsIdReceivedCard2(true);

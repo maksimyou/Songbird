@@ -9,7 +9,7 @@ function PersonalData({myData,setMyData,notifications, setNotifications}) {
                     <div className="personal-data-form-person-input">
                         <input value={myData.name} onChange={(e)=>{setMyData({...myData,name:e.target.value})}} className='form-person-input' type="text" placeholder='Имя' />
                         <input value={myData.phone} onChange={(e)=>{setMyData({...myData,phone:e.target.value})}} className='form-person-input' type="text" placeholder='Телефон' />
-                        <input value={myData.birthday} onChange={(e)=>{setMyData({...myData,birthday:e.target.value})}} className='form-person-input' type="text" placeholder='Дата рождения' />
+                        <input value={myData.birthday} onChange={(e)=>{setMyData({...myData,birthday:e.target.value})}} className='form-person-input' type="date" placeholder='Дата рождения' />
                         <input value={myData.email} onChange={(e)=>{setMyData({...myData,email:e.target.value})}} className='form-person-input' type="text" placeholder='E-mail' />
                     </div>
                     <div className="personal-data-form-person-chekbox">
