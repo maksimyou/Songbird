@@ -14,9 +14,7 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 function Footer() {
     const { isSetting } = UserContextFunc()
-    const formatPhone = (str) => {
-        return `+${str.slice(0, 1)} (${str.slice(1, 4)}) ${str.slice(4, 7)} ${str.slice(7, 9)} ${str.slice(9, 11)}`
-    }
+
 
     return (
         <div className='footer-container'>
@@ -26,7 +24,7 @@ function Footer() {
                         <img src={telephone} alt="" />
                         <div className="footer-item">
                             <div className="footer-item-title">Звоните по номеру</div>
-                            <a className='footer-item-subtitle' href={isSetting ? `tel:${isSetting.phone}` : "tel+72345678904"}>{isSetting ? formatPhone(isSetting.phone) : "+7 (234) 567 89 04"}</a>
+                            <a className='footer-item-subtitle' href={isSetting ? `tel:${isSetting.phone.replace(/[\(|\)|_|\-|\+)]/g, '')}` : "tel+72345678904"}>{isSetting ? isSetting.phone : "+7 (234) 567 89 04"}</a>
                         </div>
                     </div>
                     <div className="footer-content-items">
