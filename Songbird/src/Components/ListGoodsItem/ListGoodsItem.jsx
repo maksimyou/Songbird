@@ -16,7 +16,7 @@ function ListGoodsItem({ isCategory, deleteGoodsApi, id, imageURL, name, categor
         <div className="list-goods-item">
             <div className="list-goods-item-id">Id: {id}</div>
             <div className="list-goods-item-img">
-                <img src={`https://songbird21.ru/img/${imageURL}`} alt="" />
+                <img src={`http://localhost:5000/img/${imageURL}`} alt="" />
             </div>
             <div className="list-goods-item-name">{name}</div>
             <div className="list-goods-item-category">{filterCategory()}</div>
