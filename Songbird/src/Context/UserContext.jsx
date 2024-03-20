@@ -55,7 +55,12 @@ const UserContext = ({ children }) => {
   const [basket, setBasket] = useState({ goods: [], list: [] })
 
   const [currentImg, setCurrentImg] = useState('')
+  const [categoryDepend, setCategoryDepend] = useState(false)
 
+  const [messageAdmin, setMessageAdmin] = useState('')
+  const [messageAdminShow, setMessageAdminShow] = useState(false)
+  const [users, setUsers] = useState()
+  const [category, setCategory] = useState()
 
 
   const loginUserAuth = () => {
@@ -92,9 +97,14 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+        setUsers(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -113,9 +123,14 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setUsers(true)
+        setMessageAdminShow(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -363,9 +378,13 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -632,9 +651,14 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setCategory(true)
+        setMessageAdminShow(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -652,9 +676,14 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setCategory(true)
+        setMessageAdminShow(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -672,9 +701,13 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -696,9 +729,14 @@ const UserContext = ({ children }) => {
       .then(data => {
         console.log(data)
         setIsGoods(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+        setCategoryDepend(true)
         setIsLoader(false)
       })
       .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
         console.log(error.message)
         setIsLoader(false)
       })
@@ -717,11 +755,15 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
         setIsLoader(false)
         getSettingApi()
       })
       .catch(error => {
         console.log(error.message)
+        setMessageAdmin(error.message)
+        setMessageAdminShow(true)
         setIsLoader(false)
       })
   }
@@ -885,18 +927,27 @@ const UserContext = ({ children }) => {
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token'));
-    if (settingDepend) getSettingApi(); setSettingDepend(false)
-    if (isIdReceivedCard) getFavorites(); setIsIdReceivedCard(false) //???????????????????????????????????????????????
-    if (isIdReceivedCard2) getBasket(); setIsIdReceivedCard2(false) //???????????????????????????????????????????????
+    if (settingDepend) { getSettingApi(); setSettingDepend(false) }
+    if (isIdReceivedCard) { getFavorites(); setIsIdReceivedCard(false) } //???????????????????????????????????????????????
+    if (isIdReceivedCard2) { getBasket(); setIsIdReceivedCard2(false) } //???????????????????????????????????????????????
 
-    if (isIdReceived) getFavorites(); getBasket()
+    if (isIdReceived) { getFavorites(); getBasket() }
     //if (token && tokenDepend) console.log('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'); loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
-    if (isRoleEff) userRole(); setIsRoleEff(false);
-  }, [isRoleEff, isIdReceived, isIdReceivedCard, isIdReceivedCard2, tokenDepend, settingDepend])
+    if (isRoleEff) { userRole(); setIsRoleEff(false); }
+    if (categoryDepend) { getAllCategoryApi(); setCategoryDepend(false) }
+  }, [isRoleEff, isIdReceived, isIdReceivedCard, isIdReceivedCard2, tokenDepend, settingDepend, categoryDepend])
 
   useMemo(() => {
     let token = JSON.parse(localStorage.getItem('token'));
-    if (token && tokenDepend) loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
+    if (token && tokenDepend) {
+      console.log('sdfssssss')
+
+      loginUserAuth();
+      getUserId();
+      getUsersData();
+      userRole();
+      setTokenDepend(false)
+    }
 
   }, [tokenDepend])
 
@@ -989,7 +1040,16 @@ const UserContext = ({ children }) => {
       getOneGoodsDev,
       setGetOneGoodsDev,
       currentImg,
-      setCurrentImg
+      setCurrentImg,
+      setCategoryDepend,
+      messageAdmin,
+      setMessageAdmin,
+      messageAdminShow,
+      setMessageAdminShow,
+      users,
+      setUsers,
+      category,
+      setCategory
     }}>
       {children}
     </UserContextt.Provider>

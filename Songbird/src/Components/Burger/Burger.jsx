@@ -4,7 +4,7 @@ import './Burger.scss'
 import { UserContextFunc } from '../../Context/UserContext'
 import arrowr from '../../assets/arrow-right.png'
 
-function Burger({ isSetting, formatPhone, width, burgerToggle, setBurgerToggle, setNavShow, isCategory, setIsSwitchCategory, navShow }) {
+function Burger({ isSetting, width, burgerToggle, setBurgerToggle, setNavShow, isCategory, setIsSwitchCategory, navShow }) {
     const [submenuProduct, setSubmenuProduct] = useState(true)
     return (
         <div className={burgerToggle ? 'burger-container' : 'burger-container burger-container-active '}>
@@ -29,7 +29,7 @@ function Burger({ isSetting, formatPhone, width, burgerToggle, setBurgerToggle, 
                         <li onClick={() => { setBurgerToggle(!burgerToggle) }} className='header-nav-link-burger'><Link to="/">О сайте</Link></li>
                     </ul>
                     {width <= 900 && <div className='setting-burger-block'>
-                        <a className='contacts' href={isSetting ? `tel:${isSetting.phone}` : "tel+72345678904"}>{isSetting ? formatPhone(isSetting.phone) : "+7 (234) 567 89 04"}</a>
+                        <a className='contacts' href={isSetting ? `tel:${isSetting.phone.replace(/[\(|\)|_|\-|\+)]/g, '')}` : "tel+72345678904"}>{isSetting ? isSetting.phone : "+7 (234) 567 89 04"}</a>
                         <div className="address">{isSetting ? isSetting.address : "г. Москва, Ленинский проспект"}</div>
                     </div>}
                 </div>}

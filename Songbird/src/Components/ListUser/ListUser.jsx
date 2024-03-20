@@ -5,9 +5,8 @@ import ListUserItem from '../ListUserItem/ListUserItem'
 import resize from '../../Hooks/resize'
 
 function ListUser() {
-    const [users, setUsers] = useState()
     const [width, hight] = resize();
-    const { deleteUserApi, editUserApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
+    const { users, setUsers, deleteUserApi, editUserApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
     console.log(isUsers)
     useEffect(() => {
         getUsers();
@@ -19,7 +18,7 @@ function ListUser() {
         <div className="list-user-container">
             <div className="list-user-title-refresh">
                 <div className="list-user-title">Список пользователей</div>
-                <div onClick={() => { setUsers(true) }} className="list-user-refresh">Обновить</div>
+                {/*<div onClick={() => { setUsers(true) }} className="list-user-refresh">Обновить</div>*/}
             </div>
             <div className='list-user'>
                 {width >= 1260 && <div className="list-user-header">

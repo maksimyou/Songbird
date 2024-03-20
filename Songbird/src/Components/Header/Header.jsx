@@ -20,9 +20,9 @@ function Header() {
         if (exit) exitUser(); setExit(); setIsCountFavorites(0); setIsFavorites({ lists: "[]" })
     }, [exit])
 
-    const formatPhone = (str) => {
-        return `+${str.slice(0, 1)} (${str.slice(1, 4)}) ${str.slice(4, 7)} ${str.slice(7, 9)} ${str.slice(9, 11)}`
-    }
+    //const formatPhone = (str) => {
+    //    return `+${str.slice(0, 1)} (${str.slice(1, 4)}) ${str.slice(4, 7)} ${str.slice(7, 9)} ${str.slice(9, 11)}`
+    //}
 
     return (
         <div className='header-container'>
@@ -51,7 +51,7 @@ function Header() {
                 </div>
                 <div className="contacts-address-registration">
                     {width >= 901 && <>
-                        <a className='contacts' href={isSetting ? `tel:${isSetting.phone}` : "tel+72345678904"}>{isSetting ? formatPhone(isSetting.phone) : "+7 (234) 567 89 04"}</a>
+                        <a className='contacts' href={isSetting ? `tel:${isSetting.phone.replace(/[\(|\)|_|\-|\+)]/g, '')}` : "tel+72345678904"}>{isSetting ? isSetting.phone : "+7 (234) 567 89 04"}</a>
                         <div className="address">{isSetting ? isSetting.address : "г. Москва, Ленинский проспект"}</div>
                         {isAuth ? <UserPanel isCountBasket={isCountBasket} isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div>}
                     </>}
@@ -61,7 +61,7 @@ function Header() {
                     {width <= 900 ? isAuth ? <UserPanel isCountBasket={isCountBasket} isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div> : ''}
                     <div style={{ marginTop: '25px' }} onClick={() => { setBurgerToggle(!burgerToggle) }} className={burgerToggle ? "burger-btn" : "burger-btn active"}></div>
                 </div> : ''}
-                {width <= 1050 ? <Burger formatPhone={formatPhone} isSetting={isSetting} width={width} burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle} setNavShow={setNavShow} isCategory={isCategory} setIsSwitchCategory={setIsSwitchCategory} navShow={navShow} /> : ''}
+                {width <= 1050 ? <Burger isSetting={isSetting} width={width} burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle} setNavShow={setNavShow} isCategory={isCategory} setIsSwitchCategory={setIsSwitchCategory} navShow={navShow} /> : ''}
             </div>
         </div>
     )
