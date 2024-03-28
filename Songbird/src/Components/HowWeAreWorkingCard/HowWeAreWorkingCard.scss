@@ -1,0 +1,44 @@
+.how-we-are-working-card-container {
+}
+.how-we-are-working-card-content {
+    border: 1px solid #cca275;
+    border-radius: 5px;
+    width: 294px;
+    height: 339px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.how-we-are-working-card-number {
+    border-radius: 100%;
+    background-color: #cca275;
+    box-shadow: 0 4px 30px 0 rgba(67, 6, 32, 0.3);
+    font-family: Jost, sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8d6e43;
+}
+
+.how-we-are-working-card-title {
+    font-family: Jost, sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    text-align: center;
+    color: #8d6e43;
+    margin: 32px 0 26px;
+}
+
+.how-we-are-working-card-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #444251;
+    text-align: center;
+    width: 214px;
+}

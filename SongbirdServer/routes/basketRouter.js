@@ -9,6 +9,8 @@ const router = new Router()
 
 router.post('/add', authMiddleware, basketController.addBasket)
 router.post('/get', authMiddleware, basketController.getBasket)
+router.post('/update', authMiddleware, basketController.updateBasket)
+
 router.post('/delete', authMiddleware, basketController.deleteBasket)
 router.get('/get-goods', authMiddleware, basketController.getBasketGoods)
 

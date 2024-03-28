@@ -14,6 +14,7 @@ import MyData from './Components/MyData/MyData.jsx'
 import HistoryOfOrders from './Components/HistoryOfOrders/HistoryOfOrders.jsx'
 import AddingGoods from './Components/AddingGoods/AddingGoods.jsx'
 import ListGoods from './Components/ListGoods/ListGoods.jsx'
+import ListOrders from './Components/ListOrders/ListOrders.jsx'
 import ListUser from './Components/ListUser/ListUser.jsx'
 import UserContext from './Context/UserContext.jsx'
 import ListCategory from './Components/ListCategory/ListCategory.jsx'
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
             path: "list-user",
             element: <ListUser />,
           },
+          {
+            path: "list-orders",
+            element: <ListOrders />,
+          },
+
           {
             path: "settings-site",
             element: <SettingsSite />,

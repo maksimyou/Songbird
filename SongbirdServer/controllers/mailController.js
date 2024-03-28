@@ -49,7 +49,7 @@ class mailController {
                     address: 'notify@songbird21.ru'
                 },
                 to: reciever,
-                subject: 'Welcom to test site',
+                subject: 'Добро пожаловать на сайт!',
                 text: message,
                 html: `
                 <div style="padding:20px 10px; margin: 0 auto; width:60%; background: #cca275; display:flex; align-items: center; justify-content: center;">

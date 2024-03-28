@@ -7,3 +7,229 @@
     align-items: center;
     justify-content: center;
 }
+.checkout-container {
+    max-width: 1700px;
+    margin: 0 auto;
+    min-height: 60vh;
+    padding: 0 10px;
+}
+.checkout-content {
+    margin-top: 50px;
+}
+.checkout-title {
+    font-size: 26px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    margin: 30px 0;
+}
+
+.checkout-forms {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+}
+.checkout-left {
+}
+.checkout-subtitle {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+}
+.checkout-personal-data-title {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+}
+.checkout-left-wrap-input {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+}
+.checkout-left-wrap-btn {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+}
+.checkout-personal-data-input {
+    border: 1px solid #9a9ea5;
+    border-radius: 5px;
+    outline: none;
+    border-radius: 1px;
+    width: 290px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+}
+.checkout-select-address-input {
+    border: 1px solid #9a9ea5;
+    border-radius: 5px;
+    outline: none;
+    border-radius: 1px;
+    width: 290px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+}
+.checkout-select-address-input-min {
+    border: 1px solid #9a9ea5;
+    border-radius: 5px;
+    outline: none;
+    border-radius: 1px;
+    width: 114px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+}
+.checkout-btn {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 146px;
+    height: 42px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    cursor: pointer;
+}
+.checkout-btn-disabled {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 146px;
+    height: 42px;
+    background: #f5f5f5;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #696969;
+    cursor: pointer;
+}
+.checkout-left-courier {
+}
+.checkout-personal-data-select {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 500px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #646568;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.checkout-select-address-textarea {
+    border: 1px solid #9a9ea5;
+    border-radius: 5px;
+    min-height: 100px;
+    outline: none;
+    border-radius: 1px;
+    max-width: 500px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.checkout-select-address-date {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.checkout-select-address-date input {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 70px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #646568;
+    padding: 0 20px;
+}
+
+.checkout-select-address-time {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.checkout-select-address-time input {
+    border: 1px solid #9a9ea5;
+    outline: none;
+    border-radius: 1px;
+    width: 70px;
+    height: 42px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #646568;
+    padding: 0 20px;
+}
+.checkout-left-pickup {
+}
+.checkout-select-address-shipment {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.checkout-select-address-shipment span {
+    font-weight: 500;
+}
+.checkout-select-address-map {
+    border: 3px solid #9a9ea5;
+    height: 250px;
+    margin-bottom: 20px;
+}
+.checkout-right {
+}
+.checkout-empty {
+    font-size: 36px;
+    min-height: 40vh;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

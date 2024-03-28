@@ -9,8 +9,7 @@ import ListGoodsItem from '../ListGoodsItem/ListGoodsItem'
 function ListGoods() {
 
 
-    const { getCategoryGoods, setIsGoods, isGoods, isCategory, getAllGoodsApi, deleteGoodsApi } = UserContextFunc()
-    const [goods, setGoods] = useState()
+    const { goods, setGoods, getCategoryGoods, setIsGoods, isGoods, isCategory, getAllGoodsApi, deleteGoodsApi } = UserContextFunc()
     const [sortIconPrice, setSortIconPrice] = useState()
     const [goodsSort, setGoodsSort] = useState()
     const [goodsSort2, setGoodsSort2] = useState()
@@ -44,7 +43,6 @@ function ListGoods() {
                     ? <>
                         <div className="list-goods-title-refresh">
                             <div className="list-goods-title">Список всех товаров</div>
-                            <div onClick={() => { setGoods(true) }} className="list-goods-refresh">Обновить</div>
                             <select
                                 value={selectedCategory}
                                 onChange={e => { setSelectedCategory(e.target.value); setGoodsSort(true) }}
@@ -61,7 +59,6 @@ function ListGoods() {
                                 <option value="down">По возрастанию</option>
                                 <option value="up">По убыванию</option>
                             </select>
-
                         </div>
                         <div className="list-goods-item-list">
                             <div className=""></div>

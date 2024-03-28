@@ -1,0 +1,207 @@
+.more-order-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.285);
+}
+.more-order-close {
+    position: absolute;
+    background-image: url("../../assets/close.png");
+    width: 15px;
+    height: 15px;
+    padding: 15px;
+    background-color: #a58256;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    top: -40px;
+    right: -40px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.more-order-content {
+    position: relative;
+    width: 900px;
+    height: 530px;
+    padding: 20px;
+    display: flex;
+    //align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #e8e6df;
+}
+.more-order-info {
+}
+.more-order-info-user {
+    font-family: Jost, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #a58256;
+    margin-bottom: 15px;
+}
+.more-order-info span {
+    font-family: Jost, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #070707;
+}
+.more-order-info-name {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-email {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-phone {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-adress {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-adress-list li {
+    margin-bottom: 5px;
+}
+.adres-wrap {
+    margin-bottom: 15px;
+}
+
+.more-order-info-delivery {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-comments {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-payment-method {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-payment-bonus {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 7px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-info-charged-bonus {
+    max-width: 370px;
+    justify-content: flex-start;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+}
+.more-order-order-list {
+    //overflow-y: scroll;
+    width: 50%;
+    //height: 230px;
+}
+.more-order-order-list ul {
+}
+
+.more-order-order-list-img img {
+    width: 100px;
+}
+.more-order-order-list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
+
+.more-order-order-list-item-item {
+    margin-bottom: 7px;
+    text-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Jost, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #070707;
+    padding-right: 10px;
+    border-right: 1px solid #070707;
+}
+
+.more-order-order-list-item-item span {
+    font-family: Jost, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #070707;
+}

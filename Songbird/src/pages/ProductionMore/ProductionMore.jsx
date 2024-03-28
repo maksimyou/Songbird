@@ -7,7 +7,7 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 function ProductionMore() {
     let nav = useParams();
-    const { getOneGoodsApi, getOneGoodsUserApi, isGoodsOne, isCategoryBread, getOneGoodsDev, setGetOneGoodsDev } = UserContextFunc();
+    const { isAuth, getOneGoodsApi, getOneGoodsUserApi, isGoodsOne, isCategoryBread, getOneGoodsDev, setGetOneGoodsDev } = UserContextFunc();
 
 
     useEffect(() => {
@@ -20,9 +20,9 @@ function ProductionMore() {
     }, [getOneGoodsDev])
 
     useEffect(() => {
-        let token = JSON.parse(localStorage.getItem('token'));
 
-        if (token) {
+
+        if (isAuth) {
             getOneGoodsUserApi(({ id: nav.id }))
         } else {
             getOneGoodsApi({ id: nav.id })

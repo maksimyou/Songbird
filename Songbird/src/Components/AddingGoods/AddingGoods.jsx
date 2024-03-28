@@ -100,17 +100,7 @@ function AddingGoods() {
         obj.text = '';
         setStatusImg([...statusImg, obj]);
     }
-    console.log(name === '',
-        //price === 'str',
-        category === '',
-        quantity === null,
-        composition === '',
-        description === '',
-        file.length === 0,
-        messageImg,
-        +price !== +price
 
-    );
     const allInputFull = () => {
         console.log(name === '',
             //price === 0,
@@ -124,7 +114,6 @@ function AddingGoods() {
         );
         if (
             name === '' ||
-            //price === 0 ||
             category === '' ||
             quantity === null ||
             composition === '' ||
@@ -176,6 +165,7 @@ function AddingGoods() {
                     <div className="adding-goods-input">
                         <span className='adding-goods-input-title'>Тип количества: </span>
                         <select onChange={(e) => { e.target.value === 'true' ? setQuantity(true) : setQuantity(false) }}>
+                            <option required selected disabled hidden value='null'>Выберите</option>
                             <option value='true'>В штуках</option>
                             <option value='false'>В килограмах</option>
                         </select>
@@ -183,7 +173,7 @@ function AddingGoods() {
                     <div className="adding-goods-input">
                         <span className='adding-goods-input-title'>Категория: </span>
                         <select onChange={(e) => { setCategory(e.target.value) }}>
-                            <option value=''>{'Выберите категорию'}</option>
+                            <option required selected disabled hidden value=''>{'Выберите категорию'}</option>
                             {isCategory.map(e => {
                                 return <>
                                     <option value={e.route}>{e.name}</option>

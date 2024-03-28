@@ -1,8 +1,14 @@
+.main-container-wrap {
+}
+
 .main-container {
     background-image: url("../../assets/Realistic.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 90vh;
+    @media (min-width: 1920px) {
+        height: 900px;
+    }
     @media (max-width: 1400px) {
         height: 80vh;
     }

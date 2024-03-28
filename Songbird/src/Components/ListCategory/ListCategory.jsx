@@ -16,7 +16,6 @@ function ListCategory() {
             <div className="list-category-content">
                 <div className="list-category-title-refresh">
                     <div className="list-category-title">Список всех категорий</div>
-                    {/*<div onClick={() => { setCategory(true) }} className="list-category-refresh">Обновить</div>*/}
                 </div>
                 <div className="list-category-item-list">
                     {
@@ -25,10 +24,6 @@ function ListCategory() {
                         })
                     }
                 </div>
-
-
-
-
             </div>
         </div>
     )

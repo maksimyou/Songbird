@@ -37,7 +37,10 @@ function Modal() {
     const ref4 = useRef()
     const ref5 = useRef()
 
-
+    const refBtn1 = useRef()
+    const refBtn2 = useRef()
+    const refBtn3 = useRef()
+    const refBtn4 = useRef()
 
     const clearValue = () => {
         setValue1(false);
@@ -194,55 +197,88 @@ function Modal() {
                                 <div onClick={() => { setModeModal(false); if (!modalSwitch) { clearValue() } }} className={modeModal ? "reg-model action-model2" : "reg-model"}>Регистрация</div>
                             </div>
                             {
-                                modeModal ? confirmMail2 ? <form onSubmit={e => e.preventDefault()} className="form-modal2">
-                                    <div className="confirm-mail">Подтверждение почты</div>
-                                    <div className="your-email"><span>Профиль не подтвержден.</span> <br /> На вашу почту отправлен код</div>
-                                    <div className="form-modal2-code">
-                                        <span className='your-code'>Код:</span>
-                                        <input value={code} onChange={(e) => { CheckingCode(e.target.value); setCode(e.target.value) }} className="code-modal" placeholder='Введите код' />
-                                    </div>
-                                    <div onClick={() => setConfirm2(true)} className="confirm-again">Отправить еще раз</div>
-                                    <div className="message-error">{isMessageError}</div>
-                                    <button onClick={(e) => { if (value4) { e.preventDefault(); setConfirm(true) } }} className='registration-modal confirm-mail-btn'>Отправить</button>
-                                </form> : <form onSubmit={e => e.preventDefault()} className='form-modal' action="#">
-                                    {/*<input onInput={(e) => CheckingLogin(e.target.value)} className={login ? 'login-modal' : 'login-modal login-modal-red'} placeholder='Введите логин' type="text" name=""  />*/}
-                                    <input ref={ref1} onBlur={(e) => CheckingMail(e.target.value)} className={mail ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
-                                    {mail ? '' : <div className="modal-error">Введеный Email не корректный</div>}
-                                    <div className="password-modal-wrap">
-                                        <input ref={ref2} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword2 ? "password" : "text"} name="" />
-                                        <img onClick={() => setShowPassword2(!showPassword2)} src={showPassword2 ? hidden : show} alt="" />
-                                    </div>
-                                    {password ? '' : <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
-                                    <div className="message-error">{isMessageError}</div>
-                                    <button onClick={(e) => { if (value2 && value3) { e.preventDefault(); setLog(true) } }} className='registration-modal'><span>Вход</span></button>
-                                </form> : confirmMail ? <form onSubmit={e => e.preventDefault()} className="form-modal2">
-                                    <div className="confirm-mail">Подтверждение почты</div>
-                                    <div className="your-email">На вашу почту отправлен код</div>
-                                    <div className="form-modal2-code">
-                                        <span className='your-code'>Код:</span>
-                                        <input value={code} onChange={(e) => { CheckingCode(e.target.value); setCode(e.target.value) }} className="code-modal" placeholder='Введите код' />
-                                    </div>
-                                    <div onClick={() => setConfirm2(true)} className="confirm-again">Отправить еще раз</div>
-                                    <div className="message-error">{isMessageError}</div>
-                                    <button onClick={(e) => { if (value4) { e.preventDefault(); setConfirm(true) } }} className='registration-modal confirm-mail-btn'>Отправить</button>
-                                </form> : <form onSubmit={e => e.preventDefault()} className='form-modal' action="#">
-                                    {/*<input className='login-modal' placeholder='Введите логин' type="text" name=""  />*/}
-                                    <input ref={ref3} onBlur={(e) => CheckingWorldName(e.target.value)} className={name ? 'name-modal' : 'name-modal error-red'} placeholder='Введите имя' type="text" name="" />
-                                    {name ? '' : <div className="modal-error">Введенное имя не корректно</div>}
-                                    <div className="password-modal-wrap">
-                                        <input ref={ref4} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword ? "password" : "text"} name="" />
-                                        <img onClick={() => setShowPassword(!showPassword)} src={showPassword ? hidden : show} alt="" />
-
-                                    </div>
-                                    {password ? '' : <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
-                                    <input ref={ref5} onBlur={(e) => CheckingMail(e.target.value)} className={password ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
-                                    {mail ? '' : <div className="modal-error">Введеный Email не корректный</div>}
-                                    <div className="message-error">{isMessageError}</div>
-                                    <button onClick={(e) => { if (value1 && value2 && value3) { e.preventDefault(); setReg(true) } }} className='registration-modal'><span>Зарегистрироваться</span></button>
-                                </form>
+                                modeModal
+                                    ?
+                                    confirmMail2
+                                        ?
+                                        <form onSubmit={e => e.preventDefault()} className="form-modal2">
+                                            <div className="confirm-mail">Подтверждение почты</div>
+                                            <div className="your-email"><span>Профиль не подтвержден.</span> <br /> На вашу почту отправлен код</div>
+                                            <div className="form-modal2-code">
+                                                <span className='your-code'>Код:</span>
+                                                <input onBlur={() => refBtn1.current.focus()} value={code} onChange={(e) => { CheckingCode(e.target.value); setCode(e.target.value) }} className="code-modal" placeholder='Введите код' />
+                                            </div>
+                                            <div onClick={() => setConfirm2(true)} className="confirm-again">Отправить еще раз</div>
+                                            <div className="message-error">{isMessageError}</div>
+                                            <button ref={refBtn1} onClick={(e) => { if (value4) { e.preventDefault(); setConfirm(true) } }} className='registration-modal confirm-mail-btn'>Отправить</button>
+                                        </form>
+                                        :
+                                        <form onKeyDown={(e) => console.log(e)} onSubmit={e => { console.log(e); e.preventDefault() }} className='form-modal' action="#">
+                                            {/*<input onInput={(e) => CheckingLogin(e.target.value)} className={login ? 'login-modal' : 'login-modal login-modal-red'} placeholder='Введите логин' type="text" name=""  />*/}
+                                            <input ref={ref1} onBlur={(e) => { CheckingMail(e.target.value) }} className={mail ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
+                                            {mail
+                                                ?
+                                                ''
+                                                :
+                                                <div className="modal-error">Введеный Email не корректный</div>}
+                                            <div className="password-modal-wrap">
+                                                <input ref={ref2} onBlur={(e) => { refBtn2.current.focus(); CheckingPassword(e.target.value) }} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword2 ? "password" : "text"} name="" />
+                                                <img onClick={() => setShowPassword2(!showPassword2)} src={showPassword2 ? hidden : show} alt="" />
+                                            </div>
+                                            {password
+                                                ?
+                                                ''
+                                                :
+                                                <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
+                                            <div className="message-error">{isMessageError}</div>
+                                            <button ref={refBtn2} onClick={(e) => { if (value2 && value3) { e.preventDefault(); setLog(true) } }} className='registration-modal'><span>Вход</span></button>
+                                        </form>
+                                    :
+                                    confirmMail
+                                        ?
+                                        <form onSubmit={e => e.preventDefault()} className="form-modal2">
+                                            <div className="confirm-mail">Подтверждение почты</div>
+                                            <div className="your-email">На вашу почту отправлен код</div>
+                                            <div className="form-modal2-code">
+                                                <span className='your-code'>Код:</span>
+                                                <input onBlur={() => refBtn3.current.focus()} value={code} onChange={(e) => { CheckingCode(e.target.value); setCode(e.target.value) }} className="code-modal" placeholder='Введите код' />
+                                            </div>
+                                            <div onClick={() => setConfirm2(true)} className="confirm-again">Отправить еще раз</div>
+                                            <div className="message-error">{isMessageError}</div>
+                                            <button ref={refBtn3} onClick={(e) => { if (value4) { e.preventDefault(); setConfirm(true) } }} className='registration-modal confirm-mail-btn'>Отправить</button>
+                                        </form>
+                                        :
+                                        <form onSubmit={e => e.preventDefault()} className='form-modal' action="#">
+                                            {/*<input className='login-modal' placeholder='Введите логин' type="text" name=""  />*/}
+                                            <input ref={ref3} onBlur={(e) => CheckingWorldName(e.target.value)} className={name ? 'name-modal' : 'name-modal error-red'} placeholder='Введите имя' type="text" name="" />
+                                            {name
+                                                ?
+                                                ''
+                                                :
+                                                <div className="modal-error">Введенное имя не корректно</div>}
+                                            <div className="password-modal-wrap">
+                                                <input ref={ref4} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword ? "password" : "text"} name="" />
+                                                <img onClick={() => setShowPassword(!showPassword)} src={showPassword ? hidden : show} alt="" />
+                                            </div>
+                                            {password
+                                                ?
+                                                ''
+                                                :
+                                                <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
+                                            <input ref={ref5} onBlur={(e) => { refBtn4.current.focus(); CheckingMail(e.target.value) }} className={password ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
+                                            {mail
+                                                ?
+                                                ''
+                                                :
+                                                <div className="modal-error">Введеный Email не корректный</div>}
+                                            <div className="message-error">{isMessageError}</div>
+                                            <button ref={refBtn4} onKeyDown={(e => { console.log(e) })} onClick={(e) => { if (value1 && value2 && value3) { e.preventDefault(); setReg(true) } }} className='registration-modal'><span>Зарегистрироваться</span></button>
+                                        </form>
                             }
                         </div>
-                    </div > : ''
+                    </div >
+                    :
+                    ''
             }
         </>
 

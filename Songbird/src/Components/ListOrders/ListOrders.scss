@@ -1,0 +1,87 @@
+.list-orders-container {
+}
+.list-orders-content {
+    margin-left: 30px;
+}
+.list-orders-title {
+    font-size: 26px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    margin-bottom: 30px;
+}
+.list-orders {
+}
+.list-orders-header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 30px;
+    border-left: 1px solid black;
+    padding-right: 50px;
+}
+.list-orders-header-id {
+    width: 70px;
+    height: 100%;
+    color: #a58256;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.list-orders-header-buyer {
+    width: 200px;
+    height: 100%;
+    color: #a58256;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.list-orders-header-status {
+    width: 200px;
+    height: 100%;
+    color: #a58256;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.list-orders-header-all {
+    width: 300px;
+    height: 100%;
+    color: #a58256;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.list-orders-header-created {
+    width: 200px;
+    height: 100%;
+    color: #a58256;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.list-orders-header-action {
+    width: 250px;
+    height: 100%;
+    color: #a58256;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}

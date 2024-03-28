@@ -13,6 +13,7 @@ function BasketOfGoods() {
 
 
     useEffect(() => {
+        console.log('ssssssssssssssssssssssssssssssssssss')
         getGoodsBasket(true);
     }, [])
 

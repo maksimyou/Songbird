@@ -1,0 +1,29 @@
+.faq-block-container {
+    max-width: 1420px;
+    margin: 180px auto;
+    padding: 0 10px;
+}
+.faq-block-content {
+}
+.faq-block-title {
+    font-family: Jost, sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+    color: #444251;
+    margin-bottom: 90px;
+    @media (max-width: 660px) {
+        font-size: 34px;
+        margin-bottom: 50px;
+    }
+}
+.faq-block-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.faq-block-items-left {
+}
+
+.faq-block-items-right {
+}

@@ -11,8 +11,10 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
     const [quantityGoods, setQuantityGoods] = useState(1)
     //const [weight, setWeight] = useState(1)
 
+    const [timerSwitch, setTimerSwitch] = useState(false)
+    const [timerSwitch2, setTimerSwitch2] = useState(false)
 
-    const { deleteBasket, isUserId, } = UserContextFunc()
+    const { updateBasket, deleteBasket, isUserId, } = UserContextFunc()
     const [width, hight] = resize();
 
     const setWeightGoods = () => {
@@ -22,19 +24,26 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
         setQuantityGoods(Number(arr2[0].count))
     }
 
+    const timerQuantityGoods = () => {
+        quantity ? updateBasket({ idGoods: id, count: quantityGoods }) : updateBasket({ idGoods: id, count: quantityGoods })
+        setTimerSwitch(false)
+        setTimerSwitch2(false)
+    }
+
     useEffect(() => {
         setWeightGoods();
     }, [])
 
     useEffect(() => {
-        if (removeBas) deleteBasket({ idUser: isUserId.id, idGoods: id }); setWeightGoods(); setRemoveBas(false);
-    }, [removeBas])
+        if (removeBas) { deleteBasket({ idUser: isUserId.id, idGoods: id }); setWeightGoods(); setRemoveBas(false); }
+        if (timerSwitch) { timerQuantityGoods() }
+    }, [removeBas, timerSwitch])
 
     return (
         <div className='basketof-goods-item-container'>
             <div className="basketof-goods-item-content">
                 <div className="basketof-goods-item-image">
-                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru/img/${image}`} alt="" /></Link>
+                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru:5000/img/${image}`} alt="" /></Link>
                 </div>
                 <Link to={`/products/${category}/${id}`}>
                     <div className="basketof-goods-item-name">{name}</div>
@@ -47,9 +56,25 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
                     <div className="basketof-goods-item-weight">
                         {width <= 930 ? `Количество: ` : ``}
                         <div className="basketof-goods-item-quantity-wrap">
-                            <span onClick={() => { if (quantityGoods > 1) setQuantityGoods(quantityGoods - 1) }} className={quantityGoods === 1 ? 'basketof-goods-item-quantity-minus basketof-goods-item-quantity-minus-disabled' : 'basketof-goods-item-quantity-minus'}></span>
+                            <span onClick={() => {
+                                if (quantityGoods > 1) { setQuantityGoods(quantityGoods - 1) }
+                                if (!timerSwitch && !timerSwitch2) {
+                                    setTimerSwitch2(true)
+                                    setTimeout(() => {
+                                        setTimerSwitch(true)
+                                    }, 2000)
+                                }
+                            }} className={quantityGoods === 1 ? 'basketof-goods-item-quantity-minus basketof-goods-item-quantity-minus-disabled' : 'basketof-goods-item-quantity-minus'}></span>
                             <span className='basketof-goods-item-quantity_number'>{quantityGoods}</span>
-                            <span onClick={() => setQuantityGoods(quantityGoods + 1)} className='basketof-goods-item-quantity-plus'>+</span>
+                            <span onClick={() => {
+                                setQuantityGoods(quantityGoods + 1)
+                                if (!timerSwitch && !timerSwitch2) {
+                                    setTimerSwitch2(true)
+                                    setTimeout(() => {
+                                        setTimerSwitch(true)
+                                    }, 2000)
+                                }
+                            }} className='basketof-goods-item-quantity-plus'>+</span>
                         </div>
                         шт.
                     </div>
@@ -57,9 +82,25 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
                     <div className="basketof-goods-item-weight">
                         {width <= 930 ? `Вес: ` : ``}
                         <div className="basketof-goods-item-quantity-wrap">
-                            <span onClick={() => { if (quantityGoods > 1) setQuantityGoods(quantityGoods - 1) }} className={quantityGoods === 1 ? 'basketof-goods-item-quantity-minus basketof-goods-item-quantity-minus-disabled' : 'basketof-goods-item-quantity-minus'}></span>
+                            <span onClick={() => {
+                                if (quantityGoods > 1) { setQuantityGoods(quantityGoods - 1) }
+                                if (!timerSwitch && !timerSwitch2) {
+                                    setTimerSwitch2(true)
+                                    setTimeout(() => {
+                                        setTimerSwitch(true)
+                                    }, 2000)
+                                }
+                            }} className={quantityGoods === 1 ? 'basketof-goods-item-quantity-minus basketof-goods-item-quantity-minus-disabled' : 'basketof-goods-item-quantity-minus'}></span>
                             <span className='basketof-goods-item-quantity_number'>{quantityGoods}</span>
-                            <span onClick={() => setQuantityGoods(quantityGoods + 1)} className='basketof-goods-item-quantity-plus'>+</span>
+                            <span onClick={() => {
+                                setQuantityGoods(quantityGoods + 1)
+                                if (!timerSwitch && !timerSwitch2) {
+                                    setTimerSwitch2(true)
+                                    setTimeout(() => {
+                                        setTimerSwitch(true)
+                                    }, 2000)
+                                }
+                            }} className='basketof-goods-item-quantity-plus'>+</span>
                         </div>
                         кг.
                     </div>

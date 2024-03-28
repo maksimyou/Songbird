@@ -1,0 +1,197 @@
+.payment-method-container {
+    border-radius: 15px;
+    width: 380px;
+    height: 532px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 20px;
+}
+.payment-method-content {
+}
+.payment-method-title {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+}
+.payment-method-your-bonus {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+}
+.payment-method-your-bonus span {
+    font-weight: 500;
+}
+.payment-method-options {
+    margin-bottom: 20px;
+}
+.payment-method-options-btn {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 185px;
+    height: 42px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    cursor: pointer;
+}
+.payment-method-options-btn-disabled {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 185px;
+    height: 42px;
+    background: #f5f5f5;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #696969;
+    cursor: pointer;
+}
+.payment-method-bonuses {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+.payment-method-bonuses-paid-input {
+    border: none;
+    outline: none;
+    width: 165px;
+    height: 42px;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 33px;
+    color: #3a3a3a;
+}
+.payment-method-bonuses-paid-btn {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 185px;
+    height: 42px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3a3a;
+    cursor: pointer;
+}
+.payment-method-bonuses-paid-btn-disabled {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 185px;
+    height: 42px;
+    background: #f5f5f5;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #696969;
+    cursor: default;
+}
+.payment-method-bonuses-donate {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.payment-method-bonuses-donate-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-bonuses-donate-money {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-delivery {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.payment-method-delivery-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-delivery-money {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-paid-bonuses {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.payment-method-paid-bonuses-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-paid-bonuses-money {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-paid-all {
+    display: flex;
+    align-items: center;
+    max-width: 370px;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.payment-method-paid-all-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+}
+.payment-method-paid-all-money {
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+    font-size: 33px;
+    color: #3a3a3a;
+}
+
+.payment-method-put-order-btn {
+    border-radius: 5px;
+    width: 370px;
+    border: none;
+    height: 42px;
+    background: #c6aa83;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.payment-method-put-order-btn:hover {
+    box-shadow: 0 0 10px 0 rgb(168, 122, 64);
+    transition: 0.4s;
+}
+.payment-method-privacy-policies {
+    margin-top: 15px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #3a3a3a;
+}

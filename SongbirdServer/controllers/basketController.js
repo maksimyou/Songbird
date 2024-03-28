@@ -23,7 +23,7 @@ class basketController {
             const { idGoods, count } = req.body;
             const { id } = req.user;
 
-            console.log(idGoods)
+            console.log(idGoods, count)
             const Basket = await Models.Basket.findAll({ where: { idUser: id } })
             console.log(Basket)
 
@@ -55,13 +55,35 @@ class basketController {
                 await Models.Basket.create({ idUser: id, lists: arr })
             }
 
-            return res.json('В корзину добавленно или измененно')
+            return res.json('В корзину добавленно')
         } catch (error) {
-            console.log('Ошибка добавленния или измененния корзины')
+            console.log('Ошибка добавленния корзины')
         }
     }
 
+    async updateBasket(req, res, next) {
+        try {
+            const { idGoods, count } = req.body;
+            const { id } = req.user;
 
+            console.log(idGoods, count)
+            const Basket = await Models.Basket.findAll({ where: { idUser: id } })
+            console.log(Basket)
+
+            let str = Basket[0].dataValues.lists;
+            let lists = JSON.parse(str);
+
+            let arr2 = lists.filter(e => e.idGoods !== idGoods);
+            arr2.push({ idGoods, count })
+            let arr = JSON.stringify(arr2)
+            await Models.Basket.update({ lists: arr }, { where: { idUser: id } })
+
+
+            return res.json('В корзине измененно')
+        } catch (error) {
+            console.log('Ошибка измененния корзины')
+        }
+    }
 
     async deleteBasket(req, res, next) {
         try {
@@ -154,7 +176,7 @@ class basketController {
                     godds.imageURL = arrImg;
                     ress.push(godds)
                 }
-
+                ress.sort((a, b) => a.id - b.id)
 
                 return res.json({ goods: ress, list: arr })
             }

@@ -7,14 +7,17 @@ import ModalAdmin from '../../Components/ModalAdmin/ModalAdmin'
 import './AdminPanel.scss'
 function AdminPanel() {
 
-    const { messageAdminShow, getAllCategoryApi, getAllGoodsApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
+    const { getOrders, orders, messageAdminShow, getAllCategoryApi, getAllGoodsApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
 
     useEffect(() => {
-        getUsers()
-        getAllGoodsApi()
+        if (isAuth) {
+            getUsers()
+            getAllGoodsApi()
+            getOrders()
+        }
     }, [])
     return (
-        <div className='admin-panel-container'>
+        isAuth ? <div className='admin-panel-container'>
             {messageAdminShow ? <ModalAdmin /> : ''}
             <div className="admin-panel-content">
                 < div className="admin-panel-content" >
@@ -58,13 +61,20 @@ function AdminPanel() {
                                         : "admin-panel-sidebar-list-pending"
 
                                 } to='list-goods'>Список всех товаров</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='list-orders'>Список заказов</NavLink></li>
                             </ul>
                         </div>
                         <Outlet />
                     </div>
                 </div >
             </div>
-        </div>
+        </div> :
+            <div className="admin-panel-empty-list ">У вас нет доступа</div>
     )
 }
 

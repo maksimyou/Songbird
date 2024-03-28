@@ -24,13 +24,20 @@ const User = sequelize.define('user', {
     name: { type: DataTypes.STRING, },
     confirmed: { type: DataTypes.BOOLEAN, defaultValue: false },
     role: { type: DataTypes.STRING, defaultValue: 'USER' },
-    avatarURL: { type: DataTypes.STRING, defaultValue: '#' }
+    avatarURL: { type: DataTypes.STRING, defaultValue: '#' },
+    bonusAccount: { type: DataTypes.INTEGER, defaultValue: 0 },
 })
 
 const Order = sequelize.define('order', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     idUser: { type: DataTypes.INTEGER },
     list: { type: DataTypes.JSON, defaultValue: "[]" },
+    adress: { type: DataTypes.JSON, },
+    paymentMethod: { type: DataTypes.STRING, },
+    paymentBonus: { type: DataTypes.INTEGER, defaultValue: 0 },
+    typeDelivery: { type: DataTypes.STRING, },
+    chargedBonuses: { type: DataTypes.INTEGER },
+    priceGoods: { type: DataTypes.INTEGER },
     idStatus: { type: DataTypes.INTEGER, defaultValue: 1 },
 })
 

@@ -36,7 +36,7 @@ class goodsController {
                 await Models.Goods.create({ liked: likedNumber, bought: boughtNumber, name, price, category, imageURL: imageJson, description, composition, quantity })
             } else {
                 let fileName = v4() + '.png'
-                files.files.mv(path.resolve(__dirname, '..', 'static', fileName))
+                files.files.mv(path.resolve(__dirname, '..', 'static/img', fileName))
                 let imageJson = JSON.stringify([fileName])
                 const likedNumber = Math.floor(49 + Math.random() * 199)
                 const boughtNumber = Math.floor(39 + Math.random() * 149)
