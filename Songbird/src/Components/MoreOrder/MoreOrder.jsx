@@ -25,7 +25,7 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
     //  }
 
 
-    //`https://songbird21.ru:5000/img/
+    //`https://songbird21.ru/img/
 
     return (
         <div className='more-order-container  animate__animated animate__fadeIn'>
@@ -84,7 +84,7 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
                             return <>
                                 <div className="more-order-order-list-item">
                                     <div className="more-order-order-list-img">
-                                        <img src={`https://songbird21.ru:5000/img/${e.imageURL[0]}`} alt="" />
+                                        <img src={`https://songbird21.ru/img/${e.imageURL[0]}`} alt="" />
                                     </div>
                                     <div className="more-order-order-list-item-item">№ <span>{e.idGoods}</span></div>
                                     <div className="more-order-order-list-item-item">Название: <span>{e.name}</span></div>

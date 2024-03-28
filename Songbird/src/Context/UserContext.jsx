@@ -70,7 +70,7 @@ const UserContext = ({ children }) => {
   const loginUserAuth = () => {
     const token = JSON.parse(localStorage.getItem('token'))
 
-    axios.get('https://songbird21.ru:5000/api/user/auth', {
+    axios.get('https://songbird21.ru/api/user/auth', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -93,7 +93,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/delete', userData, {
+    axios.post('https://songbird21.ru/api/user/delete', userData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -119,7 +119,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/edit-user', userData, {
+    axios.post('https://songbird21.ru/api/user/edit-user', userData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -145,7 +145,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/edit-data-user', userData, {
+    axios.post('https://songbird21.ru/api/user/edit-data-user', userData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -167,7 +167,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     //setIsLoader(true)
     console.log(token)
-    axios.get('https://songbird21.ru:5000/api/user/get-role', {
+    axios.get('https://songbird21.ru/api/user/get-role', {
 
       headers: {
         Authorization: 'Bearer ' + token
@@ -192,7 +192,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.get('https://songbird21.ru:5000/api/user/get-users', {
+    axios.get('https://songbird21.ru/api/user/get-users', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -217,7 +217,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.get('https://songbird21.ru:5000/api/user/get-user', {
+    axios.get('https://songbird21.ru/api/user/get-user', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -242,7 +242,7 @@ const UserContext = ({ children }) => {
 
   const registrationApi = (userData) => {
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/registration', userData)
+    axios.post('https://songbird21.ru/api/user/registration', userData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -262,7 +262,7 @@ const UserContext = ({ children }) => {
 
   const generationCodeApi = (userData) => {
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/generation-code', userData)
+    axios.post('https://songbird21.ru/api/user/generation-code', userData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -280,7 +280,7 @@ const UserContext = ({ children }) => {
 
   const postConfirmationApi = (userData) => {
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/confirm-mail', userData)
+    axios.post('https://songbird21.ru/api/user/confirm-mail', userData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -308,7 +308,7 @@ const UserContext = ({ children }) => {
   const loginApi = (userData) => {
     console.log(userData)
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/user/login', userData)
+    axios.post('https://songbird21.ru/api/user/login', userData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -340,7 +340,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.get('https://songbird21.ru:5000/api/user/get-id', {
+    axios.get('https://songbird21.ru/api/user/get-id', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -374,7 +374,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log(goodsData)
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/add-goods', goodsData, {
+    axios.post('https://songbird21.ru/api/goods/add-goods', goodsData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -405,7 +405,7 @@ const UserContext = ({ children }) => {
 
   const getCategoryGoods = (goodsData) => {
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/get-category-goods', goodsData)
+    axios.post('https://songbird21.ru/api/goods/get-category-goods', goodsData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -422,7 +422,7 @@ const UserContext = ({ children }) => {
 
   const getCategoryGoodsNoload = (goodsData) => {
     //setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/get-category-goods', goodsData)
+    axios.post('https://songbird21.ru/api/goods/get-category-goods', goodsData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -442,7 +442,7 @@ const UserContext = ({ children }) => {
   //const userFirstName = () => {
   //  const token = JSON.parse(localStorage.getItem('token'))
   //  console.log(token)
-  //  axios.get('https://songbird21.ru:5000/api/user/first-name', {
+  //  axios.get('https://songbird21.ru/api/user/first-name', {
   //    headers: {
   //      Authorization: 'Bearer ' + token
   //    }
@@ -465,7 +465,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     //setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/favorites/add', favoritesData, {
+    axios.post('https://songbird21.ru/api/favorites/add', favoritesData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -490,7 +490,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     //setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/favorites/delete', favoritesData, {
+    axios.post('https://songbird21.ru/api/favorites/delete', favoritesData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -513,7 +513,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     setIsLoader(true)
-    axios.get('https://songbird21.ru:5000/api/favorites/get-goods', {
+    axios.get('https://songbird21.ru/api/favorites/get-goods', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -536,7 +536,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/favorites/get', favoritesData, {
+    axios.post('https://songbird21.ru/api/favorites/get', favoritesData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -564,7 +564,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.get('https://songbird21.ru:5000/api/goods/get-all-goods', {
+    axios.get('https://songbird21.ru/api/goods/get-all-goods', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -584,7 +584,7 @@ const UserContext = ({ children }) => {
   const getOneGoodsApi = (goodsData) => {
 
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/get-one-goods', goodsData)
+    axios.post('https://songbird21.ru/api/goods/get-one-goods', goodsData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -602,7 +602,7 @@ const UserContext = ({ children }) => {
   const getOneGoodsUserApi = (goodsData) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/get-one-goods-user', goodsData, {
+    axios.post('https://songbird21.ru/api/goods/get-one-goods-user', goodsData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -626,7 +626,7 @@ const UserContext = ({ children }) => {
 
     console.log()
     setIsLoader(true)
-    axios.get('https://songbird21.ru:5000/api/goods/get-category')
+    axios.get('https://songbird21.ru/api/goods/get-category')
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -647,7 +647,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/edit-category', categoryData, {
+    axios.post('https://songbird21.ru/api/goods/edit-category', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -672,7 +672,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/delete-category', categoryData, {
+    axios.post('https://songbird21.ru/api/goods/delete-category', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -697,7 +697,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/delete-goods', categoryData, {
+    axios.post('https://songbird21.ru/api/goods/delete-goods', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -725,7 +725,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log()
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/goods/add-category', categoryData, {
+    axios.post('https://songbird21.ru/api/goods/add-category', categoryData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -752,7 +752,7 @@ const UserContext = ({ children }) => {
 
     console.log()
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/setting/set', settingData, {
+    axios.post('https://songbird21.ru/api/setting/set', settingData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -774,7 +774,7 @@ const UserContext = ({ children }) => {
   }
   const sendMessageTelegram = (telegramData) => {
     setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/mail/send-telegram', telegramData)
+    axios.post('https://songbird21.ru/api/mail/send-telegram', telegramData)
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -791,7 +791,7 @@ const UserContext = ({ children }) => {
 
   const getSettingApi = () => {
     setIsLoader(true)
-    axios.get('https://songbird21.ru:5000/api/setting/get')
+    axios.get('https://songbird21.ru/api/setting/get')
       .then(res => res.data)
       .then(data => {
         console.log(data)
@@ -814,7 +814,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     //setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/basket/add', basketData, {
+    axios.post('https://songbird21.ru/api/basket/add', basketData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -844,7 +844,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     //setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/basket/update', basketData, {
+    axios.post('https://songbird21.ru/api/basket/update', basketData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -869,7 +869,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     //setIsLoader(true)
-    axios.post('https://songbird21.ru:5000/api/basket/delete', basketData, {
+    axios.post('https://songbird21.ru/api/basket/delete', basketData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -910,7 +910,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     if (loader) setIsLoader(true)
-    axios.get('https://songbird21.ru:5000/api/basket/get-goods', {
+    axios.get('https://songbird21.ru/api/basket/get-goods', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -939,7 +939,7 @@ const UserContext = ({ children }) => {
 
     //setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/basket/get', basketData, {
+    axios.post('https://songbird21.ru/api/basket/get', basketData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -975,7 +975,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/order/add', orderData, {
+    axios.post('https://songbird21.ru/api/order/add', orderData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -1000,7 +1000,7 @@ const UserContext = ({ children }) => {
   const getOrders = () => {
     const token = JSON.parse(localStorage.getItem('token'))
 
-    axios.get('https://songbird21.ru:5000/api/order/get-orders', {
+    axios.get('https://songbird21.ru/api/order/get-orders', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -1020,7 +1020,7 @@ const UserContext = ({ children }) => {
   const getOrder = () => {
     const token = JSON.parse(localStorage.getItem('token'))
 
-    axios.get('https://songbird21.ru:5000/api/order/get-order', {
+    axios.get('https://songbird21.ru/api/order/get-order', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -1043,7 +1043,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru:5000/api/order/set-status', orderData, {
+    axios.post('https://songbird21.ru/api/order/set-status', orderData, {
       headers: {
         Authorization: 'Bearer ' + token
       }

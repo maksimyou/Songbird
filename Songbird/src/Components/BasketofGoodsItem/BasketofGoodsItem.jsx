@@ -43,7 +43,7 @@ function BasketofGoodsItem({ isBasket, category, setGoodsBasketDep, id, image, n
         <div className='basketof-goods-item-container'>
             <div className="basketof-goods-item-content">
                 <div className="basketof-goods-item-image">
-                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru:5000/img/${image}`} alt="" /></Link>
+                    <Link to={`/products/${category}/${id}`}><img src={`https://songbird21.ru/img/${image}`} alt="" /></Link>
                 </div>
                 <Link to={`/products/${category}/${id}`}>
                     <div className="basketof-goods-item-name">{name}</div>
