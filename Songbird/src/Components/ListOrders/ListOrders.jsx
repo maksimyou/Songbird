@@ -6,7 +6,7 @@ import ListOrdersItem from '../ListOrdersItem/ListOrdersItem'
 import MoreOrder from '../MoreOrder/MoreOrder'
 import { useState } from 'react'
 function ListOrders() {
-    const { orders, getOrders } = UserContextFunc()
+    const { orders, getOrders, setStatusOrder } = UserContextFunc()
     const [width, hight] = resize();
     const [toggleMoreOrder, setToggleMoreOrder] = useState(false)
     const [dataMoreOrder, setDataMoreOrder] = useState({})
@@ -16,23 +16,6 @@ function ListOrders() {
         console.log(dataOrder)
         setDataMoreOrder(dataOrder)
     }
-    //{
-    //    "email": "admin@mail.ru",
-    //    "phone": "79196543804",
-    //    "name": "Максим",
-
-    //    "id": 3,
-    //    "idUser": 1,
-    //    "list": "[{\"idGoods\":19,\"count\":1},{\"idGoods\":20,\"count\":1}]",
-    //    "adress": "{\"city\":\"\",\"street\":\"\",\"house\":\"\",\"entrance\":\"\",\"floor\":\"\",\"apartmentt\":\"\",\"comments\":\"\",\"date\":\"\",\"time\":\"\"}",
-    //    "paymentMethod": "Наличными",
-    //    "paymentBonus": 150,
-    //    "typeDelivery": "Курьер",
-    //    "chargedBonuses": 80,
-    //    "priceGoods": 2464,
-    //    "idStatus": 1,
-    //  }
-
 
 
     useEffect(() => {
@@ -59,6 +42,7 @@ function ListOrders() {
                         orders.map(e =>
                             <ListOrdersItem
                                 key={e.id}
+                                setStatusOrder={setStatusOrder}
                                 name={e.name}
                                 id={e.id}
                                 paymentBonus={e.paymentBonus}

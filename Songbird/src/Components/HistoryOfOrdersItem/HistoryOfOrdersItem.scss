@@ -1,0 +1,41 @@
+.history-of-orders-item-container {
+    background: linear-gradient(0deg, rgb(204, 162, 117) 0%, rgb(255, 255, 255) 100%);
+    border: 1px solid #cca275;
+    border-radius: 10px;
+}
+.history-of-orders-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+}
+
+.history-of-orders-item-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.history-of-orders-item-text span {
+    font-family: Jost, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #070707;
+}
+
+.history-of-orders-item-status {
+}
+.history-of-orders-item-btn {
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    background: #fff;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #696969;
+    cursor: pointer;
+}

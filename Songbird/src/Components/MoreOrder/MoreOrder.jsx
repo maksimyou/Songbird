@@ -4,7 +4,7 @@ import './MoreOrder.scss'
 
 
 function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
-    const [adress, setAdress] = useState(JSON.parse(dataMoreOrder.adress))
+    const [adress, setAdress] = useState(dataMoreOrder.adress)
 
 
     console.log(adress)

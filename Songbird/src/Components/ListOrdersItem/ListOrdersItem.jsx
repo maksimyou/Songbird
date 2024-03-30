@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './ListOrdersItem.scss'
 import resize from '../../Hooks/resize'
-function ListOrdersItem({ setToggleMoreOrder, filterSetOrdersData, updatedAt, name, id, paymentBonus, typeDelivery, priceGoods, idStatus }) {
+function ListOrdersItem({ setStatusOrder, setToggleMoreOrder, filterSetOrdersData, updatedAt, name, id, paymentBonus, typeDelivery, priceGoods, idStatus }) {
 
     const [width, hight] = resize();
     const [selectedStatus, setSelectedStatus] = useState(idStatus)
@@ -15,24 +15,6 @@ function ListOrdersItem({ setToggleMoreOrder, filterSetOrdersData, updatedAt, na
         5: 'Доставлен',
         6: 'Отменен',
     }
-
-    //{
-    //    "email": "admin@mail.ru",
-    //    "phone": "79196543804",
-    //    "name": "Максим",
-
-    //    "id": 3,
-    //    "idUser": 1,
-    //    "list": "[{\"idGoods\":19,\"count\":1},{\"idGoods\":20,\"count\":1}]",
-    //    "adress": "{\"city\":\"\",\"street\":\"\",\"house\":\"\",\"entrance\":\"\",\"floor\":\"\",\"apartmentt\":\"\",\"comments\":\"\",\"date\":\"\",\"time\":\"\"}",
-    //    "paymentMethod": "Наличными",
-    //    "paymentBonus": 150,
-    //    "typeDelivery": "Курьер",
-    //    "chargedBonuses": 80,
-    //    "priceGoods": 2464,
-    //    "idStatus": 1,
-    //  }
-
 
 
     return (
@@ -47,7 +29,7 @@ function ListOrdersItem({ setToggleMoreOrder, filterSetOrdersData, updatedAt, na
                                 ?
                                 <select
                                     value={selectedStatus} // ...force the select's value to match the state variable...
-                                    onChange={e => setSelectedStatus(e.target.value)} // ... and update the state variable on any change!
+                                    onChange={e => { setSelectedStatus(e.target.value) }} // ... and update the state variable on any change!
                                 >
                                     <option value="1">Новый</option>
                                     <option value="2">В обработке</option>
@@ -70,7 +52,7 @@ function ListOrdersItem({ setToggleMoreOrder, filterSetOrdersData, updatedAt, na
                         {editStatus
                             ?
                             <div className="list-orders-action-save-cancel">
-                                <div onClick={() => { setEditStatus(!editStatus) }} className="">Сохранить</div>
+                                <div onClick={() => { setStatusOrder({ idStatus: selectedStatus, idOrder: id }); setEditStatus(!editStatus) }} className="">Сохранить</div>
                                 <div onClick={() => { setEditStatus(!editStatus) }} className="">Отмена</div>
                             </div>
                             :

@@ -9,7 +9,7 @@ import ListGoodsItem from '../ListGoodsItem/ListGoodsItem'
 function ListGoods() {
 
 
-    const { goods, setGoods, getCategoryGoods, setIsGoods, isGoods, isCategory, getAllGoodsApi, deleteGoodsApi } = UserContextFunc()
+    const { isAuth, goods, setGoods, getCategoryGoods, setIsGoods, isGoods, isCategory, getAllGoodsApi, deleteGoodsApi } = UserContextFunc()
     const [sortIconPrice, setSortIconPrice] = useState()
     const [goodsSort, setGoodsSort] = useState()
     const [goodsSort2, setGoodsSort2] = useState()
@@ -27,7 +27,11 @@ function ListGoods() {
             setIsGoods(res)
         }
     }
-
+    useEffect(() => {
+        if (isAuth) {
+            getAllGoodsApi()
+        }
+    }, [])
 
     useEffect(() => {
         if (goodsSort) getCategoryGoods({ category: selectedCategory }); setGoodsSort(false);

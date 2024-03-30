@@ -16,7 +16,7 @@ const UserContext = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false)
   const [isLoader, setIsLoader] = useState(false)
   const [isRole, setIsRole] = useState()
-  const [isSetting, setIsSetting] = useState()
+  const [isSetting, setIsSetting] = useState({ phone: '', address: '', email: '', instagram: '', youtube: '', telegram: '', vkontakte: '' })
   const [isUserId, setIsUserId] = useState()
   const [isMessageError, setIsMessageError] = useState()
   const [isFavorites, setIsFavorites] = useState({ lists: "[]" })

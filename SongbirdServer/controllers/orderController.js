@@ -85,7 +85,7 @@ class orderController {
         const { statusText } = req.body;
 
         try {
-            await Models.setStatuesOrder.create({ statusText })
+            await Models.OrderStatus.create({ statusText })
             return res.json('Статус добавлен')
         } catch (error) {
             console.log('Ошибка добавления статуса')
@@ -130,7 +130,26 @@ class orderController {
 
         try {
             let orders = await Models.Order.findAll({ where: { idUser: id } })
-            return res.json(orders)
+
+            let newOrders = [];
+            for (let i = 0; i < orders.length; i++) {
+                let user = await Models.User.findOne({ where: { id: orders[i].idUser } })
+
+                let list = JSON.parse(orders[i].dataValues.list)
+                let listArr = [];
+
+                for (let j = 0; j < list.length; j++) {
+
+                    let good = await Models.Goods.findOne({ where: { id: list[j].idGoods } })
+                    let obj = Object.assign(list[j], { name: good.name, quantity: good.quantity, price: good.price, imageURL: JSON.parse(good.imageURL) });
+
+                    listArr.push(obj)
+                }
+                let obj = Object.assign({ email: user.email, phone: user.phone, name: user.name }, orders[i].dataValues, { list: listArr });
+                console.log(obj)
+                newOrders.push(obj)
+            }
+            return res.json(newOrders)
 
         } catch (error) {
             console.log('Ошибка получения заказов пользователя')
@@ -139,7 +158,16 @@ class orderController {
 
     async setStatuesOrder(req, res, next) {
         const { idStatus, idOrder } = req.body;
+        const { id } = req.user;
+
         try {
+            if (Number(idStatus) === 5) {
+    
+                let user = await Models.User.findOne({ where: { id: id } })
+                let order = await Models.Order.findOne({ where: { id: idOrder } })
+                let sum = (user.bonusAccount - order.paymentBonus) + order.chargedBonuses
+                await Models.User.update({ bonusAccount: sum }, { where: { id: id } })
+            }
             await Models.Order.update({ idStatus }, { where: { id: idOrder } })
             return res.json("Статус заказа изменен")
         } catch (error) {

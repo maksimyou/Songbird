@@ -7,10 +7,10 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 function PersonalArea() {
 
-    const { isUser, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, exitUser, isRole, setIsRole, userRole } = UserContextFunc()
+    const { getOrder, isUser, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, exitUser, isRole, setIsRole, userRole } = UserContextFunc()
 
     useEffect(() => {
-
+        getOrder({ id: isUser.id })
     }, [])
 
     return (<>

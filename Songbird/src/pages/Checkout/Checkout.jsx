@@ -58,6 +58,10 @@ function Checkout() {
         setBonuses(Math.floor(sumBaske / 500) * 20)
     }
 
+    const deleteSpace = (str) => {
+
+        return str.replace(/ /g, '')
+    }
 
 
     useEffect(() => {
@@ -114,14 +118,14 @@ function Checkout() {
                                     </select>
                                     <div className="checkout-personal-data-title">Или введите новый адрес доставки:</div>
                                     <div className="checkout-left-wrap-input">
-                                        <input value={adress.city} onChange={(e) => { setAdress({ ...adress, city: e.target.value }) }} className='checkout-select-address-input' type="text" placeholder='Город' />
-                                        <input value={adress.street} onChange={(e) => { setAdress({ ...adress, street: e.target.value }) }} className='checkout-select-address-input' type="text" placeholder='Улица' />
+                                        <input value={adress.city} onChange={(e) => { setAdress({ ...adress, city: deleteSpace(e.target.value) }) }} className='checkout-select-address-input' type="text" placeholder='Город' />
+                                        <input value={adress.street} onChange={(e) => { setAdress({ ...adress, street: deleteSpace(e.target.value) }) }} className='checkout-select-address-input' type="text" placeholder='Улица' />
                                     </div>
                                     <div className="checkout-left-wrap-input">
-                                        <input value={adress.house} onChange={(e) => { setAdress({ ...adress, house: e.target.value }) }} className='checkout-select-address-input-min' type="text" placeholder='Дом' />
-                                        <input value={adress.entrance} onChange={(e) => { setAdress({ ...adress, entrance: e.target.value }) }} className='checkout-select-address-input-min' type="text" placeholder='Подъезд' />
-                                        <input value={adress.floor} onChange={(e) => { setAdress({ ...adress, floor: e.target.value }) }} className='checkout-select-address-input-min' type="text" placeholder='Этаж' />
-                                        <input value={adress.apartmentt} onChange={(e) => { setAdress({ ...adress, apartmentt: e.target.value }) }} className='checkout-select-address-input-min' type="text" placeholder='Квартира' />
+                                        <input value={adress.house} onChange={(e) => { setAdress({ ...adress, house: deleteSpace(e.target.value) }) }} className='checkout-select-address-input-min' type="text" placeholder='Дом' />
+                                        <input value={adress.entrance} onChange={(e) => { setAdress({ ...adress, entrance: deleteSpace(e.target.value) }) }} className='checkout-select-address-input-min' type="text" placeholder='Подъезд' />
+                                        <input value={adress.floor} onChange={(e) => { setAdress({ ...adress, floor: deleteSpace(e.target.value) }) }} className='checkout-select-address-input-min' type="text" placeholder='Этаж' />
+                                        <input value={adress.apartmentt} onChange={(e) => { setAdress({ ...adress, apartmentt: deleteSpace(e.target.value) }) }} className='checkout-select-address-input-min' type="text" placeholder='Квартира' />
                                     </div>
                                     <textarea className='checkout-select-address-textarea' onChange={(e) => { setAdress({ ...adress, comments: e.target.value }) }} name="" id="" cols="100" rows="500" placeholder='Комментарий  (не обязательно)'></textarea>
                                     {/*<div className="checkout-left-wrap-input">
