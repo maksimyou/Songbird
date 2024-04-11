@@ -23,7 +23,14 @@ const UserContext = ({ children }) => {
   const [isBasket, setIsBasket] = useState({ lists: "[]" })
   const [sumBaske, setSumBaske] = useState(0)
   const [GoodsBasketDep, setGoodsBasketDep] = useState(false)
-
+  const [infoOrder, setInfoOrder] = useState({
+    id: 0,
+    updatedAt: '',
+    priceGoods: 0,
+    paymentMethod: '',
+    typeDelivery: '',
+    chargedBonuses: 0
+  })
   const [isIdReceived, setIsIdReceived] = useState(false)
   const [isIdReceivedCard, setIsIdReceivedCard] = useState(false)
   const [isIdReceivedCard2, setIsIdReceivedCard2] = useState(false)
@@ -60,7 +67,7 @@ const UserContext = ({ children }) => {
 
   const [currentImg, setCurrentImg] = useState('')
   const [categoryDepend, setCategoryDepend] = useState(false)
-
+  const [gettingGev, setGettingGev] = useState(false)
   const [messageAdmin, setMessageAdmin] = useState('')
   const [messageAdminShow, setMessageAdminShow] = useState(false)
   const [users, setUsers] = useState()
@@ -796,6 +803,7 @@ const UserContext = ({ children }) => {
       .then(data => {
         console.log(data)
         setIsSetting(data[0])
+        setGettingGev(true)
         setIsLoader(false)
       })
       .catch(error => {
@@ -844,7 +852,7 @@ const UserContext = ({ children }) => {
     const token = JSON.parse(localStorage.getItem('token'))
     //setIsLoader(true)
     console.log(token)
-    axios.post('https://songbird21.ru/api/basket/update', basketData, {
+    axios.put('https://songbird21.ru/api/basket/update', basketData, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -906,7 +914,7 @@ const UserContext = ({ children }) => {
   }
 
 
-  const getGoodsBasket = (loader) => {
+  const getGoodsBasket = (loader, dev) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     if (loader) setIsLoader(true)
@@ -918,9 +926,10 @@ const UserContext = ({ children }) => {
       .then(res => res.data)
       .then(data => {
         console.log(data)
+        sumBasketGoods(data)
         setBasket(data)
         setIsCountBasket(data.list.length)
-        sumBasketGoods(data)
+        if (dev) { setIsEffectUser(true) }
         setIsLoader(false)
       })
       .catch(error => {
@@ -985,6 +994,7 @@ const UserContext = ({ children }) => {
       })
       .then(data => {
         console.log(data)
+        setInfoOrder(data)
         setIsIdReceivedCard2(true)
         setIsLoader(false)
 
@@ -1095,6 +1105,9 @@ const UserContext = ({ children }) => {
 
   return (
     <UserContextt.Provider value={{
+      infoOrder,
+      gettingGev,
+      setGettingGev,
       setStatusOrder,
       getOrder,
       getOrders,

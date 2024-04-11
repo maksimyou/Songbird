@@ -25,8 +25,8 @@ function MyData() {
         city: '',
         street: '',
         house: '',
-        entrance: '',
-        floor: '',
+        //entrance: '',
+        //floor: '',
         apartmentt: ''
     })
 
@@ -36,8 +36,14 @@ function MyData() {
     })
 
     const createFullAdress = () => {
-        let str = `${adress.name} г.${adress.city} ул.${adress.street} д.${adress.house} п.${adress.entrance} эт.${adress.floor} кв.${adress.apartmentt}`
-        setFullAdress(fullAdress.concat([str]));
+        //let str = `${adress.name} г.${adress.city} ул.${adress.street} д.${adress.house} п.${adress.entrance} эт.${adress.floor} кв.${adress.apartmentt}`
+
+        //let str = `${adress.name} г.${adress.city} ул.${adress.street} д.${adress.house}} кв.${adress.apartmentt}`
+        let arr = { name: adress.name, city: adress.city, street: adress.street, house: adress.house, apartmentt: adress.apartmentt }
+
+        //setFullAdress(fullAdress.concat([str]));
+        setFullAdress(fullAdress.concat([arr]));
+
     }
 
     const filterAdress = (id) => {

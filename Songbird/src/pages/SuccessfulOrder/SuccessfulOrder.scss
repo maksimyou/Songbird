@@ -1,0 +1,36 @@
+.successful-order-empty {
+    font-size: 36px;
+    height: 200px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.successful-order-container {
+    max-width: 1700px;
+    margin: 100px auto;
+}
+.successful-order-content {
+}
+.successful-order-title {
+    font-size: 29px;
+    color: #b87a3f;
+    font-family: Jost, sans-serif;
+    margin-bottom: 50px;
+}
+.successful-order-text {
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    margin-bottom: 15px;
+}
+.successful-order-text strong {
+    font-size: 22px;
+    font-weight: 500;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.successful-order-link {
+    color: #b87a3f;
+}

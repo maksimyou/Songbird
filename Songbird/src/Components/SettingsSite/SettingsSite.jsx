@@ -4,7 +4,7 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 
 function SettingsSite() {
-    const { updateAddSettingApi, isSetting } = UserContextFunc()
+    const { updateAddSettingApi, isSetting, gettingGev, setGettingGev } = UserContextFunc()
 
     const [valPhone, setvVlPhone] = useState(true)
     const [phone, setPhone] = useState(isSetting.phone);
@@ -15,6 +15,27 @@ function SettingsSite() {
     const [vkontakte, setVkontakte] = useState(isSetting.vkontakte);
     const [setting, setSetting] = useState(isSetting.setting);
     const [email, setEmail] = useState(isSetting.email);
+    const [courier, setCourier] = useState(isSetting.courier);
+    const [pickup, setPickup] = useState(isSetting.pickup);
+    const [cash, setCash] = useState(isSetting.cash);
+    const [card, setCard] = useState(isSetting.card);
+
+    const setSetiingState = () => {
+
+        setPhone(isSetting.phone);
+        setAddress(isSetting.address);
+        setInstagram(isSetting.instagram);
+        setYoutube(isSetting.youtube);
+        setTelegram(isSetting.telegram);
+        setVkontakte(isSetting.vkontakte);
+        setSetting(isSetting.setting);
+        setEmail(isSetting.email);
+        setCourier(isSetting.courier);
+        setPickup(isSetting.pickup);
+        setCash(isSetting.cash);
+        setCard(isSetting.card);
+    }
+
 
 
     const formatPhone = (strr) => {
@@ -57,14 +78,21 @@ function SettingsSite() {
         formData.append('telegram', telegram)
         formData.append('vkontakte', vkontakte)
         formData.append('email', email)
+        formData.append('courier', courier)
+        formData.append('pickup', pickup)
+        formData.append('cash', cash)
+        formData.append('card', card)
         console.log(formData)
         return formData
     }
 
-
     useEffect(() => {
-        if (setting) updateAddSettingApi(createFormData()); setSetting(false)
-    }, [setting])
+        if (gettingGev) setSetiingState(); setGettingGev(false)
+    }, [gettingGev])
+        ,
+        useEffect(() => {
+            if (setting) updateAddSettingApi(createFormData()); setSetiingState(); setSetting(false)
+        }, [setting])
 
     return (
         <div className='settings-site-container'>
@@ -101,7 +129,41 @@ function SettingsSite() {
                             <span className='settings-site-input-title'>Почта: </span>
                             <input value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder='Введите email' type="text" />
                         </div>
+                        <div className="settings-site-order">
+                            <div className="">
+                                <div className="settings-site-input-title">Доставка</div>
+                                <div className="settings-site-input">
+                                    <div className="settings-site-input-wrap">
+                                        <div className="settings-site-input-check">
+                                            <input checked={courier} onChange={(e) => { setCourier(e.target.checked) }} type="checkbox" id='courier' />
+                                            <label htmlFor='courier' className='settings-site-input-subtitle'> Курьер</label>
+                                        </div>
+                                        <div className="settings-site-input-check">
+                                            <input checked={pickup} onChange={(e) => { setPickup(e.target.checked) }} type="checkbox" id='pickup' />
+                                            <label htmlFor='pickup' className='settings-site-input-subtitle'> Самовывоз</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="">
+                                <div className="settings-site-input-title">Способ оплаты</div>
+                                <div className="settings-site-input">
+                                    <div className="settings-site-input-wrap">
+                                        <div className="settings-site-input-check">
+                                            <input checked={cash} onChange={(e) => { setCash(e.target.checked) }} type="checkbox" id='cash' />
+                                            <label htmlFor='cash' className='settings-site-input-subtitle'> Наличными</label>
+                                        </div>
+                                        <div className="settings-site-input-check">
+                                            <input checked={card} onChange={(e) => { setCard(e.target.checked) }} type="checkbox" id='card' />
+                                            <label htmlFor='card' className='settings-site-input-subtitle'> Картой онлайн</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
 
                 </div>
                 <button onClick={() => { if (valPhone) setSetting(true) }} className='settings-site-add-btn'>Изменить</button>

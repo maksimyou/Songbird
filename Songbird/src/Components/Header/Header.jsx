@@ -37,7 +37,7 @@ function Header() {
                         <ul>
                             <li className='header-nav-link'><Link to="/">Главная</Link></li>
                             <li onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className='header-nav-link'><a href="#">Продукция</a></li>
-                            <div onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className={navShow ? "submenu submenu-show " : "submenu"}>
+                            <div onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className={navShow ? "submenu submenu-show animate__animated animate__fadeIn" : "submenu"}>
                                 <ul>
                                     {
                                         isCategory.map(e => {

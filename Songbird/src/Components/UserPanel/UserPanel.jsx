@@ -14,7 +14,7 @@ function UserPanel({ setExit, isRole, isCountFavorites, isCountBasket }) {
                 <div onMouseLeave={() => { setPersonShow(false) }} onMouseEnter={() => { setPersonShow(true) }} className="user-panel-link"><img src={person} alt="" /></div>
                 <div className="user-panel-link link-favorites"><Link to='favorites'><img src={heart} alt="" />{isCountFavorites ? <div className="heart-menu-count">{isCountFavorites}</div> : ''}</Link></div>
                 <div className="user-panel-link link-basket"><Link to='basket-of-goods'><img src={bag} alt="" />{isCountBasket ? <div className="heart-menu-count">{isCountBasket}</div> : ''}</Link></div>
-                {personShow ? <div onMouseLeave={() => { setPersonShow(false) }} onMouseEnter={() => { setPersonShow(true) }} className="person-menu">
+                {personShow ? <div onMouseLeave={() => { setPersonShow(false) }} onMouseEnter={() => { setPersonShow(true) }} className="person-menu animate__animated animate__fadeIn">
                     <ul>
                         <li><Link className='person-menu-link' to='personal-area/my-data'>Личный кабинет</Link></li>
                         {isRole === "ADMIN" ? <li><Link className='person-menu-link' to='admin/settings-site'>Админка</Link></li> : ''}

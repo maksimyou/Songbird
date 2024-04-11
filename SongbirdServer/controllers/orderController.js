@@ -64,17 +64,17 @@ class orderController {
             }
             if (typeDelivery) {
                 //sum += 450
-                delivery = 'Курьер'
-            } else {
                 delivery = 'Самовывоз'
+            } else {
+                delivery = 'Курьер'
             }
             if (bonus >= 0) {
                 pay = Number(paymentBonus)
             }
-            await Models.Order.create({ priceGoods: sum, idUser: id, list: basket.lists, adress: adressJson, paymentMethod: method, typeDelivery: delivery, chargedBonuses, paymentBonus: pay })
+            let orrder = await Models.Order.create({ priceGoods: sum, idUser: id, list: basket.lists, adress: adressJson, paymentMethod: method, typeDelivery: delivery, chargedBonuses, paymentBonus: pay })
             await Models.Basket.destroy({ where: { idUser: id } })
 
-            return res.json('Заказ добавлен')
+            return res.json(orrder)
         } catch (error) {
             console.log('Ошибка добавления заказа')
         }
@@ -162,7 +162,7 @@ class orderController {
 
         try {
             if (Number(idStatus) === 5) {
-    
+
                 let user = await Models.User.findOne({ where: { id: id } })
                 let order = await Models.Order.findOne({ where: { id: idOrder } })
                 let sum = (user.bonusAccount - order.paymentBonus) + order.chargedBonuses

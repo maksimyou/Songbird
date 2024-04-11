@@ -15,7 +15,7 @@ function MoreOrderPerson({ setToggleMoreOrder, dataMoreOrder }) {
                     </div>
                     <div className="more-order-person-list-item-item">№</div>
                     <div className="more-order-person-list-item-item">Название</div>
-                    <div className="more-order-person-list-item-item">Количество</div>
+                    <div className="more-order-person-list-item-item">Количество/Вес</div>
                     <div className="more-order-person-list-item-item">Цена</div>
                 </div>
                 < ul >

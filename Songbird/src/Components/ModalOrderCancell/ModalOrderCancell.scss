@@ -1,0 +1,53 @@
+.modal-order-cancell-container {
+    position: fixed;
+    z-index: 20;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(120, 115, 115, 0.49);
+    justify-content: center;
+}
+.modal-order-cancell-content {
+    width: 320px;
+    height: 100px;
+    padding: 20px 10px;
+    border-radius: 5px;
+    background-color: #e8e6df;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+.modal-order-cancell-message {
+    font-size: 24px;
+    text-align: center;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+}
+.modal-order-cancell-btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.modal-order-cancell-btn {
+    background-color: rgb(184, 122, 63);
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    font-family: Jost, sans-serif;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.modal-order-cancell-btn:hover {
+    background-color: rgb(184, 122, 63);
+    box-shadow: 0px 9px 19px 0px rgba(189, 130, 76, 0.65);
+    outline-color: rgba(173, 255, 126, 0.3);
+}

@@ -37,6 +37,25 @@
     background-color: #e8e6df;
 }
 .more-order-info {
+    width: 48%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #666;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
 }
 .more-order-info-user {
     font-family: Jost, sans-serif;
@@ -120,7 +139,8 @@
 }
 .more-order-info-comments {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 370px;
     justify-content: flex-start;
     gap: 15px;
@@ -168,7 +188,7 @@
 }
 .more-order-order-list {
     //overflow-y: scroll;
-    width: 50%;
+    width: 48%;
     //height: 230px;
 }
 .more-order-order-list ul {
@@ -183,6 +203,22 @@
     gap: 10px;
     margin-bottom: 20px;
     overflow-x: scroll;
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #666;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
 }
 
 .more-order-order-list-item-item {

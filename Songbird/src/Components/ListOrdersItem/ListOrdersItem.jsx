@@ -16,7 +16,9 @@ function ListOrdersItem({ setStatusOrder, setToggleMoreOrder, filterSetOrdersDat
         6: 'Отменен',
     }
 
-
+    const totalCost = () => {
+        typeDelivery ? (priceGoods - paymentBonus) + 450 + ' ₽' : priceGoods - paymentBonus + ' ₽'
+    }
     return (
         width >= 1260 ?
             <div className='list-orders-item-container'>
@@ -43,8 +45,9 @@ function ListOrdersItem({ setStatusOrder, setToggleMoreOrder, filterSetOrdersDat
                         }
 
                     </div>
-                    <div className="list-orders-created">{`Дата: ${updatedAt.slice(0, 10)} Время: ${updatedAt.slice(12, -5)}`}</div>
+                    <div className="list-orders-created">{updatedAt.slice(0, 10)}</div>
                     <div className="list-orders-all">{typeDelivery ? (priceGoods - paymentBonus) + 450 + ' ₽' : priceGoods - paymentBonus + ' ₽'}</div>
+
 
                     <div className="list-orders-action">
                         <div onClick={() => { filterSetOrdersData(id); setToggleMoreOrder(true) }} className="list-orders-action-more"></div>

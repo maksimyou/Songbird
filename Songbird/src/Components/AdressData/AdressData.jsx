@@ -6,7 +6,7 @@ function AdressData({ filterAdress, adress, fullAdress, setAdress, createFullAdr
         <div className='adress-data-container'>
             <form className='adress-data-form' action="">
                 <div className="adress-data-lists">
-                    {fullAdress.map((e, i) => { return <div key={i} className="adress-data-item">{e}<img onClick={() => { filterAdress(i) }} src={close} alt="" /></div> })}
+                    {fullAdress.map((e, i) => { return <div key={i} className="adress-data-item">{`${e.name} г.${e.city} ул.${e.street} д.${e.house} кв.${e.apartmentt}`}<img onClick={() => { filterAdress(i) }} src={close} alt="" /></div> })}
                 </div>
 
                 <div className="adress-data-form-input">
@@ -15,8 +15,8 @@ function AdressData({ filterAdress, adress, fullAdress, setAdress, createFullAdr
                     <input onBlur={(e) => { setAdress({ ...adress, street: e.target.value }) }} className='form-adress-input' type="text" placeholder='Улица' />
                     <div className="form-adress-input-min-all">
                         <input onBlur={(e) => { setAdress({ ...adress, house: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Дом' />
-                        <input onBlur={(e) => { setAdress({ ...adress, entrance: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Под' />
-                        <input onBlur={(e) => { setAdress({ ...adress, floor: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Эт.' />
+                        {/*<input onBlur={(e) => { setAdress({ ...adress, entrance: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Под' />*/}
+                        {/*<input onBlur={(e) => { setAdress({ ...adress, floor: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Эт.' />*/}
                         <input onBlur={(e) => { setAdress({ ...adress, apartmentt: e.target.value }) }} className='form-adress-min-input' type="text" placeholder='Кв.' />
                     </div>
                 </div>

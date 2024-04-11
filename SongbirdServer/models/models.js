@@ -54,6 +54,17 @@ const Notifications = sequelize.define('notifications', {
 })
 
 
+const Delivery = sequelize.define('delivery', {
+    courier: { type: DataTypes.BOOLEAN, defaultValue: false },
+    pickup: { type: DataTypes.BOOLEAN, defaultValue: false },
+})
+
+const PaymentMethod = sequelize.define('payment-method', {
+    cash: { type: DataTypes.BOOLEAN, defaultValue: false },
+    card: { type: DataTypes.BOOLEAN, defaultValue: false },
+})
+
+
 const ConfirmeCode = sequelize.define('confirme-code', {
     userId: { type: DataTypes.INTEGER, },
     code: { type: DataTypes.INTEGER },
@@ -203,5 +214,7 @@ export default {
     Notifications,
     Basket,
     Order,
-    OrderStatus
+    OrderStatus,
+    Delivery,
+    PaymentMethod
 }

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './PaymentMethod.scss'
+import { UserContextFunc } from '../../Context/UserContext'
+
+function PaymentMethod({ validationOrderDeliveryInfo, validationOrderPersonalData, setDevOrder, paymentBonus, setPaymentBonus, bonusAccount, typeDelivery, bonuses, sumBaske, paymentMethod, setPaymentMethod }) {
+
+    const { isSetting } = UserContextFunc()
 
 
-
-function PaymentMethod({ setDevOrder, paymentBonus, setPaymentBonus, bonusAccount, typeDelivery, bonuses, sumBaske, paymentMethod, setPaymentMethod }) {
 
 
     const [bonusesPaid, setBonusesPaid] = useState(false)
@@ -23,14 +27,45 @@ function PaymentMethod({ setDevOrder, paymentBonus, setPaymentBonus, bonusAccoun
 
     }
 
+    const allValidation = () => {
+        let one = validationOrderDeliveryInfo()
+        let second = validationOrderPersonalData()
+        if (typeDelivery) {
+            if (second) {
+                setDevOrder(true);
+            }
+        } else {
+            if (one && second) {
+                setDevOrder(true)
+            }
+        }
+    }
+
+
+    useEffect(() => {
+
+        if (isSetting.cash) {
+            setPaymentMethod(true)
+        } else if (isSetting.card) {
+            setPaymentMethod(false)
+        }
+
+    }, [])
+
 
     return (
         <div className='payment-method-container'>
             <div className="payment-method-content">
                 <div className="payment-method-title">Способ оплаты</div>
                 <div className="payment-method-options">
-                    <button onClick={() => { setPaymentMethod(true) }} className={paymentMethod ? 'payment-method-options-btn' : 'payment-method-options-btn payment-method-options-btn-disabled'}>Наличными</button>
-                    <button onClick={() => { setPaymentMethod(false) }} className={paymentMethod ? 'payment-method-options-btn payment-method-options-btn-disabled' : 'payment-method-options-btn'}>Картой онлайн</button>
+                    {isSetting.cash && isSetting.card ? <> <button onClick={() => { setPaymentMethod(true) }} className={paymentMethod ? 'payment-method-options-btn' : 'payment-method-options-btn payment-method-options-btn-disabled'}>Наличными</button>
+                        <button onClick={() => { setPaymentMethod(false) }} className={paymentMethod ? 'payment-method-options-btn payment-method-options-btn-disabled' : 'payment-method-options-btn'}>Картой онлайн</button></>
+                        : isSetting.cash ?
+                            <button className='payment-method-options-btn' >Наличными</button> :
+                            isSetting.card ?
+                                <button className='payment-method-options-btn'>Картой онлайн</button> :
+                                ''
+                    }
                 </div>
                 <div className="payment-method-title">Мои бонусы</div>
                 <div className="payment-method-your-bonus">У вас на бонусном счету: <span>{`${bonusAccount} ₽`}</span> </div>
@@ -44,18 +79,23 @@ function PaymentMethod({ setDevOrder, paymentBonus, setPaymentBonus, bonusAccoun
                 </div>
                 <div className="payment-method-delivery">
                     <div className="payment-method-delivery-text">Доставка:</div>
-                    <div className="payment-method-delivery-money">{typeDelivery ? '450 ₽' : '0  ₽'}</div>
+                    <div className="payment-method-delivery-money">{typeDelivery ? '0  ₽' : '450  ₽'}</div>
                 </div>
                 <div className="payment-method-paid-bonuses">
                     <div className="payment-method-paid-bonuses-text">Оплачено бонусами:</div>
-                    <div className="payment-method-paid-bonuses-money">450 ₽</div>
+                    <div className="payment-method-paid-bonuses-money">{`${bonusesPaid ? paymentBonus : 0} ₽`}</div>
                 </div>
                 <div className="payment-method-paid-all">
                     <div className="payment-method-paid-all-text">Всего*:</div>
-                    <div className="payment-method-paid-all-money">{`${typeDelivery ? bonusesPaid ? (sumBaske - Number(paymentBonus)) + 450 : sumBaske + 450 : bonusesPaid ? (sumBaske - Number(paymentBonus)) : sumBaske} ₽`}</div>
+                    <div className="payment-method-paid-all-money">{`${!typeDelivery ? bonusesPaid ? (sumBaske - Number(paymentBonus)) + 450 : sumBaske + 450 : bonusesPaid ? (sumBaske - Number(paymentBonus)) : sumBaske} ₽`}</div>
                 </div>
-                <div className="">* Приблизительная стоимость заказа</div>
-                <button onClick={() => setDevOrder(true)} className='payment-method-put-order-btn'>Оформить заказ</button>
+                <div className="payment-method-paid-approximate">* Приблизительная стоимость заказа.Точная цена будет определена после согласования всех деталей.</div>
+
+                {/*{
+                    <Link>Оформить заказ</Link>
+                    :
+                <button onClick={() => setDevOrder(true)} className='payment-method-put-order-btn'>Оформить заказ</button>}*/}
+                <button onClick={() => { allValidation() }} className='payment-method-put-order-btn'>Оформить заказ</button>
                 <div className="payment-method-privacy-policies">Нажимая на кнопку «оплатить заказ», я принимаю условия публичной оферты и политики конфиденциальности</div>
             </div>
         </div >

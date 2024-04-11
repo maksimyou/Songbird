@@ -23,6 +23,8 @@ import SettingsSite from './Components/SettingsSite/SettingsSite.jsx'
 import BonusAccount from './Components/BonusAccount/BonusAccount.jsx'
 import WantToTry from './Components/WantToTry/WantToTry.jsx'
 import Checkout from './pages/Checkout/Checkout.jsx'
+import SuccessfulOrder from './pages/SuccessfulOrder/SuccessfulOrder.jsx'
+
 
 import {
   createBrowserRouter,
@@ -52,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+      },
+      {
+        path: "successful-order",
+        element: <SuccessfulOrder />,
       },
       {
         path: "admin",

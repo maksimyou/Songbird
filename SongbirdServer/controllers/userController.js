@@ -90,7 +90,7 @@ class userController {
         console.log(name, password, email, role)
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await Models.User.create({ email, password: hashPassword, name, role, confirmed })
-        await Models.Notifications.create({ userId: 1, sms: false, email: false })
+        await Models.Notifications.create({ userId: user.id, sms: false, email: false })
 
         //console.log(user)
         const token = generateJwt(user.id, user.email, user.role)
