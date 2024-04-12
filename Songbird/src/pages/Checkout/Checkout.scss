@@ -30,6 +30,15 @@
     justify-content: center;
     gap: 60px;
     margin-bottom: 15px;
+    @media (max-width: 1450px) {
+        gap: 30px;
+    }
+    @media (max-width: 1170px) {
+        flex-direction: column;
+    }
+    @media (max-width: 770px) {
+        align-items: center;
+    }
 }
 .checkout-left {
 }
@@ -42,6 +51,71 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 907px;
+    @media (max-width: 1400px) {
+        width: auto;
+    }
+    //@media (max-width: 1200px) {
+    //    width: 660px;
+    //}
+    @media (max-width: 1170px) {
+        width: 907px;
+    }
+    //@media (max-width: 1150px) {
+    //    width: 542px;
+    //}
+    //@media (max-width: 1070px) {
+    //    width: 907px;
+    //}
+    @media (max-width: 970px) {
+        width: 807px;
+    }
+    @media (max-width: 870px) {
+        width: 707px;
+    }
+    @media (max-width: 770px) {
+        width: 607px;
+    }
+    @media (max-width: 670px) {
+        width: 542px;
+    }
+    @media (max-width: 606px) {
+        width: 442px;
+    }
+    @media (max-width: 510px) {
+        width: 350px;
+    }
+    @media (max-width: 400px) {
+        padding: 10px;
+        width: 342px;
+    }
+}
+.checkout-left-order-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media (max-width: 1400px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    @media (max-width: 606px) {
+        justify-content: center;
+    }
+}
+.order-list-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.checkout-order-img {
+    width: 22px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transition: 0.5s;
+}
+.checkout-order-img-active {
+    transition: 0.5s;
+    transform: rotate(0);
 }
 .checkout-left-personal-data {
     border-radius: 15px;
@@ -49,13 +123,18 @@
     background: #fff;
     padding: 20px;
     margin-bottom: 20px;
+    @media (max-width: 435px) {
+        padding: 10px;
+    }
 }
 .checkout-subtitle {
     font-family: Jost, sans-serif;
     font-weight: 400;
     font-size: 24px;
     color: #3a3a3a;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .checkout-personal-data-title {
@@ -69,6 +148,15 @@
     margin-bottom: 30px;
     display: flex;
     gap: 20px;
+    //@media (max-width: 1200px) {
+    //    flex-direction: column;
+    //}
+    @media (max-width: 1070px) {
+        flex-direction: row;
+    }
+    @media (max-width: 770px) {
+        flex-direction: column;
+    }
 }
 
 .checkout-left-delivery-info {
@@ -77,6 +165,9 @@
     background: #fff;
     padding: 20px;
     margin-bottom: 20px;
+    @media (max-width: 435px) {
+        padding: 10px;
+    }
 }
 
 .checkout-left-wrap-btn {
@@ -166,6 +257,12 @@
     color: #646568;
     padding: 0 20px;
     margin-bottom: 20px;
+    @media (max-width: 606px) {
+        width: 400px;
+    }
+    @media (max-width: 510px) {
+        width: 300px;
+    }
 }
 .checkout-select-address-textarea {
     border: 1px solid #9a9ea5;
@@ -182,6 +279,12 @@
     color: #9a9ea5;
     padding: 0 20px;
     margin-bottom: 20px;
+    @media (max-width: 606px) {
+        width: 400px;
+    }
+    @media (max-width: 510px) {
+        width: 300px;
+    }
 }
 .checkout-select-address-date {
     font-family: Jost, sans-serif;
@@ -254,6 +357,7 @@
 .checkout-right {
     position: sticky;
     top: 20px;
+    margin-bottom: 20px;
 }
 .checkout-empty {
     font-size: 36px;

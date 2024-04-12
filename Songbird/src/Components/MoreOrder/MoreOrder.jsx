@@ -4,7 +4,17 @@ import './MoreOrder.scss'
 
 
 function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
-    const [adress, setAdress] = useState(JSON.parse(dataMoreOrder.adress))
+    const [adress, setAdress] = useState({
+        city: '',
+        street: '',
+        house: '',
+        apartmentt: '',
+        comments: ''
+    })
+
+    useEffect(() => {
+        setAdress(JSON.parse(dataMoreOrder.adress))
+    }, [])
 
 
     return (

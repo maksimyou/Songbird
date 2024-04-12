@@ -1,6 +1,24 @@
 .order-goods-item-container {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-    @media (max-width: 930px) {
+    @media (max-width: 1400px) {
+        width: 350px;
+    }
+    @media (max-width: 1400px) {
+        width: 330px;
+    }
+    @media (max-width: 1200px) {
+        width: 320px;
+    }
+    @media (max-width: 1170px) {
+        width: 310px;
+    }
+    @media (max-width: 1150px) {
+        width: 350px;
+    }
+    @media (max-width: 870px) {
+        width: 310px;
+    }
+    @media (max-width: 770px) {
         width: 350px;
     }
     @media (max-width: 400px) {
@@ -15,7 +33,7 @@
     //background: linear-gradient(90deg, rgb(204, 162, 117) 0%, rgb(255, 255, 255) 100%);
     padding: 20px 10px;
     border-radius: 10px 0 0 10px;
-    @media (max-width: 930px) {
+    @media (max-width: 1400px) {
         flex-direction: column;
         border-radius: 10px;
         //background: linear-gradient(0deg, rgb(204, 162, 117) 0%, rgb(255, 255, 255) 100%);
@@ -34,7 +52,7 @@
     padding: 10px;
     cursor: pointer;
     border-radius: 50%;
-    @media (max-width: 930px) {
+    @media (max-width: 1400px) {
         align-self: flex-start;
     }
 }
@@ -43,7 +61,7 @@
     width: 100px;
     height: 100px;
     border: 1px solid rgb(165 130 86);
-    @media (max-width: 930px) {
+    @media (max-width: 1400px) {
         width: 270px;
         height: 270px;
     }

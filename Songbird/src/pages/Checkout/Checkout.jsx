@@ -6,7 +6,7 @@ import PaymentMethod from '../../Components/PaymentMethod/PaymentMethod'
 import { UserContextFunc } from '../../Context/UserContext'
 import OrderfGoodsItem from '../../Components/OrderfGoodsItem/OrderfGoodsItem'
 
-
+import arrow from '../../assets/arrow-down.svg'
 function Checkout() {
     const { getGoodsBasket,
         setStatusOrder,
@@ -22,6 +22,7 @@ function Checkout() {
     const [typeDelivery, setTypeDelivery] = useState(true)
     const [errorInput, setErrorInput] = useState(false)
     const [errorInput2, setErrorInput2] = useState(false)
+    const [orderListToggle, setOrderListToggle] = useState(false)
 
     const [bonuses, setBonuses] = useState(0)
     const [paymentBonus, setPaymentBonus] = useState(0)
@@ -155,8 +156,11 @@ function Checkout() {
                         <div className="checkout-left">
 
                             <div className="checkout-left-order-list">
-                                <div className="checkout-subtitle">Состав заказа</div>
-                                {basket.goods.map(e => <OrderfGoodsItem key={e.id} countingBonuses={countingBonuses} quantity={e.quantity} setGoodsBasketDep={setGoodsBasketDep} id={e.id} image={e.imageURL[0]} name={e.name} price={e.price} list={basket.list} category={e.category} />)}
+                                <div className="order-list-img">
+                                    <div className="checkout-subtitle">Состав заказа</div>
+                                    <img onClick={() => setOrderListToggle(!orderListToggle)} className={orderListToggle ? 'checkout-order-img checkout-order-img-active' : 'checkout-order-img'} src={arrow} alt="" />
+                                </div>
+                                {orderListToggle && <div className="checkout-left-order-list-item">{basket.goods.map(e => <OrderfGoodsItem key={e.id} countingBonuses={countingBonuses} quantity={e.quantity} setGoodsBasketDep={setGoodsBasketDep} id={e.id} image={e.imageURL[0]} name={e.name} price={e.price} list={basket.list} category={e.category} />)}</div>}
                             </div>
                             <div className="checkout-left-personal-data">
                                 <div className="checkout-subtitle">Личные данные</div>

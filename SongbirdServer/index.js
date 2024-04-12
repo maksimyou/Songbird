@@ -52,6 +52,12 @@ const start = async () => {
         //https.createServer(httpsOptions, app).listen(443, () => console.log(`Server started on port ${PORT}`))
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
+
+
+
+
+
+
         let status = await Models.OrderStatus.findAll()
         if (status.length === 0) {
             await Models.OrderStatus.create({ statusText: 'Новый' })

@@ -27,7 +27,7 @@ function OrderfGoodsItem({ countingBonuses, isBasket, category, setGoodsBasketDe
         quantity ? updateBasket({ idGoods: id, count: quantityGoods }) : updateBasket({ idGoods: id, count: quantityGoods })
         setTimerSwitch(false)
     }
-
+    console.log(width)
     useEffect(() => {
         setWeightGoods();
     }, [])
@@ -46,13 +46,13 @@ function OrderfGoodsItem({ countingBonuses, isBasket, category, setGoodsBasketDe
                 <Link to={`/products/${category}/${id}`}>
                     <div className="order-goods-item-name">{name}</div>
                 </Link>
-                <div className="order-goods-item-price">{width <= 930 ? `Цена: ${price * quantityGoods} ₽` : `${price * quantityGoods} ₽`}</div>
+                <div className="order-goods-item-price">{width <= 1400 ? `Цена: ${price * quantityGoods} ₽` : `${price * quantityGoods} ₽`}</div>
 
 
                 {quantity ?
 
                     <div className="order-goods-item-weight">
-                        {width <= 930 ? `Количество: ` : ``}
+                        {width <= 1400 ? `Количество: ` : ``}
                         <div className="order-goods-item-quantity-wrap">
                             <span onClick={() => {
                                 if (quantityGoods > 1) { setQuantityGoods(quantityGoods - 1) }
@@ -74,7 +74,7 @@ function OrderfGoodsItem({ countingBonuses, isBasket, category, setGoodsBasketDe
                     </div>
                     :
                     <div className="order-goods-item-weight">
-                        {width <= 930 ? `Вес: ` : ``}
+                        {width <= 1400 ? `Вес: ` : ``}
                         <div className="order-goods-item-quantity-wrap">
                             <span onClick={() => {
                                 if (quantityGoods > 1) { setQuantityGoods(quantityGoods - 1) }
