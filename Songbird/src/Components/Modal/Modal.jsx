@@ -203,7 +203,7 @@ function Modal() {
                                         ?
                                         <form onSubmit={e => e.preventDefault()} className="form-modal2">
                                             <div className="confirm-mail">Подтверждение почты</div>
-                                            <div className="your-email"><span>Профиль не подтвержден.</span> <br /> На вашу почту отправлен код</div>
+                                            <div className="your-email"><span>Профиль не подтвержден.</span> <br /> На вашу почту <span className='email-your'>{userData.email}</span> отправлен код</div>
                                             <div className="form-modal2-code">
                                                 <span className='your-code'>Код:</span>
                                                 <input onBlur={() => refBtn1.current.focus()} value={code} onChange={(e) => { CheckingCode(e.target.value); setCode(e.target.value) }} className="code-modal" placeholder='Введите код' />
@@ -238,7 +238,7 @@ function Modal() {
                                         ?
                                         <form onSubmit={e => e.preventDefault()} className="form-modal2">
                                             <div className="confirm-mail">Подтверждение почты</div>
-                                            <div className="your-email">На вашу почту отправлен код</div>
+                                            <div className="your-email">На вашу почту <span className='email-your'>{userData.email}</span> отправлен код</div>
                                             <div className="form-modal2-code">
                                                 <span className='your-code'>Код:</span>
                                                 <input onBlur={() => refBtn3.current.focus()} value={code} onChange={(e) => { CheckingCode(e.target.value); setCode(e.target.value) }} className="code-modal" placeholder='Введите код' />

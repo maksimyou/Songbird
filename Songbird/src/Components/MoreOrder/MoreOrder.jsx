@@ -13,7 +13,7 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
     })
 
     useEffect(() => {
-        setAdress(JSON.parse(dataMoreOrder.adress))
+        setAdress(dataMoreOrder.adress)
     }, [])
 
 
