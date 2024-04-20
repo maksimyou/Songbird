@@ -19,6 +19,8 @@ function ListOrders() {
 
 
     useEffect(() => {
+        document.title = 'Список заказов | Певчий Сластник' || 'songbird21.ru'
+
         getOrders()
     }, [])
 

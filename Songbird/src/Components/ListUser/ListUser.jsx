@@ -9,6 +9,8 @@ function ListUser() {
     const { users, setUsers, deleteUserApi, editUserApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, setIsRole, userRole, isUsers, getUsers } = UserContextFunc()
     console.log(isUsers)
     useEffect(() => {
+        document.title = 'Список пользователей | Певчий Сластник' || 'songbird21.ru'
+
         getUsers();
     }, [])
     useEffect(() => {

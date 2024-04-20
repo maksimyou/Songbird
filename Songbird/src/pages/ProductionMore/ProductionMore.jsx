@@ -17,17 +17,21 @@ function ProductionMore() {
         } else {
             getOneGoodsApi({ id: nav.id }); setGetOneGoodsDev(false)
         }
+
+
     }, [getOneGoodsDev])
 
     useEffect(() => {
-
-
         if (isAuth) {
             getOneGoodsUserApi(({ id: nav.id }))
         } else {
             getOneGoodsApi({ id: nav.id })
         }
     }, [])
+
+    useEffect(() => {
+        document.title = `${isGoodsOne.name} | Певчий Сластник` || 'songbird21.ru'
+    }, [isGoodsOne])
 
     return (
         <div className='production-more-container'>

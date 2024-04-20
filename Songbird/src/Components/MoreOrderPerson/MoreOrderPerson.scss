@@ -11,7 +11,7 @@
 }
 .more-order-person-content {
     position: relative;
-
+    max-height: 85%;
     padding: 15px;
     background-color: #e8e6df;
     display: flex;
@@ -19,7 +19,42 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    width: 50%;
+}
+.more-order-person-content ul {
+    overflow-y: scroll;
+
+    @media (max-width: 1070px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media (max-width: 1000px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 800px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 560px) {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #666;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
 }
 .more-order-person-close {
     position: absolute;
@@ -39,6 +74,7 @@
 }
 .more-order-person-list-item {
     display: flex;
+    margin-right: 10px;
     align-items: center;
     gap: 30px;
     margin-bottom: 15px;
@@ -47,9 +83,18 @@
     font-weight: 400;
     font-size: 16px;
     color: #3a3a3a;
+    @media (max-width: 1070px) {
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 10px;
+        background: linear-gradient(0deg, rgb(204, 162, 117) 0%, rgb(255, 255, 255) 100%);
+        border: 1px solid #cca275;
+        gap: 20px;
+    }
 }
 .more-order-person-list-item2 {
     display: flex;
+    margin-right: 10px;
     align-items: center;
     gap: 30px;
     margin-bottom: 15px;
@@ -65,6 +110,7 @@
     font-size: 19px;
     font-weight: 500;
     color: #070707;
+    word-wrap: break-word;
 }
 .more-order-person-list-img {
     width: 100px;
@@ -74,5 +120,5 @@
 }
 .more-order-person-list-item-item {
     width: 180px;
-    text-wrap: nowrap;
+    //text-wrap: nowrap;
 }

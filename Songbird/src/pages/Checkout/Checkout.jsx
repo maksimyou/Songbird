@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Checkout.scss'
 import BreadCrumbs from '../../Components/BreadCrumbs/BreadCrumbs'
@@ -20,9 +20,12 @@ function Checkout() {
 
     const [fullAdress, setFullAdress] = useState([]);
     const [typeDelivery, setTypeDelivery] = useState(true)
+
+    const [coordination, setCoordination] = useState(false)
+
     const [errorInput, setErrorInput] = useState(false)
     const [errorInput2, setErrorInput2] = useState(false)
-    const [orderListToggle, setOrderListToggle] = useState(false)
+    const [orderListToggle, setOrderListToggle] = useState(true)
 
     const [bonuses, setBonuses] = useState(0)
     const [paymentBonus, setPaymentBonus] = useState(0)
@@ -106,6 +109,7 @@ function Checkout() {
 
 
     useEffect(() => {
+        document.title = 'Оформление заказа | Певчий Сластник' || 'songbird21.ru'
         getGoodsBasket(false, true);
 
         if (isAuth) {
@@ -117,6 +121,8 @@ function Checkout() {
             setTypeDelivery(true)
         } else if (isSetting.courier) {
             setTypeDelivery(false)
+        } else {
+            setCoordination(true)
         }
 
     }, [])
@@ -133,7 +139,7 @@ function Checkout() {
     }, [isEffectUser])
 
     useEffect(() => {
-        if (devOrder) { addOrder({ name: myData.name, phone: myData.phone, adress: adress, paymentMethod, paymentBonus, typeDelivery }); handleClick(); setDevOrder(false) }
+        if (devOrder) { addOrder({ name: myData.name, phone: myData.phone, adress: adress, paymentMethod, paymentBonus, typeDelivery, coordination }); handleClick(); setDevOrder(false) }
     }, [devOrder])
 
     useEffect(() => {
@@ -145,9 +151,8 @@ function Checkout() {
     }, [sumBaske])
 
 
-
     return (
-        isAuth ?
+        isAuth && basket.goods.length >= 1 ?
             <div className='checkout-container'>
                 <div className="checkout-content">
                     <BreadCrumbs textLink={['Форма заказа', '']} location={location} />
@@ -160,7 +165,7 @@ function Checkout() {
                                     <div className="checkout-subtitle">Состав заказа</div>
                                     <img onClick={() => setOrderListToggle(!orderListToggle)} className={orderListToggle ? 'checkout-order-img checkout-order-img-active' : 'checkout-order-img'} src={arrow} alt="" />
                                 </div>
-                                {orderListToggle && <div className="checkout-left-order-list-item">{basket.goods.map(e => <OrderfGoodsItem key={e.id} countingBonuses={countingBonuses} quantity={e.quantity} setGoodsBasketDep={setGoodsBasketDep} id={e.id} image={e.imageURL[0]} name={e.name} price={e.price} list={basket.list} category={e.category} />)}</div>}
+                                {orderListToggle ? <div className="checkout-left-order-list-item">{basket.goods.map(e => <OrderfGoodsItem key={e.id} countingBonuses={countingBonuses} quantity={e.quantity} setGoodsBasketDep={setGoodsBasketDep} id={e.id} image={e.imageURL[0]} name={e.name} price={e.price} list={basket.list} category={e.category} />)}</div> : ''}
                             </div>
                             <div className="checkout-left-personal-data">
                                 <div className="checkout-subtitle">Личные данные</div>

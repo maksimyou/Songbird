@@ -13,6 +13,9 @@ function BasketOfGoods() {
 
 
     useEffect(() => {
+
+        document.title = 'Корзина | Певчий Сластник' || 'songbird21.ru'
+
         console.log('ssssssssssssssssssssssssssssssssssss')
         getGoodsBasket(true);
     }, [])

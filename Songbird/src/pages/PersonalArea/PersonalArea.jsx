@@ -10,6 +10,9 @@ function PersonalArea() {
     const { getOrder, isUser, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, exitUser, isRole, setIsRole, userRole } = UserContextFunc()
 
     useEffect(() => {
+
+        document.title = 'Личный кабинет | Певчий Сластник' || 'songbird21.ru'
+
         getOrder({ id: isUser.id })
     }, [])
 
@@ -42,12 +45,12 @@ function PersonalArea() {
                                     : "personal-area-sidebar-pending"
 
                             } to='bonus-account'>Бонусный счет</NavLink></li>
-                            <li><NavLink className={({ isActive }) =>
+                            {/*<li><NavLink className={({ isActive }) =>
                                 isActive
                                     ? "personal-area-sidebar-active"
                                     : "personal-area-sidebar-pending"
 
-                            } to='want-to-try'>Хочу попробовать</NavLink></li>
+                            } to='want-to-try'>Хочу попробовать</NavLink></li>*/}
                         </ul>
                     </div>
                     <Outlet />

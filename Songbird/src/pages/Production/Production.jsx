@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { UserContextFunc } from '../../Context/UserContext'
 
 function Production() {
-    const { isCategoryBread, isSwitchCategory, setIsSwitchCategory, isGoods, isCategory, getCategoryGoods, getCategoryGoodsNoload, isCategoryGoods, } = UserContextFunc()
+    const { depCategoryTitle, setDepCategoryTitle, getAllCategoryApi, isCategoryBread, isSwitchCategory, setIsSwitchCategory, isGoods, isCategory, getCategoryGoods, getCategoryGoodsNoload, isCategoryGoods, } = UserContextFunc()
     let nav = useParams()
     //const [breadCrumb, setBreadCrumb] = useState('')
     console.log(nav, isCategoryBread)
@@ -20,15 +20,27 @@ function Production() {
     //}
     //console.log(goodsCard)
 
-    useEffect(() => { getCategoryGoods({ category: nav.name }); }, [])
+    useEffect(() => {
+        getCategoryGoods({ category: nav.name });
+    }, [])
 
 
     useEffect(() => {
         console.log(nav)
         if (isSwitchCategory) getCategoryGoodsNoload({ category: nav.name }); setIsSwitchCategory(false)
         //setGoodsCard(filterGoodsProduction())
+        document.title = `${isCategoryBread[nav.name]} | Певчий Сластник` || 'songbird21.ru'
+
     }, [isSwitchCategory])
 
+    useEffect(() => {
+        getAllCategoryApi();
+    }, [])
+
+
+    useEffect(() => {
+        if (depCategoryTitle) document.title = isCategoryBread[nav.name]; setDepCategoryTitle(false)
+    }, [depCategoryTitle])
 
     return (
         <div className='production-container'>

@@ -11,6 +11,10 @@ function ListCategory() {
         if (category) getAllCategoryApi(); setCategory(false);
     }, [category])
 
+
+    useEffect(() => {
+        document.title = 'Список всех категорий | Певчий Сластник' || 'songbird21.ru'
+    }, [])
     return (
         <div className='list-category-container'>
             <div className="list-category-content">

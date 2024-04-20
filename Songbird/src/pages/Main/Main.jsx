@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 import './Main.scss'
 import { UserContextFunc } from '../../Context/UserContext'
 import HowWeAreWorking from '../../Components/HowWeAreWorking/HowWeAreWorking'
@@ -8,6 +8,10 @@ import FAQBlock from '../../Components/FAQBlock/FAQBlock'
 
 function Main() {
     const { setSwitchOrderModal } = UserContextFunc()
+
+    useEffect(() => {
+        document.title = 'Главная | Певчий Сластник - КОНДИТЕРСКИЕ ИЗДЕЛИЯ,ТОРТЫ'
+    }, [])
 
     return (
         <div className="main-container-wrap">

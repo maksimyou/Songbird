@@ -9,7 +9,7 @@ import { UserContextFunc } from '../../Context/UserContext'
 
 function Card({ image, name, price, bought, liked, nav, id, quantity }) {
 
-    const { isAuth, addFavorites, isUserId, deleteFavorites, isFavorites, setIsSwitchCategory, checkLike, setCheckLike, checkBasket, setCheckBasket, isBasket, addBasket, deleteBasket } = UserContextFunc()
+    const { getGoodsBasket, isAuth, addFavorites, isUserId, deleteFavorites, isFavorites, setIsSwitchCategory, checkLike, setCheckLike, checkBasket, setCheckBasket, isBasket, addBasket, deleteBasket } = UserContextFunc()
     //const [weight, setWeight] = useState('Выберите вес')
     //const [showList, setShowList] = useState(false)
     const [selectedCard, setSelectedCard] = useState('1')
@@ -59,15 +59,15 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
     }, [])
 
     useEffect(() => {
-        if (checkLike) checkLikeGoods(); setCheckLike(false)
-        if (checkBasket) checkBasketGoods(); setCheckBasket(false)
-        if (addFav) addFavorites({ idGoods: id }); setIsSwitchCategory(true); setAddFav(false);
-        if (removeFav) deleteFavorites({ idGoods: id }); setIsSwitchCategory(true); setRemoveFav(false);
+        if (checkLike) { checkLikeGoods(); setCheckLike(false) }
+        if (checkBasket) { checkBasketGoods(); setCheckBasket(false) }
+        if (addFav) { addFavorites({ idGoods: id }); setIsSwitchCategory(true); setAddFav(false); }
+        if (removeFav) { deleteFavorites({ idGoods: id }); setIsSwitchCategory(true); setRemoveFav(false); }
         if (addBaskets) {
             quantity ? addBasket({ idGoods: id, count: quantityGoods }) : addBasket({ idGoods: id, count: selectedCard })
             setAddBasket(false);
         }
-        if (removeBasket) deleteBasket({ idGoods: id }); setRemoveBasket(false);
+        if (removeBasket) { deleteBasket({ idGoods: id }); setRemoveBasket(false); }
     }, [addFav, removeFav, checkLike, checkBasket, addBaskets, removeBasket])
 
     return (

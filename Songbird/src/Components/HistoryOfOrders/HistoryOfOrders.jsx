@@ -31,7 +31,9 @@ function HistoryOfOrders() {
     }, [devOrder])
 
 
-
+    useEffect(() => {
+        document.title = 'История заказов | Певчий Сластник' || 'songbird21.ru'
+    }, [])
 
     console.log(order)
     return (
@@ -42,7 +44,7 @@ function HistoryOfOrders() {
                 <h1 className='history-of-orders-title'>История заказов</h1>
                 <div className="history-of-orders-items">
                     {order.map(e => {
-                        return <HistoryOfOrdersItem setIdOrder={setIdOrder} setToggleCancelOrder={setToggleCancelOrder} setToggleMoreOrder={setToggleMoreOrder} filterSetOrdersData={filterSetOrdersData} id={e.id} idStatus={e.idStatus} list={e.list} chargedBonuses={e.chargedBonuses} paymentBonus={e.paymentBonus} priceGoods={e.priceGoods} typeDelivery={e.typeDelivery} />
+                        return <HistoryOfOrdersItem setIdOrder={setIdOrder} setToggleCancelOrder={setToggleCancelOrder} setToggleMoreOrder={setToggleMoreOrder} filterSetOrdersData={filterSetOrdersData} id={e.id} idStatus={e.idStatus} list={e.list} chargedBonuses={e.chargedBonuses} paymentBonus={e.paymentBonus} priceGoods={e.priceGoods} typeDelivery={e.typeDelivery} paymentMethod={e.paymentMethod} coordination={e.coordination} />
                     })}
                 </div>
             </div>

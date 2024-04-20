@@ -13,6 +13,7 @@ function Burger({ isSetting, width, burgerToggle, setBurgerToggle, setNavShow, i
                 {burgerToggle ? '' : <div className="burger-menu">
                     <ul>
                         <li onClick={() => { setBurgerToggle(!burgerToggle) }} className='header-nav-link-burger'><Link to="/">Главная</Link></li>
+                        <li onClick={() => { setBurgerToggle(!burgerToggle) }} className='header-nav-link-burger'><Link to="/contacts">Контакты</Link></li>
                         <li onClick={() => { setNavShow(!navShow) }} className='header-nav-link-burger'>
                             <a href="#">Продукция</a>
                             <img className={submenuProduct ? '' : 'active-arrow'} onClick={() => setSubmenuProduct(!submenuProduct)} src={arrowr} alt="" />
@@ -26,7 +27,7 @@ function Burger({ isSetting, width, burgerToggle, setBurgerToggle, setNavShow, i
                                 }
                             </ul>
                         </div>}
-                        <li onClick={() => { setBurgerToggle(!burgerToggle) }} className='header-nav-link-burger'><Link to="/">О сайте</Link></li>
+
                     </ul>
                     {width <= 900 && <div className='setting-burger-block'>
                         <a className='contacts' href={isSetting ? `tel:${isSetting.phone.replace(/[\(|\)|_|\-|\+)]/g, '')}` : "tel+72345678904"}>{isSetting ? isSetting.phone : "+7 (234) 567 89 04"}</a>

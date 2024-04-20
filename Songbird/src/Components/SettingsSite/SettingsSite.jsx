@@ -89,10 +89,14 @@ function SettingsSite() {
     useEffect(() => {
         if (gettingGev) setSetiingState(); setGettingGev(false)
     }, [gettingGev])
-        ,
-        useEffect(() => {
-            if (setting) updateAddSettingApi(createFormData()); setSetiingState(); setSetting(false)
-        }, [setting])
+
+    useEffect(() => {
+        if (setting) updateAddSettingApi(createFormData()); setSetiingState(); setSetting(false)
+    }, [setting])
+
+    useEffect(() => {
+        document.title = 'Настройки сайта | Певчий Сластник' || 'songbird21.ru'
+    }, [])
 
     return (
         <div className='settings-site-container'>

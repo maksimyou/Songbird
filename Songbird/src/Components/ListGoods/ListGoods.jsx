@@ -31,6 +31,9 @@ function ListGoods() {
         if (isAuth) {
             getAllGoodsApi()
         }
+
+        document.title = 'Список всех товаров | Певчий Сластник' || 'songbird21.ru'
+
     }, [])
 
     useEffect(() => {

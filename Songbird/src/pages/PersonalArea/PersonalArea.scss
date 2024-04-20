@@ -36,7 +36,7 @@
 .personal-area-sidebar {
     width: 200px;
     border-right: 1px solid black;
-
+    padding-right: 15px;
     @media (max-width: 640px) {
         border: none;
         width: 100%;

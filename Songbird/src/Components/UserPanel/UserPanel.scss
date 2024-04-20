@@ -50,6 +50,14 @@
 .heart-menu {
 }
 .bag-menu {
+    position: absolute;
+    border-radius: 5px;
+    width: 250px;
+    top: 41px;
+    right: 0px;
+    padding: 15px;
+    background-color: rgb(199, 160, 117);
+    z-index: 70;
 }
 .link-favorites {
     position: relative;
@@ -72,4 +80,41 @@
     font-size: 12px;
     align-items: center;
     justify-content: center;
+}
+
+.bag-menu-wrap {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.bag-menu-text {
+    font-size: 17px;
+    font-family: Jost, sans-serif;
+    color: #3a3a3a;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.person-menu-flex {
+    line-height: 150%;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+}
+.person-menu-link-btn {
+    border-radius: 5px;
+    width: 135px;
+    height: 26px;
+    border: none;
+    text-wrap: nowrap;
+    background: #f5f5f5;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3a3a3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: pointer;
 }

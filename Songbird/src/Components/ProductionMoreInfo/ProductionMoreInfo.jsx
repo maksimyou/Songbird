@@ -100,13 +100,13 @@ function ProductionMoreInfo() {
                             <button className="more-content-right-basket">В корзину</button>
                         }
                     </div>
-                    <div className="more-info-content-right-return-money">ВЕРНЕМ ДЕНЬГИ, если Вам не понравился вкус или качество продукта, без чека.</div>
+                    {/*<div className="more-info-content-right-return-money">ВЕРНЕМ ДЕНЬГИ, если Вам не понравился вкус или качество продукта, без чека.</div>*/}
 
                     <DropDownList title={"Описание"} text={isGoodsOne.description} />
                     <DropDownList title={"Состав"} text={isGoodsOne.composition} />
-                    <DropDownList title={"Срок годности"} text={'Срок годности: 3 дня Условия хранения: хранить при температуре от 3 до 5 °C '} />
-                    <DropDownList title={"Доставка"} text={'Мы готовим из слоеного теста с ванильно-сливочным заварным кремом'} />
-                    <DropDownList title={"Оплата"} text={'Мы готовим из слоеного теста с ванильно-сливочным заварным кремом'} />
+                    {/*<DropDownList title={"Срок годности"} text={'Срок годности: 3 дня Условия хранения: хранить при температуре от 3 до 5 °C '} />*/}
+                    {/*<DropDownList title={"Доставка"} text={'Мы готовим из слоеного теста с ванильно-сливочным заварным кремом'} />*/}
+                    {/*<DropDownList title={"Оплата"} text={'Мы готовим из слоеного теста с ванильно-сливочным заварным кремом'} />*/}
                 </div>
             </div>
         </div>

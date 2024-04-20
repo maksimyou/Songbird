@@ -52,6 +52,10 @@ function MyData() {
     }
 
     useEffect(() => {
+
+        document.title = 'Мои данные | Певчий Сластник' || 'songbird21.ru'
+
+
         getUsersData()
     }, [])
 
@@ -70,7 +74,7 @@ function MyData() {
             });
             setIsEffectUser(false)
         }
-        if (apiData) editUserDataApi({ ...myData, adress: JSON.stringify(fullAdress), notifications: JSON.stringify(notifications) }); setApiData(false)
+        if (apiData) { editUserDataApi({ ...myData, adress: JSON.stringify(fullAdress), notifications: JSON.stringify(notifications) }); setApiData(false) }
     }, [apiData, isEffectUser])
 
 

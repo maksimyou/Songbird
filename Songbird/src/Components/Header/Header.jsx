@@ -8,7 +8,7 @@ import { UserContextFunc } from '../../Context/UserContext'
 import resize from '../../Hooks/resize'
 
 function Header() {
-    const { isCountBasket, setIsFavorites, setIsCountFavorites, isCountFavorites, setToggleModal, isSetting, setIsSwitchCategory, getAllGoodsApi, getAllCategoryApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, isCategory } = UserContextFunc()
+    const { sumBaske, isCountBasket, setIsFavorites, setIsCountFavorites, isCountFavorites, setToggleModal, isSetting, setIsSwitchCategory, getAllGoodsApi, getAllCategoryApi, loginApi, registrationApi, isAuth, setIsAuth, loginUserAuth, isFirstName, exitUser, isRole, isCategory, basket } = UserContextFunc()
     const [exit, setExit] = useState()
     const [navShow, setNavShow] = useState(false)
     const [burgerToggle, setBurgerToggle] = useState(true)
@@ -36,7 +36,8 @@ function Header() {
                     {width >= 1051 ? <div className="header-navigation">
                         <ul>
                             <li className='header-nav-link'><Link to="/">Главная</Link></li>
-                            <li onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className='header-nav-link'><a href="#">Продукция</a></li>
+                            <li className='header-nav-link'><Link to="/contacts">Контакты</Link></li>
+                            <li onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className='header-nav-link'><Link to="#">Продукция</Link></li>
                             <div onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className={navShow ? "submenu submenu-show animate__animated animate__fadeIn" : "submenu"}>
                                 <ul>
                                     {
@@ -46,22 +47,23 @@ function Header() {
                                     }
                                 </ul>
                             </div>
+
                         </ul>
                     </div> : ''}
                 </div>
                 <div className="contacts-address-registration">
                     {width >= 901 && <>
-                        <a className='contacts' href={isSetting ? `tel:${isSetting.phone.replace(/[\(|\)|_|\-|\+)]/g, '')}` : "tel+72345678904"}>{isSetting ? isSetting.phone : "+7 (234) 567 89 04"}</a>
-                        <div className="address">{isSetting ? isSetting.address : "г. Москва, Ленинский проспект"}</div>
-                        {isAuth ? <UserPanel isCountBasket={isCountBasket} isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div>}
+                        <a className='contacts' href={isSetting ? `tel:${isSetting.phone.replace(/[\(|\)|_|\-|\+)]/g, '')}` : ""}>{isSetting ? isSetting.phone : ""}</a>
+                        <div className="address">{isSetting ? isSetting.address : ""}</div>
+                        {isAuth ? <UserPanel basket={basket} sumBaske={sumBaske} isCountBasket={isCountBasket} isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div>}
                     </>}
                 </div>
-
                 {width <= 1050 ? <div className='header-user-panel-burger'>
-                    {width <= 900 ? isAuth ? <UserPanel isCountBasket={isCountBasket} isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div> : ''}
+                    {width <= 900 ? isAuth ? <UserPanel basket={basket} sumBaske={sumBaske} isCountBasket={isCountBasket} isCountFavorites={isCountFavorites} isRole={isRole} setExit={setExit} /> : <div onClick={() => setToggleModal(true)} className="registration">Вход / Регистрация</div> : ''}
                     <div style={{ marginTop: '25px' }} onClick={() => { setBurgerToggle(!burgerToggle) }} className={burgerToggle ? "burger-btn" : "burger-btn active"}></div>
                 </div> : ''}
                 {width <= 1050 ? <Burger isSetting={isSetting} width={width} burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle} setNavShow={setNavShow} isCategory={isCategory} setIsSwitchCategory={setIsSwitchCategory} navShow={navShow} /> : ''}
+                {!burgerToggle && <div onClick={() => setBurgerToggle(!burgerToggle)} className="burger-background"></div>}
             </div>
         </div>
     )

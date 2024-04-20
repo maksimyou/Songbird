@@ -28,7 +28,7 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
                     <div className="more-order-info-phone">Телефон:<span>{dataMoreOrder.phone}</span></div>
                     <h2 className='more-order-info-user'>Информация о доставке</h2>
 
-                    <div className="more-order-info-delivery">Способ доставки: <span>{dataMoreOrder.typeDelivery}</span></div>
+                    <div className="more-order-info-delivery">Способ доставки: <span>{dataMoreOrder.coordination ? 'По соглосованию' : dataMoreOrder.typeDelivery}</span></div>
                     {dataMoreOrder.typeDelivery === 'Курьер'
                         ?
                         <div className="adres-wrap">
@@ -81,9 +81,9 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
                                     <div className="more-order-order-list-item-item">Количество: <span>{e.count}</span>
                                         {e.quantity
                                             ?
-                                            <div className="">кг</div>
-                                            :
                                             <div className="">шт</div>
+                                            :
+                                            <div className="">кг</div>
                                         }
                                     </div>
                                     <div className="more-order-order-list-item-item">Цена: <span>{`${e.price} ₽`}</span></div>

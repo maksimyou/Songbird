@@ -64,7 +64,7 @@ const UserContext = ({ children }) => {
   const [basket, setBasket] = useState({ goods: [], list: [] })
   const [orders, setOrders] = useState([])
   const [order, setOrder] = useState([])
-
+  const [depCategoryTitle, setDepCategoryTitle] = useState(false)
   const [currentImg, setCurrentImg] = useState('')
   const [categoryDepend, setCategoryDepend] = useState(false)
   const [gettingGev, setGettingGev] = useState(false)
@@ -639,6 +639,7 @@ const UserContext = ({ children }) => {
         console.log(data)
         setIsCategory(data)
         setIsCategoryBread(createCategoruBread(data))
+        setDepCategoryTitle(true)
         setIsLoader(false)
       })
       .catch(error => {
@@ -1080,7 +1081,7 @@ const UserContext = ({ children }) => {
     let token = JSON.parse(localStorage.getItem('token'));
     if (settingDepend) { getSettingApi(); setSettingDepend(false) }
     if (isIdReceivedCard) { getFavorites(); setIsIdReceivedCard(false) } //???????????????????????????????????????????????
-    if (isIdReceivedCard2) { getBasket(); setIsIdReceivedCard2(false) } //???????????????????????????????????????????????
+    if (isIdReceivedCard2) { getBasket(); getGoodsBasket(false, false); setIsIdReceivedCard2(false) } //???????????????????????????????????????????????
 
     if (isIdReceived) { getFavorites(); getBasket(); setIsIdReceived(false) }
     //if (token && tokenDepend) console.log('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'); loginUserAuth(); getUserId(); getUsersData(); userRole(); setTokenDepend(false)
@@ -1098,13 +1099,16 @@ const UserContext = ({ children }) => {
       getUserId();
       getUsersData();
       userRole();
+      getGoodsBasket(false, false)
       setTokenDepend(false)
     }
 
   }, [tokenDepend])
-
+  console.log(isLoader)
   return (
     <UserContextt.Provider value={{
+      depCategoryTitle,
+      setDepCategoryTitle,
       infoOrder,
       gettingGev,
       setGettingGev,

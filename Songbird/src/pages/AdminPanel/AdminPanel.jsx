@@ -15,6 +15,7 @@ function AdminPanel() {
             getAllGoodsApi()
             getOrders()
         }
+        document.title = 'Админка | Певчий Сластник' || 'songbird21.ru'
     }, [])
     return (
         isAuth ? <div className='admin-panel-container'>

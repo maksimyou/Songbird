@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Production from './pages/Production/Production.jsx'
+import Contacts from './pages/Contacts/Contacts.jsx'
 import AdminPanel from './pages/AdminPanel/AdminPanel.jsx'
 import PersonalArea from './pages/PersonalArea/PersonalArea.jsx'
 import Favorites from './pages/Favorites/Favorites.jsx'
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Main />,
+
       },
       {
         path: "products",
@@ -109,6 +111,10 @@ const router = createBrowserRouter([
       {
         path: "favorites",
         element: <Favorites />,
+      },
+      {
+        path: "contacts",
+        element: <Contacts />,
       },
       {
         path: "personal-area",

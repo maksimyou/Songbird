@@ -138,6 +138,10 @@ function AddingGoods() {
         }
     }, [goods])
 
+    useEffect(() => {
+        document.title = 'Добавление товара | Певчий Сластник' || 'songbird21.ru'
+    }, [])
+
     return (
         <div className='adding-goods-container'>
             {isCategory.length ? <div className=""></div> : <div className="error-add-message-section">Прежде чем добавить товар необходимо создать категорию товара</div>}

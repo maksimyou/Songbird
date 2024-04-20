@@ -1,5 +1,6 @@
 import ApiError from '../error/ApiError.js'
 import Models from '../models/models.js'
+import mailController from './mailController.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { config } from 'dotenv'
@@ -37,7 +38,7 @@ class orderController {
     //  }
 
     async addOrder(req, res, next) {
-        const { name, phone, adress, paymentMethod, paymentBonus, typeDelivery } = req.body;
+        const { name, phone, adress, paymentMethod, paymentBonus, typeDelivery, coordination } = req.body;
         const { id } = req.user;
 
         try {
@@ -71,9 +72,9 @@ class orderController {
             if (bonus >= 0) {
                 pay = Number(paymentBonus)
             }
-            let orrder = await Models.Order.create({ priceGoods: sum, idUser: id, list: basket.lists, adress: adressJson, paymentMethod: method, typeDelivery: delivery, chargedBonuses, paymentBonus: pay })
+            let orrder = await Models.Order.create({ priceGoods: sum, idUser: id, list: basket.lists, adress: adressJson, paymentMethod: method, typeDelivery: delivery, chargedBonuses, paymentBonus: pay, coordination })
             await Models.Basket.destroy({ where: { idUser: id } })
-
+            await mailController.send2(user.email, orrder.id)
             return res.json(orrder)
         } catch (error) {
             console.log('Ошибка добавления заказа')
@@ -159,16 +160,17 @@ class orderController {
     async setStatuesOrder(req, res, next) {
         const { idStatus, idOrder } = req.body;
         const { id } = req.user;
-
+        let user = await Models.User.findOne({ where: { id: id } })
         try {
             if (Number(idStatus) === 5) {
 
-                let user = await Models.User.findOne({ where: { id: id } })
                 let order = await Models.Order.findOne({ where: { id: idOrder } })
                 let sum = (user.bonusAccount - order.paymentBonus) + order.chargedBonuses
                 await Models.User.update({ bonusAccount: sum }, { where: { id: id } })
+                await mailController.send3(user.email, user, idOrder)
             }
             await Models.Order.update({ idStatus }, { where: { id: idOrder } })
+            await mailController.send3(user.email, user, idOrder)
             return res.json("Статус заказа изменен")
         } catch (error) {
             console.log('Ошибка установки статуса заказа')

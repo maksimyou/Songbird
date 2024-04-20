@@ -29,7 +29,9 @@ function AddingCategory() {
         }
     }
 
-
+    useEffect(() => {
+        document.title = 'Добавление категорий| Певчий Сластник' || 'songbird21.ru'
+    }, [])
     return (
         <div className='adding-category-container'>
             <div className="adding-category-content">

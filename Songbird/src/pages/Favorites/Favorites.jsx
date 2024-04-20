@@ -12,6 +12,9 @@ function Favorites() {
 
 
     useEffect(() => {
+
+        document.title = 'Избранное | Певчий Сластник' || 'songbird21.ru'
+
         getGoodsFavorites()
     }, [])
     useEffect(() => {

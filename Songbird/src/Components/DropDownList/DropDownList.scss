@@ -12,7 +12,7 @@
     transition: 0.3s;
 }
 .drop-down-list-content {
-    padding-bottom: 10.25px;
+    //padding-bottom: 10.25px;
     border-bottom: 1px solid #bababa;
     padding-top: 10px;
 }
@@ -33,5 +33,8 @@
     font-family: Jost, sans-serif;
     font-weight: 400;
     font-size: 14px;
+    //padding-bottom: 10px;
     color: #bababa;
+    overflow: hidden;
+    transition: 0.5s;
 }

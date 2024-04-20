@@ -39,6 +39,7 @@ const Order = sequelize.define('order', {
     chargedBonuses: { type: DataTypes.INTEGER },
     priceGoods: { type: DataTypes.INTEGER },
     idStatus: { type: DataTypes.INTEGER, defaultValue: 1 },
+    coordination: { type: DataTypes.BOOLEAN, },
     //date: { type: DataTypes.STRING, },
 })
 
