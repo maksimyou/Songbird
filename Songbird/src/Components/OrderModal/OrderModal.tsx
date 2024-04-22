@@ -29,8 +29,8 @@ function OrderModal() {
     }
     
   return (
-    switchOrderModal?<div className='order-modal-container animate__animated animate__fadeIn'>
-        <div className="order-modal-content">
+    switchOrderModal?<div onClick={()=>{setSwitchOrderModal(false);setFormSecces(true)}} className='order-modal-container animate__animated animate__fadeIn'>
+        <div onClick={e=>e.stopPropagation()} className="order-modal-content">
             <img onClick={()=>{setSwitchOrderModal(false);setFormSecces(true)}} className='order-modal-close' src={close} alt="" />
             {formSecces?<>
                 <div className="order-modal-title">Заказать</div>

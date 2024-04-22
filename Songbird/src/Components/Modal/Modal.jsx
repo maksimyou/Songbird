@@ -187,11 +187,13 @@ function Modal() {
         <>
             {
                 toggleModal ?
-                    <div className='modal-container animate__animated animate__fadeIn'>
+                    <div onClick={() => {
+                        closeCleareModal()
+                    }} className='modal-container animate__animated animate__fadeIn'>
                         < div onClick={() => {
                             closeCleareModal()
                         }} className="close-model" ></div >
-                        <div className="modal-content">
+                        <div onClick={e => e.stopPropagation()} className="modal-content">
                             <div className="title-model-switch">
                                 <div onClick={() => { setModeModal(true); if (modalSwitch) { clearValue2() } }} className={modeModal ? "join-model" : "join-model action-model"}>Вход</div>
                                 <div onClick={() => { setModeModal(false); if (!modalSwitch) { clearValue() } }} className={modeModal ? "reg-model action-model2" : "reg-model"}>Регистрация</div>

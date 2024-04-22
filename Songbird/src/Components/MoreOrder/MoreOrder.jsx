@@ -18,8 +18,8 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
 
 
     return (
-        <div className='more-order-container  animate__animated animate__fadeIn'>
-            <div className="more-order-content">
+        <div onClick={() => setToggleMoreOrder(false)} className='more-order-container  animate__animated animate__fadeIn'>
+            <div onClick={(e) => e.stopPropagation()} className="more-order-content">
                 <div onClick={() => setToggleMoreOrder(false)} className="more-order-close"></div>
                 <div className="more-order-info">
                     <h2 className='more-order-info-user'>Информация о покупателе</h2>

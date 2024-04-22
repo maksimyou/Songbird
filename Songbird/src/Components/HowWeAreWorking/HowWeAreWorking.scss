@@ -37,9 +37,13 @@
     @media (max-width: 1380px) {
         gap: 40px;
         justify-items: center;
+        justify-content: center;
+        grid-template-columns: 400px 400px;
+    }
+    @media (max-width: 805px) {
+        gap: 30px;
         grid-template-columns: 1fr 1fr;
     }
-
     @media (max-width: 660px) {
         gap: 40px;
         grid-template-columns: 1fr;
