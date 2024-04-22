@@ -23,7 +23,7 @@ function HistoryOfOrdersItem({ paymentMethod, coordination, setIdOrder, setToggl
                 <div className="history-of-orders-item-text">Способ оплаты: <span>{paymentMethod}</span></div>
                 <div className="history-of-orders-item-text">Тип доставки: <span>{coordination ? 'По согласованию' : typeDelivery}</span></div>
                 <div className="history-of-orders-item-text">Статус: <span style={idStatus <= 4 ? { color: "blue" } : Number(idStatus) === 5 ? { color: "green" } : { color: "red" }}>{status[idStatus]}</span></div>
-                <button onClick={() => { setToggleMoreOrder(true); filterSetOrdersData(id) }} className='history-of-orders-item-btn'>Подробннее</button>
+                <button onClick={() => { setToggleMoreOrder(true); filterSetOrdersData(id) }} className='history-of-orders-item-btn'>Подробнее</button>
                 {idStatus !== 6 && <button onClick={() => { setToggleCancelOrder(true); setIdOrder(id) }} className='history-of-orders-item-btn'>Отменить заказ</button>}
                 <button className='history-of-orders-item-btn'>Оставить отзыв</button>
             </div>

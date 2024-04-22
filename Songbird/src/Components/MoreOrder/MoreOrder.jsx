@@ -53,16 +53,16 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
                     <div className="more-order-info-charged-bonus">Будет начислено бонусов:<span>{`${dataMoreOrder.chargedBonuses} ₽`}</span></div>
                     <div className="more-order-info-charged-bonus">
 
-                        {dataMoreOrder.typeDelivery
+                        {dataMoreOrder.typeDelivery == 'Курьер'
                             ?
                             `Итоговая сумма после вычета бонусов, с включением стоимости доставки:`
                             :
                             `Итоговая сумма после вычета бонусов:`}
-                        {dataMoreOrder.typeDelivery
+                        {dataMoreOrder.typeDelivery == 'Курьер'
                             ?
                             <span>{`${dataMoreOrder.priceGoods - dataMoreOrder.paymentBonus + 450} ₽`}</span>
                             :
-                            <span>{`${dataMoreOrder.chargedBonuses - dataMoreOrder.paymentBonus} ₽}`}</span>
+                            <span>{`${dataMoreOrder.priceGoods - dataMoreOrder.paymentBonus} ₽`}</span>
                         }
                     </div>
                 </div>

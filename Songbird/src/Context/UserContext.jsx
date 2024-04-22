@@ -795,7 +795,20 @@ const UserContext = ({ children }) => {
       })
   }
 
-
+  const sendMessageTelegramContact = (telegramData) => {
+    setIsLoader(true)
+    axios.post('https://songbird21.ru/api/mail/send-telegram-contact', telegramData)
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setIsLoader(false)
+        setFormSecces(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
 
   const getSettingApi = () => {
     setIsLoader(true)
@@ -978,9 +991,12 @@ const UserContext = ({ children }) => {
 
 
   //------------------------------------------------------------------------------------Order--------------------------------------------------------------
+  const handleClick = (nav) => {
+    nav('/successful-order');
+  };
 
 
-  const addOrder = (orderData) => {
+  const addOrder = (orderData, nav) => {
     //idUser, idGoods 
     const token = JSON.parse(localStorage.getItem('token'))
     setIsLoader(true)
@@ -998,7 +1014,7 @@ const UserContext = ({ children }) => {
         setInfoOrder(data)
         setIsIdReceivedCard2(true)
         setIsLoader(false)
-
+        handleClick(nav)
       })
       .catch(err => {
         console.log(err)
@@ -1107,6 +1123,7 @@ const UserContext = ({ children }) => {
   console.log(isLoader)
   return (
     <UserContextt.Provider value={{
+      sendMessageTelegramContact,
       depCategoryTitle,
       setDepCategoryTitle,
       infoOrder,

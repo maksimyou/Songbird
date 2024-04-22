@@ -43,6 +43,13 @@ app.get('/', (req, res) => {
     res.status(200).json({ maessage: 'WORKING!!!!' })
 })
 
+
+
+
+
+
+
+
 const start = async () => {
     try {
         await sequelize.authenticate()
@@ -52,13 +59,10 @@ const start = async () => {
         //await sequelize.drop()
         //https.createServer(httpsOptions, app).listen(443, () => console.log(`Server started on port ${PORT}`))
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+        //let ordeeeeeer = await Models.Order.describe();
+        //let sdfgsdfg = await Models.Order.findAll()
 
-
-
-
-
-
-
+        //console.log('sFFFFFFFFFFFFFFFFFFFFFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', sdfgsdfg)
         let status = await Models.OrderStatus.findAll()
         if (status.length === 0) {
             await Models.OrderStatus.create({ statusText: 'Новый' })

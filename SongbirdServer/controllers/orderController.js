@@ -40,7 +40,6 @@ class orderController {
     async addOrder(req, res, next) {
         const { name, phone, adress, paymentMethod, paymentBonus, typeDelivery, coordination } = req.body;
         const { id } = req.user;
-
         try {
             let basket = await Models.Basket.findOne({ where: { idUser: id } })
             let user = await Models.User.findOne({ where: { id: id } })
@@ -99,6 +98,7 @@ class orderController {
 
         try {
             let orders = await Models.Order.findAll()
+            console.log('PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP', orders)
             let newOrders = [];
             for (let i = 0; i < orders.length; i++) {
                 let user = await Models.User.findOne({ where: { id: orders[i].idUser } })

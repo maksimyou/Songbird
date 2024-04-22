@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import ImageGallery from "react-image-gallery";
+
 import './ProductionMoreInfo.scss'
 import DropDownList from '../DropDownList/DropDownList'
 import { UserContextFunc } from '../../Context/UserContext'
@@ -13,6 +15,7 @@ function ProductionMoreInfo() {
     const [quantityGoods, setQuantityGoods] = useState(1)
     const [selectedCard, setSelectedCard] = useState('1')
     const [countImg, setCountImg] = useState(0)
+
 
     //useEffect(() => {
     //    setCurrentImg(isGoodsOne.imageURL[0])

@@ -79,7 +79,7 @@ function Card({ image, name, price, bought, liked, nav, id, quantity }) {
                     <div className="number-of-purchases">{`Купили ${bought} раз`}</div>
                     <div className="number-of-liked">({liked})<img src={likeColor} alt="" /> </div>
                 </div>
-                <div className="card-price">{`${price} ₽`}<span>1 кг.</span></div>
+                <div className="card-price">{`${price} ₽`}<span>{quantity ? '1 шт.' : '1 кг.'}</span></div>
                 {quantity ?
                     <div className="card-quantity">Количество:
                         <div className="card-quantity-wrap">

@@ -34,7 +34,7 @@ function OrderModal() {
             <img onClick={()=>{setSwitchOrderModal(false);setFormSecces(true)}} className='order-modal-close' src={close} alt="" />
             {formSecces?<>
                 <div className="order-modal-title">Заказать</div>
-                <div className="order-modal-subtitle">Мы перезвоним вам в течении 10 минут</div>
+                {/*<div className="order-modal-subtitle">Мы перезвоним вам в течении 10 минут</div>*/}
                 <form className='order-modal-form' action="">
                     <input onChange={(e)=>setOrderData({ ...orderData, name: e.target.value })} placeholder='Введите имя' className='order-modal-input' type="text" />
                     <input onChange={(e)=>CheckingPhone(e.target.value)} placeholder='Введите номер телефона' className='order-modal-input' type="text" />

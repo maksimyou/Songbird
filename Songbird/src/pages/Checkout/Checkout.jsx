@@ -17,7 +17,7 @@ function Checkout() {
         basket,
         order, isAuth, isSetting, isUser, getUsersData, isEffectUser, sumBaske, setIsEffectUser, GoodsBasketDep, setGoodsBasketDep } = UserContextFunc()
 
-
+    const navigate = useNavigate();
     const [fullAdress, setFullAdress] = useState([]);
     const [typeDelivery, setTypeDelivery] = useState(true)
 
@@ -51,11 +51,6 @@ function Checkout() {
         time: '',
     })
 
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        navigate('/successful-order');
-    };
 
 
 
@@ -115,7 +110,6 @@ function Checkout() {
         if (isAuth) {
             getUsersData()
         }
-
         console.log(isSetting.pickup)
         if (isSetting.pickup) {
             setTypeDelivery(true)
@@ -139,7 +133,7 @@ function Checkout() {
     }, [isEffectUser])
 
     useEffect(() => {
-        if (devOrder) { addOrder({ name: myData.name, phone: myData.phone, adress: adress, paymentMethod, paymentBonus, typeDelivery, coordination }); handleClick(); setDevOrder(false) }
+        if (devOrder) { addOrder({ name: myData.name, phone: myData.phone, adress: adress, paymentMethod, paymentBonus, typeDelivery, coordination }, navigate); setDevOrder(false) }
     }, [devOrder])
 
     useEffect(() => {

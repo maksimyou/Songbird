@@ -8,6 +8,7 @@ const router = new Router()
 
 router.post('/send', mailController.postEmail)
 router.post('/send-telegram', mailController.messageTelegram)
+router.post('/send-telegram-contact', mailController.messageContactTelegram)
 
 
 export default router;

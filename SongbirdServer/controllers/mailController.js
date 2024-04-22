@@ -316,6 +316,20 @@ class mailController {
             })
     }
 
+    async messageContactTelegram(req, res, next) {
+        const { name, phone, email, text } = req.body;
+        console.log(name, phone, email, text)
+        const txt = `<b>Имя:</b> ${name} <b>Телефон:</b> ${phone}<b>Email:</b> ${email} <b>Сообщение:</b> ${text}`
+        const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${txt}`
+        await axios.post(url)
+            .then(() => {
+                return res.json('Сообщение отправлено')
+            })
+            .catch(() => {
+                return res.json('Ошибка отправки сообщения')
+            })
+    }
+
 
     formatNumber(str) {
         if (+str <= 9) {

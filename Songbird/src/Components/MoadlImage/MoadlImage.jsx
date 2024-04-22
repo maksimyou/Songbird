@@ -17,8 +17,8 @@ function MoadlImage({ countImg, setCountImg, setShowModalImg }) {
     }, [countImg])
 
     return (
-        <div className='moadl-image-container'>
-            <div className="moadl-image-content">
+        <div onClick={() => setShowModalImg(false)} className='moadl-image-container'>
+            <div onClick={(e) => e.stopPropagation()} className="moadl-image-content">
                 <div onClick={() => setShowModalImg(false)} className="moadl-image-close"></div>
                 <div onClick={() => { countImg > 0 ? setCountImg(countImg - 1) : setCountImg(isGoodsOne.imageURL.length - 1) }} className="moadl-image-prev"></div>
                 <div className="moadl-image-img">

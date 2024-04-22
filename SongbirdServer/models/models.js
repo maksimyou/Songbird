@@ -206,6 +206,27 @@ const SettingSite = sequelize.define('setting-site', {
 //    User, Booking, Comment, UserCommen, Delivery, Historie, Book, Books, Categories, Categorie
 //}
 
+//async function addColumn() {
+//    const Order = sequelize.define('order', {
+//        // ... существующие определения столбцов ...
+//        coordination: {
+//            type: DataTypes.BOOLEAN,
+//        },
+//    });
+
+//    // Добавляем столбец "email" в существующую таблицу "users"
+//    await Order.sync({ alter: true });
+//}
+//addColumn()
+
+//await Order.sync({ alter: true });
+//await Order.truncate();
+//await Basket.truncate();
+//await Favorites.truncate();
+//await Goods.truncate();
+
+
+
 export default {
     User,
     Goods,
