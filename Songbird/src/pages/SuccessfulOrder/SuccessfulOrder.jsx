@@ -6,7 +6,7 @@ import { UserContextFunc } from '../../Context/UserContext'
 import { useEffect } from 'react'
 
 function SuccessfulOrder() {
-    const { isAuth, infoOrder } = UserContextFunc()
+    const { isAuth, infoOrder, isSetting } = UserContextFunc()
 
     console.log(infoOrder)
     useEffect(() => {
@@ -20,7 +20,7 @@ function SuccessfulOrder() {
                     <p className='successful-order-text'>Номер заказа: <strong>{infoOrder.id}</strong></p>
                     <p className='successful-order-text'>Дата заказа: <strong>{infoOrder.updatedAt.slice(0, 10)}</strong></p>
                     <p className='successful-order-text'>Сумма заказа: <strong>{infoOrder.priceGoods}  ₽</strong></p>
-                    <p className='successful-order-text'>Способ оплаты: <strong>{infoOrder.paymentMethod}</strong></p>
+                    <p className='successful-order-text'>Способ оплаты: <strong>{infoOrder.noPayment ? 'По согласованию' : infoOrder.paymentMethod}</strong></p>
                     <p className='successful-order-text'>Способ доставки: <strong>{infoOrder.coordination ? 'По согласованию' : infoOrder.typeDelivery}</strong></p>
                     <br />
                     <p className='successful-order-text'>Спасибо за ваш заказ! Мы рады, что вы выбрали наш магазин.</p>

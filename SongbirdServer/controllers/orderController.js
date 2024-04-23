@@ -16,18 +16,18 @@ config()
 
 
 class orderController {
-    status = ["Заказ оформлен", "Доставка заказа", "Отмена заказа", "Заказ доставлен"]
+    //status = ["Заказ оформлен", "Доставка заказа", "Отмена заказа", "Заказ доставлен"]
 
-    async addOrderStatus(req, res, next) {
-        try {
-            for (let i = 0; i < this.status.length; i++) {
-                await Models.OrderStatus.create({ statusText: this.status[i] })
-            }
-            return res.json('Статусы заказа добавленны')
-        } catch (error) {
-            console.log('Ошибка добавления статусов')
-        }
-    }
+    //async addOrderStatus(req, res, next) {
+    //    try {
+    //        for (let i = 0; i < this.status.length; i++) {
+    //            await Models.OrderStatus.create({ statusText: this.status[i] })
+    //        }
+    //        return res.json('Статусы заказа добавленны')
+    //    } catch (error) {
+    //        console.log('Ошибка добавления статусов')
+    //    }
+    //}
 
     //Math.floor(sumBaske / 500) * 20
 
@@ -38,7 +38,7 @@ class orderController {
     //  }
 
     async addOrder(req, res, next) {
-        const { name, phone, adress, paymentMethod, paymentBonus, typeDelivery, coordination } = req.body;
+        const { name, phone, adress, paymentMethod, paymentBonus, typeDelivery, coordination, noPayment } = req.body;
         const { id } = req.user;
         try {
             let basket = await Models.Basket.findOne({ where: { idUser: id } })
@@ -71,9 +71,10 @@ class orderController {
             if (bonus >= 0) {
                 pay = Number(paymentBonus)
             }
-            let orrder = await Models.Order.create({ priceGoods: sum, idUser: id, list: basket.lists, adress: adressJson, paymentMethod: method, typeDelivery: delivery, chargedBonuses, paymentBonus: pay, coordination })
+            let orrder = await Models.Order.create({ priceGoods: sum, idUser: id, list: basket.lists, adress: adressJson, paymentMethod: method, typeDelivery: delivery, chargedBonuses, paymentBonus: pay, coordination, noPayment })
             await Models.Basket.destroy({ where: { idUser: id } })
             await mailController.send2(user.email, orrder.id)
+            await mailController.messageOrderTelegram(orrder.id)
             return res.json(orrder)
         } catch (error) {
             console.log('Ошибка добавления заказа')

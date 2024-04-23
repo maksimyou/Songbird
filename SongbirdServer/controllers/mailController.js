@@ -155,7 +155,7 @@ class mailController {
                 <div style="margin: 0 auto; width:60%; ">
                     <div style="margin-top:25px; text-align: center;font-size:24px;color: #333333;font-family:'Arial',sans-serif;">Ваш заказ успешно оформлен!</div>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Номер заказа: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">№ ${order.id}</strong></p>
-                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Дата заказа: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${order.updatedAt.getFullYear()}-${this.formatNumber(order.updatedAt.getMonth())}-${this.formatNumber(order.updatedAt.getDate())}</strong></p>
+                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Дата заказа: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${order.updatedAt.getFullYear()}-${this.formatNumber(order.updatedAt.getMonth() + 1)}-${this.formatNumber(order.updatedAt.getDate())}</strong></p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Сумма заказа: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${order.priceGoods}  ₽</strong></p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Способ оплаты: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${order.paymentMethod}</strong></p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Способ доставки: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${order.coordination ? 'По согласованию' : order.typeDelivery}</strong></p>
@@ -166,7 +166,7 @@ class mailController {
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Используйте ваши бонусные баллы для получения скидки на будущие покупки.</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Мы сообщим вам по электронной почте, когда ваш заказ будет отправлен.</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Вы можете отслеживать статус вашего заказа по электронной почте или в <a style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;" href='https://songbird21.ru/personal-area/history-of-orders'>Личном кабинете.</a></p>
-                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Если у вас есть какие-либо вопросы, пожалуйста, не стесняйтесь обращаться к нам по электроной почте <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${setting[0].email}</strong> или телефону <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">+${setting[0].phone}</strong>.</p>
+                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Если у вас есть какие-либо вопросы, пожалуйста, не стесняйтесь обращаться к нам по электроной почте <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${setting[0].email}</strong> или телефону <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${setting[0].phone}</strong>.</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">С уважением,</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Команда songbird21.ru</p>
                     </div>
@@ -231,10 +231,10 @@ class mailController {
                 </div>
                 <div style="margin: 0 auto; width:60%; ">
                     <p style="text-align: left; margin:30px 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Уважаемый(-ая) ${user.name}</p>
-                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Мы рады сообщить вам, что статус вашего заказа <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">№ ${order.id}</strong> из sonbird21.ru был обновлен.</p>
-                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;"> Новый статус вашего заказа: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${status.statusText}</strong>.</p>
+                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Статус вашего заказа <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">№ ${order.id}</strong> из sonbird21.ru был обновлен.</p>
+                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;"> Статус вашего заказа: <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${status.statusText}</strong>.</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Вы можете отслеживать статус вашего заказа по электронной почте или в <a style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;" href='https://songbird21.ru/personal-area/history-of-orders'>Личном кабинете.</a></p>
-                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Если у вас есть какие-либо вопросы, пожалуйста, не стесняйтесь обращаться к нам по электроной почте <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${setting[0].email}</strong> или телефону <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">+${setting[0].phone}</strong>.</p>
+                    <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Если у вас есть какие-либо вопросы, пожалуйста, не стесняйтесь обращаться к нам по электроной почте <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${setting[0].email}</strong> или телефону <strong style="font-size:16px;color:#333333; font-family:'Arial',sans-serif;">${setting[0].phone}</strong>.</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">С уважением,</p>
                     <p style="text-align: left; margin:0 0 0 25px; font-size:14px;color:#888888; font-family:'Arial',sans-serif;">Команда songbird21.ru</p>
                 </div>
@@ -330,6 +330,19 @@ class mailController {
             })
     }
 
+
+    async messageOrderTelegram(id) {
+        const txt = `<b>Новый заказ на сайте №: </b> ${id}`
+        const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${txt}`
+        console.log('sDDDDDSSSSSSSSSSSddddddd')
+        await axios.post(url)
+            .then(() => {
+                console.log('Сообщение отправлено на телеграм')
+            })
+            .catch(() => {
+                console.log('Ошибка отправки сообщения на телеграм')
+            })
+    }
 
     formatNumber(str) {
         if (+str <= 9) {

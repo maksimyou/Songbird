@@ -38,7 +38,7 @@ function PersonalArea() {
                                     ? "personal-area-sidebar-active"
                                     : "personal-area-sidebar-pending"
 
-                            } to='history-of-orders'>История заказов</NavLink></li>
+                            } to='history-of-orders'>Мои заказы</NavLink></li>
                             <li><NavLink className={({ isActive }) =>
                                 isActive
                                     ? "personal-area-sidebar-active"

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './PaymentMethod.scss'
 import { UserContextFunc } from '../../Context/UserContext'
 
-function PaymentMethod({ validationOrderDeliveryInfo, validationOrderPersonalData, setDevOrder, paymentBonus, setPaymentBonus, bonusAccount, typeDelivery, bonuses, sumBaske, paymentMethod, setPaymentMethod }) {
+function PaymentMethod({ setNoPayment, validationOrderDeliveryInfo, validationOrderPersonalData, setDevOrder, paymentBonus, setPaymentBonus, bonusAccount, typeDelivery, bonuses, sumBaske, paymentMethod, setPaymentMethod }) {
 
     const { isSetting } = UserContextFunc()
 
@@ -48,6 +48,8 @@ function PaymentMethod({ validationOrderDeliveryInfo, validationOrderPersonalDat
             setPaymentMethod(true)
         } else if (isSetting.card) {
             setPaymentMethod(false)
+        } else {
+            setNoPayment(true)
         }
 
     }, [])

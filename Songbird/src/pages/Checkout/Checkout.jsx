@@ -22,6 +22,7 @@ function Checkout() {
     const [typeDelivery, setTypeDelivery] = useState(true)
 
     const [coordination, setCoordination] = useState(false)
+    const [noPayment, setNoPayment] = useState(false)
 
     const [errorInput, setErrorInput] = useState(false)
     const [errorInput2, setErrorInput2] = useState(false)
@@ -111,6 +112,7 @@ function Checkout() {
             getUsersData()
         }
         console.log(isSetting.pickup)
+
         if (isSetting.pickup) {
             setTypeDelivery(true)
         } else if (isSetting.courier) {
@@ -133,7 +135,7 @@ function Checkout() {
     }, [isEffectUser])
 
     useEffect(() => {
-        if (devOrder) { addOrder({ name: myData.name, phone: myData.phone, adress: adress, paymentMethod, paymentBonus, typeDelivery, coordination }, navigate); setDevOrder(false) }
+        if (devOrder) { addOrder({ noPayment: noPayment, name: myData.name, phone: myData.phone, adress: adress, paymentMethod, paymentBonus, typeDelivery, coordination }, navigate); setDevOrder(false) }
     }, [devOrder])
 
     useEffect(() => {
@@ -247,7 +249,7 @@ function Checkout() {
                                 </div> : ''}
                         </div>
                         <div className="checkout-right">
-                            <PaymentMethod validationOrderDeliveryInfo={validationOrderDeliveryInfo} validationOrderPersonalData={validationOrderPersonalData} setDevOrder={setDevOrder} paymentBonus={paymentBonus} setPaymentBonus={setPaymentBonus} bonusAccount={myData.bonusAccount} typeDelivery={typeDelivery} bonuses={bonuses} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} sumBaske={sumBaske} />
+                            <PaymentMethod setNoPayment={setNoPayment} validationOrderDeliveryInfo={validationOrderDeliveryInfo} validationOrderPersonalData={validationOrderPersonalData} setDevOrder={setDevOrder} paymentBonus={paymentBonus} setPaymentBonus={setPaymentBonus} bonusAccount={myData.bonusAccount} typeDelivery={typeDelivery} bonuses={bonuses} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} sumBaske={sumBaske} />
                         </div>
                     </div>
                 </div>

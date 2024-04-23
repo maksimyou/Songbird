@@ -3,7 +3,7 @@ import './MoreOrder.scss'
 
 
 
-function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
+function MoreOrder({ setToggleMoreOrder, dataMoreOrder, isSetting }) {
     const [adress, setAdress] = useState({
         city: '',
         street: '',
@@ -46,7 +46,7 @@ function MoreOrder({ setToggleMoreOrder, dataMoreOrder }) {
                     <h2 className='more-order-info-user'>Другая информация</h2>
 
                     {adress.comments ? <div className="more-order-info-comments">Комментарии: <span>{adress.comments}</span></div> : ''}
-                    <div className="more-order-info-payment-method">Способ оплаты:<span> {dataMoreOrder.paymentMethod}</span></div>
+                    <div className="more-order-info-payment-method">Способ оплаты:<span> {dataMoreOrder.noPayment ? 'По согласованию' : dataMoreOrder.paymentMethod}</span></div>
                     <div className="more-order-info-payment-bonus">Оплачено бонусами: <span>{`${dataMoreOrder.paymentBonus} ₽`}</span></div>
                     <div className="more-order-info-payment-bonus">Стоимость товара(-ов): <span>{`${dataMoreOrder.priceGoods} ₽`}</span></div>
 
