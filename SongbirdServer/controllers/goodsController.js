@@ -247,6 +247,82 @@ class goodsController {
             console.log('Ошибка получения товара для пользователя')
         }
     }
+    async editGoods(req, res, next) {
+        const { id } = req.body;
+        const user = req.user;
+        try {
+            return res.json(obj)
+
+        } catch (error) {
+            console.log('Ошибка изменения товара')
+
+        }
+
+    }
+
+
+
+    async addImages(req, res, next) {
+        try {
+            const { idGoods } = req.body;
+            const files = req.files
+            const goods = await Models.Goods.findOne({ where: { id: idGoods } })
+            let arr = JSON.parse(goods.dataValues.imageURL)
+            let imgArrUrl = arr;
+            if (files.files.length) {
+                for (let index = 0; index < files.files.length; index++) {
+                    let fileName = v4() + '.png'
+                    files.files[index].mv(path.resolve(__dirname, '..', 'static/img', fileName))
+                    imgArrUrl.push(fileName)
+                }
+                let imageJson = JSON.stringify(imgArrUrl)
+                await Models.Goods.update({ imageURL: imageJson }, { where: { id: idGoods } })
+            } else {
+                let fileName = v4() + '.png'
+                files.files.mv(path.resolve(__dirname, '..', 'static/img', fileName))
+                let imageJson = JSON.stringify([fileName])
+                await Models.Goods.update({ imageURL: imageJson }, { where: { id: idGoods } })
+            }
+
+            return res.json('Новые изображения добавлены в товар')
+        } catch (error) {
+            console.log('Ошибка добавления изображений в товар')
+        }
+    }
+
+
+    async editText(req, res, next) {
+        try {
+            const { name, price, category, description, composition, quantity, idGoods } = req.body;
+            await Models.Goods.update({ name, price, category, description, composition, quantity }, { where: { id: idGoods } })
+
+            return res.json('Текст товара изменен')
+        } catch (error) {
+            console.log('Ошибка изменения текста')
+        }
+    }
+
+
+    async editImages(req, res, next) {
+        try {
+            const { idGoods, list } = req.body;
+            const goods = await Models.Goods.findOne({ where: { id: idGoods } })
+            let arr = JSON.parse(list)
+            let arrimg = JSON.parse(goods.dataValues.imageURL)
+            let deleteList = arrimg.filter(e => !arr.includes(e))
+            for (let i = 0; i < deleteList.length; i++) {
+                fs.unlink(path.resolve(__dirname, '..', 'static/img', deleteList[i]), err => {
+                    if (err) throw err; // не удалось удалить файл
+                    console.log('Файл успешно удалён');
+                });
+            }
+            let imageJson = JSON.stringify(arr)
+            await Models.Goods.update({ imageURL: imageJson }, { where: { id: idGoods } })
+            return res.json('Изображение товара изменнено ')
+        } catch (error) {
+            console.log('Ошибка изменения изображения товара')
+        }
+    }
 
 }
 

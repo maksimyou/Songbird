@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ListGoodsItem.scss'
-function ListGoodsItem({ isCategory, deleteGoodsApi, id, imageURL, name, category, price }) {
+function ListGoodsItem({ idd, setShowModalEdit, setGoodsId, isCategory, deleteGoodsApi, id, imageURL, name, category, price }) {
     const [goodsDelete, setGoodsDelete] = useState()
 
 
@@ -21,7 +21,7 @@ function ListGoodsItem({ isCategory, deleteGoodsApi, id, imageURL, name, categor
             <div className="list-goods-item-name">{name}</div>
             <div className="list-goods-item-category">{filterCategory()}</div>
             <div className="list-goods-item-price">{`${price} ₽`}</div>
-            <div className="list-goods-item-edit">Редактировать</div>
+            <div onClick={() => { setGoodsId(idd); setShowModalEdit(true) }} className="list-goods-item-edit">Редактировать</div>
             <div onClick={() => { setGoodsDelete(true) }} className="list-goods-item-delete">Удалить</div>
         </div>
     )

@@ -5,6 +5,7 @@ import './index.css'
 import Production from './pages/Production/Production.jsx'
 import Contacts from './pages/Contacts/Contacts.jsx'
 import AdminPanel from './pages/AdminPanel/AdminPanel.jsx'
+import AccountDeleting from './pages/AccountDeleting/AccountDeleting.jsx'
 import PersonalArea from './pages/PersonalArea/PersonalArea.jsx'
 import Favorites from './pages/Favorites/Favorites.jsx'
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
@@ -25,6 +26,9 @@ import BonusAccount from './Components/BonusAccount/BonusAccount.jsx'
 import WantToTry from './Components/WantToTry/WantToTry.jsx'
 import Checkout from './pages/Checkout/Checkout.jsx'
 import SuccessfulOrder from './pages/SuccessfulOrder/SuccessfulOrder.jsx'
+
+//import { store } from './app/store'
+import { Provider } from 'react-redux'
 
 
 import {
@@ -48,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Production />,
+      },
+      {
+        path: "account-deleting",
+        element: <AccountDeleting />,
       },
       {
         path: "products/:name/:id",
@@ -143,9 +151,12 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  //<Provider store={store}>
   <UserContext>
     <RouterProvider router={router} />
   </UserContext>
+  //</Provider>
+
 );
 
 

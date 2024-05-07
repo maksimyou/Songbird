@@ -23,6 +23,14 @@ router.post('/get-category-goods', goodsController.getCategoryGoods)
 router.post('/edit-category', checkRoleMiddleware('ADMIN'), goodsController.editCategory)
 router.post('/delete-category', checkRoleMiddleware('ADMIN'), goodsController.deleteCategory)
 router.post('/delete-goods', checkRoleMiddleware('ADMIN'), goodsController.deleteGoods)
+router.post('/edit-goods', checkRoleMiddleware('ADMIN'), goodsController.editGoods)
+
+
+router.post('/edit-text', checkRoleMiddleware('ADMIN'), goodsController.editText)
+router.post('/add-img', checkRoleMiddleware('ADMIN'), goodsController.addImages)
+router.post('/edit-img', checkRoleMiddleware('ADMIN'), goodsController.editImages)
+
+
 
 
 

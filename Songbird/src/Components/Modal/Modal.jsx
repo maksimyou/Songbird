@@ -183,6 +183,17 @@ function Modal() {
         //if (confirm) { postConfirmationApi({ code: code, id: isUserId.id }); setToggleModal(false); setConfirm(false) }
 
     }, [reg, log, confirm, confirm2])
+
+
+    useEffect(() => {
+        document.addEventListener('onautocomplete', function (e) {
+            e.target.hasAttribute('autocompleted'); // true or false
+            //e.preventDefault(); // prevent autocomplete
+            console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT')
+        })
+
+    }, [])
+
     return (
         <>
             {
@@ -215,16 +226,16 @@ function Modal() {
                                             <button ref={refBtn1} onClick={(e) => { if (value4) { e.preventDefault(); setConfirm(true) } }} className='registration-modal confirm-mail-btn'>Отправить</button>
                                         </form>
                                         :
-                                        <form onKeyDown={(e) => console.log(e)} onSubmit={e => { console.log(e); e.preventDefault() }} className='form-modal' action="#">
+                                        <form onSubmit={e => { console.log(e); e.preventDefault() }} className='form-modal' action="#">
                                             {/*<input onInput={(e) => CheckingLogin(e.target.value)} className={login ? 'login-modal' : 'login-modal login-modal-red'} placeholder='Введите логин' type="text" name=""  />*/}
-                                            <input autoComplete='off' ref={ref1} onBlur={(e) => { CheckingMail(e.target.value) }} className={mail ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
+                                            <input autoComplete='username' ref={ref1} onInput={(e) => { CheckingMail(e.target.value) }} className={mail ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
                                             {mail
                                                 ?
                                                 ''
                                                 :
                                                 <div className="modal-error">Введеный Email не корректный</div>}
                                             <div className="password-modal-wrap">
-                                                <input autoComplete='off' ref={ref2} onBlur={(e) => { refBtn2.current.focus(); CheckingPassword(e.target.value) }} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword2 ? "password" : "text"} name="" />
+                                                <input autoComplete='current-password' ref={ref2} onBlur={(e) => { refBtn2.current.focus(); }} onInput={(e) => { CheckingPassword(e.target.value) }} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword2 ? "password" : "text"} name="" />
                                                 <img onClick={() => setShowPassword2(!showPassword2)} src={showPassword2 ? hidden : show} alt="" />
                                             </div>
                                             {password
@@ -252,14 +263,14 @@ function Modal() {
                                         :
                                         <form onSubmit={e => e.preventDefault()} className='form-modal' action="#">
                                             {/*<input className='login-modal' placeholder='Введите логин' type="text" name=""  />*/}
-                                            <input autoComplete='off' ref={ref3} onBlur={(e) => CheckingWorldName(e.target.value)} className={name ? 'name-modal' : 'name-modal error-red'} placeholder='Введите имя' type="text" name="" />
-                                            {name
+                                            <input autoComplete='username' ref={ref5} onInput={(e) => { CheckingMail(e.target.value) }} className={password ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
+                                            {mail
                                                 ?
                                                 ''
                                                 :
-                                                <div className="modal-error">Введенное имя не корректно</div>}
+                                                <div className="modal-error">Введеный Email не корректный</div>}
                                             <div className="password-modal-wrap">
-                                                <input autoComplete='off' ref={ref4} onBlur={(e) => CheckingPassword(e.target.value)} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword ? "password" : "text"} name="" />
+                                                <input autoComplete='new-password' ref={ref4} onInput={(e) => { CheckingPassword(e.target.value) }} className={password ? 'password-modal' : 'password-modal error-red'} placeholder='Введите пароль' type={showPassword ? "password" : "text"} name="" />
                                                 <img onClick={() => setShowPassword(!showPassword)} src={showPassword ? hidden : show} alt="" />
                                             </div>
                                             {password
@@ -267,12 +278,12 @@ function Modal() {
                                                 ''
                                                 :
                                                 <div className="modal-error">Ваш пароль должен содержать до 8 символов верхнего и нижнего регистров, а так же цифры.</div>}
-                                            <input autoComplete='off' ref={ref5} onBlur={(e) => { refBtn4.current.focus(); CheckingMail(e.target.value) }} className={password ? 'email-modal' : 'email-modal error-red'} placeholder='Введите email' type="email" name="" />
-                                            {mail
+                                            <input autoComplete='nickname' ref={ref3} onBlur={(e) => { CheckingWorldName(e.target.value); refBtn4.current.focus(); }} className={name ? 'name-modal' : 'name-modal error-red'} placeholder='Введите имя' type="text" name="" />
+                                            {name
                                                 ?
                                                 ''
                                                 :
-                                                <div className="modal-error">Введеный Email не корректный</div>}
+                                                <div className="modal-error">Введенное имя не корректно</div>}
                                             <div className="message-error">{isMessageError}</div>
                                             <button ref={refBtn4} onKeyDown={(e => { console.log(e) })} onClick={(e) => { if (value1 && value2 && value3) { e.preventDefault(); setReg(true) } }} className='registration-modal'><span>Зарегистрироваться</span></button>
                                         </form>

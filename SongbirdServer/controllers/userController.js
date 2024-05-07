@@ -103,6 +103,42 @@ class userController {
 
     }
 
+    async passwordConfirmation(req, res, next) {
+        const { password } = req.body
+
+
+
+        console.log(password)
+        const { id } = req.user
+        try {
+            const user = await Models.User.findOne({ where: { id } })
+            let comparePassword = bcrypt.compareSync(password, user.password)
+            if (!comparePassword) {
+                return next(ApiError.internal("Указан неверный пароль"))
+            } else {
+                await Models.User.destroy({
+                    where: { id }
+                });
+                await Models.Favorites.destroy({
+                    where: { idUser: id }
+                });
+                await Models.Basket.destroy({
+                    where: { idUser: id }
+                });
+                await Models.Order.destroy({
+                    where: { idUser: id }
+                });
+                await Models.Notifications.destroy({
+                    where: { userId: id }
+                });
+                return res.json({ ok: true })
+            }
+        } catch (error) {
+            return next(ApiError.internal("Ошибка подтверждения пароля"))
+        }
+
+    }
+
 
     async editUserRole(req, res, next) {
         try {
@@ -184,7 +220,7 @@ class userController {
 
 
     async check(req, res, next) {
-        console.log(req)
+        console.log(req.user)
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
         return res.json({ token })
     }
@@ -260,6 +296,19 @@ class userController {
             await Models.User.destroy({
                 where: { id }
             });
+            await Models.Favorites.destroy({
+                where: { idUser: id }
+            });
+            await Models.Basket.destroy({
+                where: { idUser: id }
+            });
+            await Models.Order.destroy({
+                where: { idUser: id }
+            });
+            await Models.Notifications.destroy({
+                where: { userId: id }
+            });
+
             return res.json(`Пользователь c id ${id} удален`)
         } catch (error) {
             return next(ApiError.internal("Ошибка удаления пользователя"))

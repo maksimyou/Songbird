@@ -10,7 +10,7 @@ const router = new Router()
 router.post('/add', authMiddleware, orderController.addOrder)
 router.get('/get-orders', checkRoleMiddleware('ADMIN'), orderController.getOrders)
 router.get('/get-order', authMiddleware, orderController.getOrder)
-router.post('/set-status', checkRoleMiddleware('ADMIN'), orderController.setStatuesOrder)
+router.post('/set-status', authMiddleware, orderController.setStatuesOrder)
 router.post('/add-status', orderController.addStatus)
 
 export default router;

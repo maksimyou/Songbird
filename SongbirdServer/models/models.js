@@ -226,7 +226,7 @@ const SettingSite = sequelize.define('setting-site', {
 //await Basket.truncate();
 //await Favorites.truncate();
 //await Goods.truncate();
-
+//await Notifications.truncate();
 
 
 export default {

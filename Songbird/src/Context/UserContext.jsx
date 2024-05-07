@@ -10,6 +10,8 @@ export function UserContextFunc() {
 
 
 const UserContext = ({ children }) => {
+
+  const [isPassword, setIsPassword] = useState(false)
   const [tokenDepend, setTokenDepend] = useState(true)
   const [formSecces, setFormSecces] = useState(true)
   const [switchOrderModal, setSwitchOrderModal] = useState(false)
@@ -93,6 +95,33 @@ const UserContext = ({ children }) => {
         setIsAuth(false)
         console.log(err, "Токены не совпадают")
       })
+  }
+
+
+  const passswordConfirm = (passwordData) => {
+
+
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    setIsLoader(true)
+    axios.post('https://songbird21.ru/api/user/passsword-confirm', passwordData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setIsPassword(data.ok)
+        localStorage.removeItem('token')
+        setIsAuth(false)
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+
   }
 
 
@@ -376,7 +405,7 @@ const UserContext = ({ children }) => {
     setIsAuth(false)
   }
 
-
+  //------------------------------------------------)))))))))))))))))))))))))))))))))))______________________________________________________________=============================
   const addGoodsApi = (goodsData) => {
     const token = JSON.parse(localStorage.getItem('token'))
     console.log(goodsData)
@@ -400,6 +429,68 @@ const UserContext = ({ children }) => {
         setIsLoader(false)
       })
   }
+
+
+
+  const addGoodsImg = (goodsData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    console.log(goodsData)
+    axios.post('https://songbird21.ru/api/goods/add-img', goodsData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+      })
+      .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
+      })
+  }
+
+  const editGoodsImg = (goodsData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    console.log(goodsData)
+    axios.post('https://songbird21.ru/api/goods/edit-img', goodsData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+      })
+      .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
+      })
+  }
+
+
+  const editGoodsText = (goodsData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+    console.log(goodsData)
+    axios.post('https://songbird21.ru/api/goods/edit-text', goodsData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+      })
+      .catch(error => {
+        setMessageAdmin(error.messagea)
+        setMessageAdminShow(true)
+      })
+  }
+
+
 
 
   function createCategoruBread(data) {
@@ -1120,9 +1211,16 @@ const UserContext = ({ children }) => {
     }
 
   }, [tokenDepend])
+
+
   console.log(isLoader)
   return (
     <UserContextt.Provider value={{
+      editGoodsText,
+      editGoodsImg,
+      addGoodsImg,
+      isPassword,
+      passswordConfirm,
       sendMessageTelegramContact,
       depCategoryTitle,
       setDepCategoryTitle,

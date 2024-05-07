@@ -6,6 +6,8 @@ import descending from '../../assets/descending.png'
 import { UserContextFunc } from '../../Context/UserContext'
 
 import ListGoodsItem from '../ListGoodsItem/ListGoodsItem'
+import ModalEditGoods from '../ModalEditGoods/ModalEditGoods'
+
 function ListGoods() {
 
 
@@ -13,6 +15,8 @@ function ListGoods() {
     const [sortIconPrice, setSortIconPrice] = useState()
     const [goodsSort, setGoodsSort] = useState()
     const [goodsSort2, setGoodsSort2] = useState()
+    const [goodsId, setGoodsId] = useState()
+    const [showModalEdit, setShowModalEdit] = useState(false)
 
     const [selectedCategory, setSelectedCategory] = useState()
 
@@ -45,6 +49,7 @@ function ListGoods() {
 
     return (
         <div className='list-goods-container'>
+            {showModalEdit && <ModalEditGoods isCategory={isCategory} setShowModalEdit={setShowModalEdit} goodsId={goodsId} isGoods={isGoods} />}
             <div className="list-goods-content">
                 {isGoods.length >= 1
                     ? <>
@@ -70,8 +75,8 @@ function ListGoods() {
                         <div className="list-goods-item-list">
                             <div className=""></div>
                             {
-                                isGoods.map(e => {
-                                    return <ListGoodsItem key={e.id} price={e.price} isCategory={isCategory} id={e.id} imageURL={e.imageURL[0]} name={e.name} category={e.category} deleteGoodsApi={deleteGoodsApi} />
+                                isGoods.map((e, idd) => {
+                                    return <ListGoodsItem key={e.id} idd={idd} setShowModalEdit={setShowModalEdit} setGoodsId={setGoodsId} price={e.price} isCategory={isCategory} id={e.id} imageURL={e.imageURL[0]} name={e.name} category={e.category} deleteGoodsApi={deleteGoodsApi} />
                                 })
                             }
                         </div>

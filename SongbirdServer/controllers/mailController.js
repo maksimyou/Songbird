@@ -99,7 +99,7 @@ class mailController {
                     электронных сообщений и не принимающего входящих электронных сообщений. Пожалуйста, не отвечайте на это
                     сообщение. Если вы не регистрировались на, возможно, кто-то другой по ошибке указал ваш адрес электронной почты.
                     <a style="text-decoration: none;border-bottom: 1px solid #333333; font-size:14px;color:#d2ab04; font-family:'Arial',sans-serif;"
-                        href="">Вы
+                        href="https://songbird21.ru/account-deleting">Вы
                         можете удалить
                         аккаунт</a>
                 </div>
@@ -176,7 +176,7 @@ class mailController {
                 электронных сообщений и не принимающего входящих электронных сообщений. Пожалуйста, не отвечайте на это
                 сообщение. Если вы не регистрировались на, возможно, кто-то другой по ошибке указал ваш адрес электронной почты.
                 <a style="text-decoration: none;border-bottom: 1px solid #333333; font-size:14px;color:#d2ab04; font-family:'Arial',sans-serif;"
-                    href="">Вы
+                    href="https://songbird21.ru/account-deleting">Вы
                     можете удалить
                     аккаунт</a>
                 </div>
@@ -244,7 +244,7 @@ class mailController {
                 электронных сообщений и не принимающего входящих электронных сообщений. Пожалуйста, не отвечайте на это
                 сообщение. Если вы не регистрировались на, возможно, кто-то другой по ошибке указал ваш адрес электронной почты.
                 <a style="text-decoration: none;border-bottom: 1px solid #333333; font-size:14px;color:#d2ab04; font-family:'Arial',sans-serif;"
-                    href="">Вы
+                    href="https://songbird21.ru/account-deleting">Вы
                     можете удалить
                     аккаунт</a>
                 </div>

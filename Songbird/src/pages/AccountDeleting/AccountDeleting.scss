@@ -1,0 +1,83 @@
+.account-deleting-container {
+    padding: 50px 0;
+}
+.account-deleting-content {
+    max-width: 1700px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.account-deleting-title {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3a3a3a;
+    margin: 50px 0;
+}
+.account-deleting-text {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #696969;
+    margin-bottom: 15px;
+}
+.account-deleting-text2 {
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #dc0f0f;
+    margin: 15px 0;
+}
+.account-deleting-input {
+    border: 1px solid #9a9ea5;
+    border-radius: 5px;
+    outline: none;
+    width: 240px;
+    height: 40px;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 171%;
+    color: #9a9ea5;
+    padding: 0 20px;
+}
+
+.account-deleting-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 190px;
+    height: 42px;
+    background: #c6aa83;
+    font-family: Jost, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 0 10px 0 rgb(168, 122, 64);
+        transition: 0.4s;
+    }
+}
+
+.account-deleting-empty {
+    font-size: 36px;
+    height: 40vh;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-deleting-success {
+    font-size: 26px;
+    height: 40vh;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
