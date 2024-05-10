@@ -72,3 +72,61 @@
 .adding-category-active {
     border: 1px solid red !important;
 }
+.adding-category-input__file-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.adding-category-input__file-button {
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(7, 7, 7);
+    font-family: Jost, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid #9a9ea5;
+    border-radius: 1px;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+}
+.adding-category-input__file-button-err {
+    color: rgb(7, 7, 7);
+    border: 1px solid #ff0000;
+}
+.adding-category-input__file-button-secc {
+    color: rgb(7, 7, 7);
+    border: 1px solid #00ff00;
+}
+.adding-category-input__file-button:hover {
+    background-color: #b49266;
+}
+.adding-category-input__file-name-img {
+    margin: 5px 0 0 0;
+    font-weight: 400;
+    font-size: 15px;
+    color: #7a5525;
+    font-family: Jost, sans-serif;
+}
+.adding-category-right {
+}
+.adding-category-img-prevention {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../assets/img-prev.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.adding-category-img-message {
+    color: red;
+    font-family: Jost, sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 130%;
+    margin-top: 20px;
+}
+.adding-category-content input[type="file"] {
+    visibility: hidden;
+}

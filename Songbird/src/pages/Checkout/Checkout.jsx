@@ -8,7 +8,8 @@ import OrderfGoodsItem from '../../Components/OrderfGoodsItem/OrderfGoodsItem'
 
 import arrow from '../../assets/arrow-down.svg'
 function Checkout() {
-    const { getGoodsBasket,
+    const { isSettingBonuses,
+        getGoodsBasket,
         setStatusOrder,
         getOrder,
         getOrders,
@@ -69,8 +70,19 @@ function Checkout() {
     }
 
     const countingBonuses = () => {
-        console.log('sdfsdf1231231', sumBaske)
-        setBonuses(Math.floor(sumBaske / 500) * 20)
+
+        if (isSettingBonuses[0].min > sumBaske) {
+            return
+        } else if (isSettingBonuses[0].min <= sumBaske && isSettingBonuses[0].max >= sumBaske) {
+            setBonuses(Math.floor(sumBaske / 100) * isSettingBonuses[0].percent)
+        } else if (isSettingBonuses[1].min <= sumBaske && isSettingBonuses[1].max >= sumBaske) {
+            setBonuses(Math.floor(sumBaske / 100) * isSettingBonuses[1].percent)
+        } else if (isSettingBonuses[2].min <= sumBaske && isSettingBonuses[2].max >= sumBaske) {
+            setBonuses(Math.floor(sumBaske / 100) * isSettingBonuses[2].percent)
+        } else if (isSettingBonuses[3].min <= sumBaske && isSettingBonuses[3].max >= sumBaske) {
+            setBonuses(Math.floor(sumBaske / 100) * isSettingBonuses[3].percent)
+        }
+        //setBonuses(Math.floor(sumBaske / 500) * 20)
     }
 
     const validationOrderPersonalData = () => {

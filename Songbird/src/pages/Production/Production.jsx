@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Production.scss'
 import Card from '../../Components/Card/Card'
 import BreadCrumbs from '../../Components/BreadCrumbs/BreadCrumbs'
-import products from '../../Data/product-name'
+//import products from '../../Data/product-name'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { UserContextFunc } from '../../Context/UserContext'

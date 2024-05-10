@@ -13,7 +13,7 @@ function MoreOrderPerson({ setToggleMoreOrder, dataMoreOrder }) {
                 {width > 1070 && < div className="more-order-person-list-item2">
                     <div className="more-order-person-list-img">
                     </div>
-                    <div className="more-order-person-list-item-item">№</div>
+                    {/*<div className="more-order-person-list-item-item">№</div>*/}
                     <div className="more-order-person-list-item-item">Название</div>
                     <div className="more-order-person-list-item-item">Количество/Вес</div>
                     <div className="more-order-person-list-item-item">Цена</div>
@@ -27,7 +27,7 @@ function MoreOrderPerson({ setToggleMoreOrder, dataMoreOrder }) {
                                     <div className="more-order-person-list-img">
                                         <img src={`https://songbird21.ru/img/${e.imageURL[0]}`} alt="" />
                                     </div>
-                                    <div className="more-order-person-list-item-item"><span>{e.idGoods}</span></div>
+                                    {/*<div className="more-order-person-list-item-item"><span>{e.idGoods}</span></div>*/}
                                     <div className="more-order-person-list-item-item"><span>{e.name}</span></div>
                                     <div className="more-order-person-list-item-item"><span>{e.count} {e.quantity
                                         ?
@@ -35,7 +35,6 @@ function MoreOrderPerson({ setToggleMoreOrder, dataMoreOrder }) {
                                         :
                                         'кг'
                                     }</span>
-
                                     </div>
                                     <div className="more-order-person-list-item-item"><span>{`${e.price} ₽`}</span></div>
                                 </div>
@@ -49,7 +48,7 @@ function MoreOrderPerson({ setToggleMoreOrder, dataMoreOrder }) {
                                     <div className="more-order-person-list-img">
                                         <img src={`https://songbird21.ru/img/${e.imageURL[0]}`} alt="" />
                                     </div>
-                                    <div className="more-order-person-list-item-item">№ <span>{e.idGoods}</span></div>
+                                    {/*<div className="more-order-person-list-item-item">№ <span>{e.idGoods}</span></div>*/}
                                     <div className="more-order-person-list-item-item">Название <span>{e.name}</span></div>
                                     <div className="more-order-person-list-item-item">Количество/Вес <span>{e.count} {e.quantity
                                         ?

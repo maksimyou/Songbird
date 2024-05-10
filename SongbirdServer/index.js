@@ -62,6 +62,8 @@ const start = async () => {
         //let ordeeeeeer = await Models.Order.describe();
         //let sdfgsdfg = await Models.Order.findAll()
 
+
+
         //console.log('sFFFFFFFFFFFFFFFFFFFFFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', sdfgsdfg)
         let status = await Models.OrderStatus.findAll()
         if (status.length === 0) {

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Production from './pages/Production/Production.jsx'
+import ProductionCategory from './pages/ProductionCategory/ProductionCategory.jsx'
 import Contacts from './pages/Contacts/Contacts.jsx'
 import AdminPanel from './pages/AdminPanel/AdminPanel.jsx'
 import AccountDeleting from './pages/AccountDeleting/AccountDeleting.jsx'
@@ -11,6 +12,8 @@ import Favorites from './pages/Favorites/Favorites.jsx'
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 import BasketOfGoods from './pages/BasketOfGoods/BasketOfGoods.jsx'
 import AddingCategory from './Components/AddingCategory/AddingCategory.jsx'
+import SettingsMainPage from './Components/SettingsMainPage/SettingsMainPage.jsx'
+import Bonuses from './Components/Bonuses/Bonuses.jsx'
 import Main from './pages/Main/Main'
 import MyData from './Components/MyData/MyData.jsx'
 import HistoryOfOrders from './Components/HistoryOfOrders/HistoryOfOrders.jsx'
@@ -50,8 +53,13 @@ const router = createBrowserRouter([
 
       },
       {
+        path: "home",
+        element: <Main />,
+
+      },
+      {
         path: "products",
-        element: <Production />,
+        element: <ProductionCategory />,
       },
       {
         path: "account-deleting",
@@ -77,6 +85,15 @@ const router = createBrowserRouter([
             path: "list-user",
             element: <ListUser />,
           },
+          {
+            path: "bonuses",
+            element: <Bonuses />,
+          },
+          {
+            path: "settings-main-page",
+            element: <SettingsMainPage />,
+          },
+
           {
             path: "list-orders",
             element: <ListOrders />,

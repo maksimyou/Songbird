@@ -104,9 +104,9 @@ function ModalEditGoods({ isGoods, isCategory, goodsId, setShowModalEdit }) {
         addImg])
 
     return (
-        <div className='modal-edit-goods-container'>
-            <div onClick={() => { setShowModalEdit(false) }} className="modal-edit-goods-close">X</div>
-            <div className="modal-edit-goods-content">
+        <div onClick={() => { setShowModalEdit(false) }} className='modal-edit-goods-container'>
+            <div onClick={() => { setShowModalEdit(false) }} className="modal-edit-goods-close"></div>
+            <div onClick={(e) => { e.stopPropagation() }} className="modal-edit-goods-content">
                 <div className="modal-edit-goods-data">
                     <label className='modal-edit-goods-label' htmlFor="">
                         Выберите категорию

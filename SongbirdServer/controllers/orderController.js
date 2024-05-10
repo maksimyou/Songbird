@@ -8,6 +8,7 @@ import path from 'path'
 import { v4 } from 'uuid'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { log } from 'console'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,6 +17,9 @@ config()
 
 
 class orderController {
+    constructor(name) {
+        this.name = name;
+    }
     //status = ["Заказ оформлен", "Доставка заказа", "Отмена заказа", "Заказ доставлен"]
 
     //async addOrderStatus(req, res, next) {
@@ -37,11 +41,34 @@ class orderController {
     //    setSumBaske(sum)
     //  }
 
+
+
+
     async addOrder(req, res, next) {
         const { name, phone, adress, paymentMethod, paymentBonus, typeDelivery, coordination, noPayment } = req.body;
         const { id } = req.user;
+        const countingBonuses = (sumBaske, isSettingBonuses) => {
+            console.log(sumBaske, isSettingBonuses);
+            if (isSettingBonuses[0].min > sumBaske) {
+                return 0
+            } else if (isSettingBonuses[0].min <= sumBaske && isSettingBonuses[0].max >= sumBaske) {
+                return Math.floor(sumBaske / 100) * isSettingBonuses[0].percent
+            } else if (isSettingBonuses[1].min <= sumBaske && isSettingBonuses[1].max >= sumBaske) {
+                return Math.floor(sumBaske / 100) * isSettingBonuses[1].percent
+            } else if (isSettingBonuses[2].min <= sumBaske && isSettingBonuses[2].max >= sumBaske) {
+                return Math.floor(sumBaske / 100) * isSettingBonuses[2].percent
+            } else if (isSettingBonuses[3].min <= sumBaske && isSettingBonuses[3].max >= sumBaske) {
+                return Math.floor(sumBaske / 100) * isSettingBonuses[3].percent
+            }
+        }
+
         try {
             let basket = await Models.Basket.findOne({ where: { idUser: id } })
+
+            let bonuses = await Models.SettingBonuses.findOne({ where: { id: 1 } })
+
+            let arrList = JSON.parse(bonuses.dataValues.list)
+
             let user = await Models.User.findOne({ where: { id: id } })
             await Models.User.update({ name: name, phone: phone }, { where: { id: id } })
             let bonus = user.bonusAccount - paymentBonus;
@@ -52,7 +79,9 @@ class orderController {
                 console.log(lists[i].count, goods.price)
                 sum += (lists[i].count * goods.price)
             }
-            let chargedBonuses = Math.floor(sum / 500) * 20
+
+            let chargedBonuses = countingBonuses(sum, arrList)
+
             let method = '';
             let delivery = '';
             let pay = 0;
@@ -130,23 +159,31 @@ class orderController {
 
     async getOrder(req, res, next) {
         const { id } = req.user;
+        console.log('0', 'HELPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP')
 
         try {
             let orders = await Models.Order.findAll({ where: { idUser: id } })
-
             let newOrders = [];
             for (let i = 0; i < orders.length; i++) {
-                let user = await Models.User.findOne({ where: { id: orders[i].idUser } })
+                let user = await Models.User.findOne({ where: { id: orders[i].dataValues.idUser } })
+                user = user.dataValues
                 let list = JSON.parse(orders[i].dataValues.list)
+
                 let listArr = [];
                 for (let j = 0; j < list.length; j++) {
+                    let goodss = await Models.Goods.findAll()
+
                     let good = await Models.Goods.findOne({ where: { id: list[j].idGoods } })
+
                     let obj = Object.assign(list[j], { name: good.name, quantity: good.quantity, price: good.price, imageURL: JSON.parse(good.imageURL) });
                     listArr.push(obj)
                 }
+
                 let obj = Object.assign({ email: user.email, phone: user.phone, name: user.name }, orders[i].dataValues, { list: listArr });
+
                 newOrders.push(obj)
             }
+
             return res.json(newOrders)
 
         } catch (error) {

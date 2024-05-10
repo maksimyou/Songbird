@@ -88,6 +88,10 @@ class goodsController {
 
     async setCategory(req, res, next) {
         const { name } = req.body;
+        const { files } = req.files;
+
+        console.log('ыыыыыыыыыыыыы', files)
+
         function translit(str) {
             const cyrToLatMap = {
                 а: 'a',
@@ -132,7 +136,13 @@ class goodsController {
         }
 
         try {
-            await Models.Сategory.create({ route: translit(name), name })
+            //fs.mkdir('new_folder', err => {
+            //    if (err) throw err; // не удалось создать папку
+            //    console.log('Папка успешно создана');
+            //});
+            let fileName = v4() + '.png'
+            files.mv(path.resolve(__dirname, '..', 'static/img', fileName))
+            await Models.Сategory.create({ route: translit(name), name, image: fileName })
             return res.json('Категория создана')
         } catch (error) {
             console.log('Ошибка создана категории')
@@ -140,9 +150,28 @@ class goodsController {
     }
 
     async editCategory(req, res, next) {
-        const { route, name, id } = req.body;
+        const { route, name, id, filess } = req.body;
+        console.log(route, name, id, filess)
+        let categ = await Models.Сategory.findOne({ where: { id: id } })
+        console.log(typeof filess);
         try {
-            await Models.Сategory.update({ route, name }, { where: { id: id } })
+            if (filess === 'false') {
+                const { files } = req.files;
+                console.log('файл: ', files)
+                if (categ.image !== null) {
+                    fs.unlink(path.resolve(__dirname, '..', 'static/img', categ.image), err => {
+                        if (err) throw err; // не удалось удалить файл
+                        console.log('Файл успешно удалён');
+                    });
+                }
+                let fileName = v4() + '.png'
+                files.mv(path.resolve(__dirname, '..', 'static/img', fileName))
+                await Models.Сategory.update({ route, name, image: fileName }, { where: { id: id } })
+            } else {
+                console.log('Без файла>')
+
+                await Models.Сategory.update({ route, name }, { where: { id: id } })
+            }
             return res.json('Категория изменена')
         } catch (error) {
             console.log('Ошибка изменения категории')
@@ -152,7 +181,18 @@ class goodsController {
     async deleteCategory(req, res, next) {
         const { id } = req.body;
         try {
-            await Models.Сategory.destroy({ where: { id: id } })
+            let categ = await Models.Сategory.findOne({ where: { id: id } })
+            if (categ.image === null) {
+                await Models.Сategory.destroy({ where: { id: id } })
+            } else {
+
+                fs.unlink(path.resolve(__dirname, '..', 'static/img', categ.image), err => {
+                    if (err) throw err; // не удалось удалить файл
+                    console.log('Файл успешно удалён');
+                });
+                await Models.Сategory.destroy({ where: { id: id } })
+            }
+
             return res.json('Категория удалена')
         } catch (error) {
             console.log('Ошибка удаления категории')
@@ -280,7 +320,8 @@ class goodsController {
             } else {
                 let fileName = v4() + '.png'
                 files.files.mv(path.resolve(__dirname, '..', 'static/img', fileName))
-                let imageJson = JSON.stringify([fileName])
+                imgArrUrl.push(fileName)
+                let imageJson = JSON.stringify(imgArrUrl)
                 await Models.Goods.update({ imageURL: imageJson }, { where: { id: idGoods } })
             }
 

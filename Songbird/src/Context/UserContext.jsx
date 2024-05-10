@@ -19,6 +19,39 @@ const UserContext = ({ children }) => {
   const [isLoader, setIsLoader] = useState(false)
   const [isRole, setIsRole] = useState()
   const [isSetting, setIsSetting] = useState({ phone: '', address: '', email: '', instagram: '', youtube: '', telegram: '', vkontakte: '' })
+  const [isSettingHome, setIsSettingHome] = useState({ title: '', description: '', comment: '', buttonNames: '', background: '' })
+
+  const [isSettingBonuses, setIsSettingBonuses] = useState([
+    {
+      id: 0,
+      text: 'За сумму от 500 руб до 1499 руб',
+      min: 500,
+      max: 1499,
+      percent: 2
+    },
+    {
+      id: 1,
+      text: 'За сумму от 1500 руб до 2999 руб',
+      min: 1500,
+      max: 2999,
+      percent: 3
+    },
+    {
+      id: 2,
+      text: 'За сумму от 3000 руб до 4999 руб',
+      min: 3000,
+      max: 4999,
+      percent: 4
+    },
+    {
+      id: 3,
+      text: 'За сумму от 5000 руб и более руб',
+      min: 5000,
+      max: 9999999,
+      percent: 5
+    },
+  ])
+
   const [isUserId, setIsUserId] = useState()
   const [isMessageError, setIsMessageError] = useState()
   const [isFavorites, setIsFavorites] = useState({ lists: "[]" })
@@ -918,6 +951,102 @@ const UserContext = ({ children }) => {
   }
 
 
+  const getSettingHome = () => {
+    setIsLoader(true)
+    axios.get('https://songbird21.ru/api/setting/get-home')
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setIsSettingHome(data[0])
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
+
+
+  const updateAddSettingHome = (settingData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    console.log()
+    setIsLoader(true)
+    axios.post('https://songbird21.ru/api/setting/set-home', settingData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+        setIsLoader(false)
+        getSettingHome()
+      })
+      .catch(error => {
+        console.log(error.message)
+        setMessageAdmin(error.message)
+        setMessageAdminShow(true)
+        setIsLoader(false)
+      })
+  }
+
+
+  const getSettingBonuses = () => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    setIsLoader(true)
+    axios.get('https://songbird21.ru/api/setting/get-bonus', {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        let obj = JSON.parse(data[0].list)
+        setIsSettingBonuses(obj)
+        setIsLoader(false)
+      })
+      .catch(error => {
+        console.log(error.message)
+        setIsLoader(false)
+      })
+  }
+
+
+  const updateAddSettingBonuses = (settingData) => {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    console.log()
+    setIsLoader(true)
+    axios.post('https://songbird21.ru/api/setting/set-bonus', settingData, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data)
+        setMessageAdmin(data)
+        setMessageAdminShow(true)
+        setIsLoader(false)
+        getSettingBonuses()
+      })
+      .catch(error => {
+        console.log(error.message)
+        setMessageAdmin(error.message)
+        setMessageAdminShow(true)
+        setIsLoader(false)
+      })
+  }
+
+
+
+
+
 
 
   //----------------------------------------------Basket----------------------------------------------------------------------------------------------------------------------------------
@@ -1216,6 +1345,14 @@ const UserContext = ({ children }) => {
   console.log(isLoader)
   return (
     <UserContextt.Provider value={{
+      setIsSettingBonuses,
+      isSettingBonuses,
+      updateAddSettingBonuses,
+      getSettingBonuses,
+      getSettingHome,
+      updateAddSettingHome,
+      setIsSettingHome,
+      isSettingHome,
       editGoodsText,
       editGoodsImg,
       addGoodsImg,

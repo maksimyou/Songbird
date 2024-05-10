@@ -16,7 +16,7 @@ function HistoryOfOrdersItem({ noPayment, paymentMethod, coordination, setIdOrde
     return (
         <div className='history-of-orders-item-container'>
             <div className="history-of-orders-item-content">
-                <div className="history-of-orders-item-text">№ <span>{id}</span></div>
+                {/*<div className="history-of-orders-item-text">№ <span>{id}</span></div>*/}
                 <div className="history-of-orders-item-text">Общая цена: <span>{priceGoods} ₽</span></div>
                 <div className="history-of-orders-item-text">Получено бонусов: <span>{chargedBonuses} ₽</span></div>
                 <div className="history-of-orders-item-text">Списано бонусов: <span>{paymentBonus} ₽</span></div>

@@ -79,6 +79,8 @@ const Сategory = sequelize.define('category', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING, },
     route: { type: DataTypes.STRING },
+    image: { type: DataTypes.STRING },
+
 })
 
 
@@ -105,108 +107,18 @@ const SettingSite = sequelize.define('setting-site', {
 })
 
 
-//const Booking = sequelize.define('booking', {
-//    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    order: { type: DataTypes.BOOLEAN, allowNull: false },
-//    dateOrder: { type: DataTypes.STRING },
-//    customerId: { type: DataTypes.INTEGER },
-//    customerFirstName: { type: DataTypes.STRING },
-//    customerLastName: { type: DataTypes.STRING },
-//})
+const SettingHome = sequelize.define('setting-home', {
+    title: { type: DataTypes.STRING },
+    description: { type: DataTypes.STRING },
+    comment: { type: DataTypes.STRING },
+    buttonNames: { type: DataTypes.STRING },
+    background: { type: DataTypes.STRING },
+})
 
-//const Commentt = sequelize.define('commentt', {
-//    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    rating: { type: DataTypes.INTEGER, allowNull: false },
-//    text: { type: DataTypes.STRING },
-//    createdAt: { type: DataTypes.STRING, allowNull: false },
-//    user: { type: DataTypes.ARRAY(DataTypes.JSON) },
-//})
+const SettingBonuses = sequelize.define('bonuses', {
+    list: { type: DataTypes.JSON },
+})
 
-//const UserComment = sequelize.define('usercomment', {
-//    commentUserId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    firstName: { type: DataTypes.STRING, allowNull: false },
-//    lastName: { type: DataTypes.STRING, allowNull: false },
-//    avatarUrl: { type: DataTypes.STRING },
-//})
-
-//const Delivery = sequelize.define('delivery', {
-//    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    handed: { type: DataTypes.BOOLEAN, allowNull: false },
-//    dateHandedFrom: { type: DataTypes.STRING },
-//    dateHandedTo: { type: DataTypes.INTEGER },
-//    recipientId: { type: DataTypes.INTEGER },
-//    recipientFirstName: { type: DataTypes.STRING },
-//    recipientLastName: { type: DataTypes.STRING },
-//})
-
-//const Image = sequelize.define('booking', {
-//    url: { type: DataTypes.STRING },
-//})
-
-//const Historiees = sequelize.define('historiees', {
-//    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    userId: { type: DataTypes.INTEGER, primaryKey: true, },
-//})
-
-//const Book = sequelize.define('book', {
-//    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    title: { type: DataTypes.STRING },
-//    rating: { type: DataTypes.FLOAT, allowNull: false },
-//    issueYear: { type: DataTypes.STRING, allowNull: false },
-//    description: { type: DataTypes.TEXT },
-//    publish: { type: DataTypes.STRING },
-//    pages: { type: DataTypes.STRING },
-//    cover: { type: DataTypes.STRING },
-//    weight: { type: DataTypes.STRING },
-//    format: { type: DataTypes.STRING },
-//    ISBN: { type: DataTypes.STRING },
-//    producer: { type: DataTypes.STRING },
-//    authors: { type: DataTypes.ARRAY(DataTypes.STRING) },
-//    images: { type: DataTypes.ARRAY(DataTypes.JSON) },
-//    categories: { type: DataTypes.ARRAY(DataTypes.STRING) },
-//    //comments: { type: DataTypes.ARRAY(DataTypes.JSON) },
-//    booking: { type: DataTypes.JSON },
-//    delivery: { type: DataTypes.JSON },
-//    histories: { type: DataTypes.ARRAY(DataTypes.JSON) },
-//})
-
-//const BookCatalog = sequelize.define('BookCatalog', {
-//    type: DataTypes.ARRAY(DataTypes.JSON)
-//})
-//const Categorie = sequelize.define('categorie', {
-//    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-//    name: { type: DataTypes.STRING, allowNull: false },
-//    path: { type: DataTypes.STRING, allowNull: false },
-//})
-
-//const Categories = sequelize.define('categories', {
-//    type: DataTypes.ARRAY(DataTypes.JSON)
-//})
-
-//BookCatalog.hasMany(Book)
-//Book.belongsTo(BookCatalog)
-
-//Categories.hasMany(Categorie)
-//Categorie.belongsTo(Categories)
-
-//Book.hasMany(Booking)
-//Booking.belongsTo(Book)
-
-//Book.hasMany(Delivery)
-//Delivery.belongsTo(Book)
-
-//Book.hasMany(Historiees)
-//Historiees.belongsTo(Book)
-
-//Book.hasMany(Commentt)
-//Commentt.belongsTo(Book)
-
-//Commentt.hasOne(UserComment)
-//UserComment.belongsTo(Commentt)
-
-//module.exports = {
-//    User, Booking, Comment, UserCommen, Delivery, Historie, Book, Books, Categories, Categorie
-//}
 
 //async function addColumn() {
 //    const Order = sequelize.define('order', {
@@ -221,13 +133,28 @@ const SettingSite = sequelize.define('setting-site', {
 //}
 //addColumn()
 
-//await Order.sync({ alter: true });
+//await Сategory.sync({ alter: true });
 //await Order.truncate();
 //await Basket.truncate();
 //await Favorites.truncate();
 //await Goods.truncate();
 //await Notifications.truncate();
 
+
+Сategory.describe().then(data => {
+    console.log('Сategory', data);
+});
+Order.describe().then(data => {
+    console.log('Order', data);
+});
+
+Goods.describe().then(data => {
+    console.log('Goods', data);
+});
+
+User.describe().then(data => {
+    console.log('User', data);
+});
 
 export default {
     User,
@@ -241,5 +168,7 @@ export default {
     Order,
     OrderStatus,
     Delivery,
-    PaymentMethod
+    PaymentMethod,
+    SettingHome,
+    SettingBonuses
 }

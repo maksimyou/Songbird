@@ -35,8 +35,8 @@ function Header() {
                     </div>}
                     {width >= 1051 ? <div className="header-navigation">
                         <ul>
-                            <li className='header-nav-link'><Link to="/">Главная</Link></li>
-                            <li onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className='header-nav-link'><Link to="#">Продукция</Link></li>
+                            <li className='header-nav-link'><Link to="/home">Главная</Link></li>
+                            <li onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className='header-nav-link'><Link to="/products">Продукция</Link></li>
                             <div onMouseEnter={() => setNavShow(true)} onMouseLeave={() => setNavShow(false)} className={navShow ? "submenu submenu-show animate__animated animate__fadeIn" : "submenu"}>
                                 <ul>
                                     {

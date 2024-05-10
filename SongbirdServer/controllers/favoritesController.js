@@ -33,7 +33,8 @@ class favoritesController {
                 arr.push(idGoods);
                 let arr2 = JSON.stringify(arr)
                 await Models.Favorites.update({ lists: arr2 }, { where: { idUser: id } })
-                await Models.Goods.update({ liked: goods.liked + 1 }, { where: { id: idGoods } })
+                let num = goods.liked + 1
+                await Models.Goods.update({ liked: num }, { where: { id: idGoods } })
 
             } else {
                 let arr = JSON.stringify([idGoods])
@@ -61,7 +62,8 @@ class favoritesController {
                 let arr3 = JSON.stringify(arr2)
                 console.log(arr2);
                 await Models.Favorites.update({ lists: arr3 }, { where: { idUser: id } })
-                if (goods.liked >= 1) await Models.Goods.update({ liked: goods.liked - 1 }, { where: { id: idGoods } })
+                let num = goods.liked - 1
+                if (goods.liked >= 1) await Models.Goods.update({ liked: num }, { where: { id: idGoods } })
             } else {
                 return res.json('У вас нет избранных товаров')
             }

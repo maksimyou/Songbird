@@ -3,6 +3,7 @@
 
 .main-container {
     background-image: url("../../assets/Realistic.jpg");
+    background-color: linear-gradient(-10deg, rgb(216, 180, 135) 0%, rgb(141, 110, 67) 43%, rgb(204, 162, 117) 82%);
     background-repeat: no-repeat;
     background-size: cover;
     height: 90vh;
@@ -73,6 +74,8 @@
     font-weight: 300;
     margin-top: 50px;
     animation-duration: 1.2s;
+    max-width: 330px;
+    word-break: break-all;
     @media (max-width: 1920px) {
         font-size: calc(14px + 4 * ((100vw - 320px) / (1700 - 320)));
     }

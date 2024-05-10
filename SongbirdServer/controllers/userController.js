@@ -267,15 +267,19 @@ class userController {
     async getUserData(req, res, next) {
 
         const { id } = req.user
-        const notific = await Models.Notifications.findOne({ where: { userId: id } })
 
-        const { email, phone, birthday, adress, name, bonusAccount } = await Models.User.findOne({ where: { id: id } })
-
-        if (email) {
-            return res.json({ email, phone, birthday, adress, name, notific, bonusAccount })
-        } else {
+        try {
+            const notific = await Models.Notifications.findOne({ where: { userId: id } })
+            const { email, phone, birthday, adress, name, bonusAccount } = await Models.User.findOne({ where: { id: id } })
+            if (email) {
+                return res.json({ email, phone, birthday, adress, name, notific, bonusAccount })
+            } else {
+                throw new Error("Ошибка получения пользователя");
+            }
+        } catch (error) {
             return next(ApiError.internal("Ошибка получения пользователя"))
         }
+
     }
 
     async getUsersId(req, res, next) {

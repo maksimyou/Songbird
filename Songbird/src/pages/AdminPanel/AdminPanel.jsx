@@ -26,24 +26,38 @@ function AdminPanel() {
                     <div className="admin-panel-interaction">
                         <div className="admin-panel-sidebar">
                             <ul>
-                                <li><NavLink className={({ isActive }) =>
-                                    isActive
-                                        ? "admin-panel-sidebar-list-active"
-                                        : "admin-panel-sidebar-list-pending"
+                                <li>
+                                    <NavLink className={({ isActive }) =>
+                                        isActive
+                                            ? "admin-panel-sidebar-list-active"
+                                            : "admin-panel-sidebar-list-pending"
 
-                                } to='settings-site'>Настройки сайта</NavLink></li>
-                                <li><NavLink className={({ isActive }) =>
-                                    isActive
-                                        ? "admin-panel-sidebar-list-active"
-                                        : "admin-panel-sidebar-list-pending"
+                                    } to='settings-site'>Настройки сайта</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className={({ isActive }) =>
+                                        isActive
+                                            ? "admin-panel-sidebar-list-active"
+                                            : "admin-panel-sidebar-list-pending"
 
-                                } to='adding-goods'>Добавление товара</NavLink></li>
-                                <li><NavLink className={({ isActive }) =>
-                                    isActive
-                                        ? "admin-panel-sidebar-list-active"
-                                        : "admin-panel-sidebar-list-pending"
+                                    } to='settings-main-page'>Настройка главной страницы</NavLink>
+                                </li>
 
-                                } to='adding-category'>Добавление категорий</NavLink></li>
+                                <li>
+                                    <NavLink className={({ isActive }) =>
+                                        isActive
+                                            ? "admin-panel-sidebar-list-active"
+                                            : "admin-panel-sidebar-list-pending"
+
+                                    } to='adding-goods'>Добавление товара</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className={({ isActive }) =>
+                                        isActive
+                                            ? "admin-panel-sidebar-list-active"
+                                            : "admin-panel-sidebar-list-pending"
+
+                                    } to='adding-category'>Добавление категорий</NavLink></li>
                                 <li><NavLink className={({ isActive }) =>
                                     isActive
                                         ? "admin-panel-sidebar-list-active"
@@ -68,6 +82,12 @@ function AdminPanel() {
                                         : "admin-panel-sidebar-list-pending"
 
                                 } to='list-orders'>Список заказов</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive
+                                        ? "admin-panel-sidebar-list-active"
+                                        : "admin-panel-sidebar-list-pending"
+
+                                } to='bonuses'>Бонусы</NavLink></li>
                             </ul>
                         </div>
                         <Outlet />

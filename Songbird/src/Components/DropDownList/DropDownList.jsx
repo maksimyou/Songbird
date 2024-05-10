@@ -10,10 +10,10 @@ function DropDownList({ title, text }) {
     return (
         <div className='drop-down-list-container'>
             <div className="drop-down-list-content">
-                {/*<div onClick={() => setShowList(!showList)} className="drop-down-list-content-title">{title}<span className={showList ? 'drop-down-list-arrow drop-down-list-arrow-active' : 'drop-down-list-arrow'}></span></div>*/}
-                {/*<div ref={ref1} style={showList ? { height: ref1.current.scrollHeight, paddingBottom: '10px' } : { height: '0px' }} className="drop-down-list-content-text">{text}</div>*/}
-                <div className="drop-down-list-content-title">{title}<span className='drop-down-list-arrow'></span></div>
-                <div ref={ref1} style={{ paddingBottom: '10px' }} className="drop-down-list-content-text">{text}</div>
+                <div onClick={() => setShowList(!showList)} className="drop-down-list-content-title">{title}<span className={showList ? 'drop-down-list-arrow drop-down-list-arrow-active' : 'drop-down-list-arrow'}></span></div>
+                <div ref={ref1} style={!showList ? { height: ref1.current.scrollHeight, paddingBottom: '10px' } : { height: '0px' }} className="drop-down-list-content-text">{text}</div>
+                {/*<div className="drop-down-list-content-title">{title}<span className='drop-down-list-arrow'></span></div>*/}
+                {/*<div ref={ref1} style={{ paddingBottom: '10px' }} className="drop-down-list-content-text">{text}</div>*/}
 
             </div>
         </div>

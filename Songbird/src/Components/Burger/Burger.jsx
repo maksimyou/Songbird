@@ -12,7 +12,7 @@ function Burger({ isSetting, width, burgerToggle, setBurgerToggle, setNavShow, i
                 <div onClick={() => { setBurgerToggle(!burgerToggle) }} className={burgerToggle ? "burger-btn" : "burger-btn active"}></div>
                 {burgerToggle ? '' : <div className="burger-menu">
                     <ul>
-                        <li onClick={() => { setBurgerToggle(!burgerToggle) }} className='header-nav-link-burger'><Link to="/">Главная</Link></li>
+                        <li onClick={() => { setBurgerToggle(!burgerToggle) }} className='header-nav-link-burger'><Link to="/home">Главная</Link></li>
                         <li onClick={() => { setNavShow(!navShow) }} className='header-nav-link-burger'>
                             <a href="#">Продукция</a>
                             <img className={submenuProduct ? '' : 'active-arrow'} onClick={() => setSubmenuProduct(!submenuProduct)} src={arrowr} alt="" />
